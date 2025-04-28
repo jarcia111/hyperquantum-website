@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { contactFormSchema } from "@shared/schema";
 import { fromZodError } from "zod-validation-error";
+import { emailService } from "./email";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission
@@ -14,10 +15,24 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Store the contact submission
       const submission = await storage.createContactSubmission(validatedData);
       
+      // Enviar correo electrónico con los datos del formulario
+      const emailResult = await emailService.sendContactFormEmail(validatedData);
+      
+      if (!emailResult.success) {
+        console.error("Error al enviar el correo electrónico:", emailResult.error);
+        // Aún retornamos éxito porque los datos se guardaron en la base de datos
+        return res.status(201).json({ 
+          message: "Mensaje guardado pero hubo un problema al enviar el correo", 
+          submissionId: submission.id,
+          emailSent: false
+        });
+      }
+      
       // Send response
       return res.status(201).json({ 
         message: "Mensaje enviado correctamente", 
-        submissionId: submission.id 
+        submissionId: submission.id,
+        emailSent: true
       });
     } catch (error) {
       if (error.name === "ZodError") {
