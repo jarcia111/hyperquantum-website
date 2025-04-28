@@ -46,7 +46,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <Clients />
+        {/* <Clients /> */}
         <Services />
         <Benefits />
         <About />
