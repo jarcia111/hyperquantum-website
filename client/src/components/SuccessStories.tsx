@@ -132,7 +132,7 @@ export default function SuccessStories() {
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
                 <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full overflow-hidden mr-3 sm:mr-4">
-                  <img src={testimonials[activeTestimonial].image} alt="Foto del cliente" className="w-full h-full object-cover" />
+                  <img src={testimonials[activeTestimonial].image} alt={testimonials[activeTestimonial].author} className="w-full h-full object-cover" />
                 </div>
                 <div className="text-left">
                   <div className="font-semibold font-poppins text-sm sm:text-base">{testimonials[activeTestimonial].author}</div>
