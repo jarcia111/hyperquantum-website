@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import LogoBlack from "@/assets/logos/logo-black.svg";
+import LogoBlack from "@/assets/logos/logo-black-updated.svg";
 import LogoWhite from "@/assets/logos/logo-white.svg";
 import LogoCyan from "@/assets/logos/logo-cyan.svg";
 
