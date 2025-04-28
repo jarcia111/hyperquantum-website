@@ -68,7 +68,7 @@ export default function SuccessStories() {
           </p>
         </motion.div>
         
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {caseStudies.map((study, index) => (
             <motion.div 
               key={index}
@@ -78,17 +78,17 @@ export default function SuccessStories() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="h-48 overflow-hidden">
+              <div className="h-40 sm:h-44 md:h-48 overflow-hidden">
                 <img 
                   src={study.image} 
                   alt={`Caso de éxito: ${study.title}`} 
                   className="w-full h-full object-cover object-center"
                 />
               </div>
-              <div className="p-6 flex-grow flex flex-col">
-                <h3 className="text-xl font-semibold font-poppins mb-2">{study.title}</h3>
-                <p className="text-white/80 mb-4 flex-grow">{study.description}</p>
-                <div className="flex justify-between text-sm">
+              <div className="p-4 sm:p-5 md:p-6 flex-grow flex flex-col">
+                <h3 className="text-lg sm:text-xl font-semibold font-poppins mb-2">{study.title}</h3>
+                <p className="text-white/80 mb-3 md:mb-4 flex-grow text-sm sm:text-base">{study.description}</p>
+                <div className="flex flex-col sm:flex-row sm:justify-between text-xs sm:text-sm gap-1">
                   <span className="text-[#00D1FF]">{study.location}</span>
                   <span className="text-white/60">{study.size}</span>
                 </div>
@@ -98,25 +98,25 @@ export default function SuccessStories() {
         </div>
         
         {/* Testimonials Slider */}
-        <div className="mt-20 relative">
+        <div className="mt-12 sm:mt-16 md:mt-20 relative">
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-32 h-32 bg-[#00D1FF]/20 rounded-full blur-3xl"></div>
+            <div className="w-24 sm:w-28 md:w-32 h-24 sm:h-28 md:h-32 bg-[#00D1FF]/20 rounded-full blur-3xl"></div>
           </div>
           
           <motion.div 
-            className="relative overflow-hidden rounded-xl bg-white/5 backdrop-blur-sm p-8 md:p-12"
+            className="relative overflow-hidden rounded-xl bg-white/5 backdrop-blur-sm p-4 sm:p-6 md:p-8 lg:p-12"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="text-6xl text-white/20 font-serif absolute top-4 left-6">"</div>
+            <div className="text-4xl sm:text-5xl md:text-6xl text-white/20 font-serif absolute top-2 sm:top-3 md:top-4 left-3 sm:left-4 md:left-6">"</div>
             
             {/* Single testimonial */}
-            <div className="text-center max-w-3xl mx-auto py-4">
+            <div className="text-center max-w-3xl mx-auto py-2 sm:py-3 md:py-4">
               <motion.blockquote 
                 key={activeTestimonial}
-                className="text-lg md:text-xl italic text-white/90 mb-6"
+                className="text-base sm:text-lg md:text-xl italic text-white/90 mb-4 sm:mb-5 md:mb-6"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
@@ -131,22 +131,22 @@ export default function SuccessStories() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
-                <div className="w-16 h-16 rounded-full overflow-hidden mr-4">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full overflow-hidden mr-3 sm:mr-4">
                   <img src={testimonials[activeTestimonial].image} alt="Foto del cliente" className="w-full h-full object-cover" />
                 </div>
                 <div className="text-left">
-                  <div className="font-semibold font-poppins">{testimonials[activeTestimonial].author}</div>
-                  <div className="text-white/70 text-sm">{testimonials[activeTestimonial].role}</div>
+                  <div className="font-semibold font-poppins text-sm sm:text-base">{testimonials[activeTestimonial].author}</div>
+                  <div className="text-white/70 text-xs sm:text-sm">{testimonials[activeTestimonial].role}</div>
                 </div>
               </motion.div>
             </div>
             
             {/* Navigation dots */}
-            <div className="flex justify-center gap-2 mt-8">
+            <div className="flex justify-center gap-2 mt-4 sm:mt-6 md:mt-8">
               {testimonials.map((_, index) => (
                 <button 
                   key={index}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${index === activeTestimonial ? 'bg-white' : 'bg-white/30'}`}
+                  className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${index === activeTestimonial ? 'bg-white' : 'bg-white/30'}`}
                   aria-label={`Testimonio ${index + 1}`}
                   onClick={() => setActiveTestimonial(index)}
                 ></button>

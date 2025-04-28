@@ -21,61 +21,61 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-[#1B1F3B] text-white pt-16 pb-8">
+    <footer className="bg-[#1B1F3B] text-white pt-12 md:pt-16 pb-6 md:pb-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
-          <div className="md:col-span-2">
-            <div className="flex items-center mb-6">
-              <LogoAnimation small className="h-12 w-auto opacity-80" />
-              <span className="ml-3 text-2xl font-semibold font-poppins">HYPERQUANTUM</span>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-12">
+          <div className="col-span-2 sm:col-span-3 md:col-span-2">
+            <div className="flex items-center mb-4 md:mb-6">
+              <LogoAnimation small className="h-10 md:h-12 w-auto opacity-80" />
+              <span className="ml-2 md:ml-3 text-xl md:text-2xl font-semibold font-poppins">HYPERQUANTUM</span>
             </div>
-            <p className="text-white/70 mb-6 max-w-md">
+            <p className="text-white/70 mb-4 md:mb-6 max-w-md text-sm md:text-base">
               Impulsamos la transformación operativa de las pymes colombianas mediante soluciones de inteligencia artificial simples, eficientes y a su medida.
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-3 md:gap-4">
               <motion.a 
                 href="#" 
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#00D1FF]/20 transition-colors"
+                className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#00D1FF]/20 transition-colors"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <Facebook className="h-5 w-5" />
+                <Facebook className="h-4 w-4 md:h-5 md:w-5" />
               </motion.a>
               <motion.a 
                 href="#" 
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#00D1FF]/20 transition-colors"
+                className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#00D1FF]/20 transition-colors"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <Youtube className="h-5 w-5" />
+                <Youtube className="h-4 w-4 md:h-5 md:w-5" />
               </motion.a>
               <motion.a 
                 href="#" 
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#00D1FF]/20 transition-colors"
+                className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#00D1FF]/20 transition-colors"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <Linkedin className="h-5 w-5" />
+                <Linkedin className="h-4 w-4 md:h-5 md:w-5" />
               </motion.a>
               <motion.a 
                 href="#" 
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#00D1FF]/20 transition-colors"
+                className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#00D1FF]/20 transition-colors"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <Instagram className="h-5 w-5" />
+                <Instagram className="h-4 w-4 md:h-5 md:w-5" />
               </motion.a>
             </div>
           </div>
           
-          <div>
-            <h4 className="text-lg font-semibold font-poppins mb-6">Enlaces rápidos</h4>
-            <ul className="space-y-4">
+          <div className="col-span-1">
+            <h4 className="text-base md:text-lg font-semibold font-poppins mb-3 md:mb-6">Enlaces rápidos</h4>
+            <ul className="space-y-2 md:space-y-4">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <a 
                     href={link.href} 
-                    className="text-white/70 hover:text-[#00D1FF] transition-colors"
+                    className="text-white/70 hover:text-[#00D1FF] transition-colors text-sm md:text-base"
                   >
                     {link.name}
                   </a>
@@ -84,14 +84,14 @@ export default function Footer() {
             </ul>
           </div>
           
-          <div>
-            <h4 className="text-lg font-semibold font-poppins mb-6">Legal</h4>
-            <ul className="space-y-4">
+          <div className="col-span-1">
+            <h4 className="text-base md:text-lg font-semibold font-poppins mb-3 md:mb-6">Legal</h4>
+            <ul className="space-y-2 md:space-y-4">
               {legalLinks.map((link, index) => (
                 <li key={index}>
                   <a 
                     href={link.href} 
-                    className="text-white/70 hover:text-[#00D1FF] transition-colors"
+                    className="text-white/70 hover:text-[#00D1FF] transition-colors text-sm md:text-base"
                   >
                     {link.name}
                   </a>
@@ -101,13 +101,13 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="border-t border-white/10 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-white/60 text-sm mb-4 md:mb-0">&copy; {currentYear} Hyperquantum. Todos los derechos reservados.</p>
-            <div className="flex items-center gap-2">
-              <span className="text-white/60 text-sm">Hecho con</span>
-              <Heart className="h-4 w-4 text-red-500 fill-current" />
-              <span className="text-white/60 text-sm">en Colombia</span>
+        <div className="border-t border-white/10 pt-6 md:pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-3">
+            <p className="text-white/60 text-xs md:text-sm mb-2 md:mb-0 text-center md:text-left">&copy; {currentYear} Hyperquantum. Todos los derechos reservados.</p>
+            <div className="flex items-center gap-1 md:gap-2">
+              <span className="text-white/60 text-xs md:text-sm">Hecho con</span>
+              <Heart className="h-3 w-3 md:h-4 md:w-4 text-red-500 fill-current" />
+              <span className="text-white/60 text-xs md:text-sm">en Colombia</span>
             </div>
           </div>
         </div>
