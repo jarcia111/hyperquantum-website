@@ -1,13 +1,17 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import LogoBlack from "@/assets/logos/logo-black.svg";
+import LogoWhite from "@/assets/logos/logo-white.svg";
+import LogoCyan from "@/assets/logos/logo-cyan.svg";
 
 interface LogoAnimationProps {
   small?: boolean;
   large?: boolean;
   className?: string;
+  color?: "white" | "black" | "cyan";
 }
 
-export default function LogoAnimation({ small, large, className }: LogoAnimationProps) {
+export default function LogoAnimation({ small, large, className, color = "cyan" }: LogoAnimationProps) {
   const [isAnimating, setIsAnimating] = useState(false);
   
   // Start animation when component mounts
@@ -32,38 +36,25 @@ export default function LogoAnimation({ small, large, className }: LogoAnimation
     visible: { 
       opacity: 1,
       transition: { 
-        duration: 0.5,
-        when: "beforeChildren",
-        staggerChildren: 0.1
+        duration: 0.5
       }
     }
   };
   
-  const nodeVariants = {
-    hidden: { opacity: 0, scale: 0 },
-    visible: { 
-      opacity: 1, 
-      scale: 1,
-      transition: { 
-        type: "spring",
-        damping: 10,
-        stiffness: 100
-      }
+  // Select the logo based on color prop
+  const getLogo = () => {
+    switch (color) {
+      case "white":
+        return LogoWhite;
+      case "black":
+        return LogoBlack;
+      case "cyan":
+      default:
+        return LogoCyan;
     }
   };
   
-  const lineVariants = {
-    hidden: { pathLength: 0, opacity: 0 },
-    visible: { 
-      pathLength: 1, 
-      opacity: 1,
-      transition: { 
-        duration: 1,
-        ease: "easeInOut"
-      }
-    }
-  };
-  
+  const Logo = getLogo();
   const size = large ? "w-64 h-64" : small ? "w-10 h-10" : "w-32 h-32";
   
   return (
@@ -71,70 +62,25 @@ export default function LogoAnimation({ small, large, className }: LogoAnimation
       className={`relative ${size} ${className || ""}`}
       onMouseEnter={handleHover}
       initial="hidden"
-      animate={isAnimating ? "visible" : "visible"}
+      animate="visible"
       variants={logoVariants}
     >
-      <svg 
-        viewBox="0 0 100 100" 
-        xmlns="http://www.w3.org/2000/svg"
-        className={`${large ? "animate-spin-slow" : ""} w-full h-full`}
-      >
-        {/* Central Node */}
-        <motion.circle 
-          cx="50" 
-          cy="50" 
-          r="6" 
-          fill="#00D1FF"
-          variants={nodeVariants}
-        />
-        
-        {/* Main Nodes */}
-        {[0, 45, 90, 135, 180, 225, 270, 315].map((angle, i) => {
-          const x = 50 + 30 * Math.cos(angle * Math.PI / 180);
-          const y = 50 + 30 * Math.sin(angle * Math.PI / 180);
-          
-          return (
-            <motion.g key={i}>
-              {/* Connection Line */}
-              <motion.line 
-                x1="50" 
-                y1="50" 
-                x2={x} 
-                y2={y} 
-                stroke="#00D1FF" 
-                strokeWidth="1.5"
-                variants={lineVariants}
-              />
-              
-              {/* Node */}
-              <motion.circle 
-                cx={x} 
-                cy={y} 
-                r="4" 
-                fill="#FFFFFF"
-                variants={nodeVariants}
-              />
-            </motion.g>
-          );
-        })}
-        
-        {/* Small Nodes */}
-        {[22.5, 67.5, 112.5, 157.5, 202.5, 247.5, 292.5, 337.5].map((angle, i) => {
-          const x = 50 + 15 * Math.cos(angle * Math.PI / 180);
-          const y = 50 + 15 * Math.sin(angle * Math.PI / 180);
-          
-          return (
-            <motion.circle 
-              key={`small-${i}`}
-              cx={x} 
-              cy={y} 
-              r="2" 
-              fill="#FFFFFF"
-              variants={nodeVariants}
-            />
-          );
-        })}
-      </svg>
+      <motion.img 
+        src={Logo}
+        alt="Hyperquantum Logo"
+        className={`${large && isAnimating ? "animate-spin-slow" : ""} w-full h-full`}
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ 
+          opacity: 1, 
+          scale: 1,
+          rotate: isAnimating ? 360 : 0 
+        }}
+        transition={{ 
+          opacity: { duration: 0.5 },
+          scale: { duration: 0.5 },
+          rotate: { duration: isAnimating ? 8 : 0, ease: "linear", repeat: isAnimating ? Infinity : 0 }
+        }}
+      />
       
       {/* Show text HYPERQUANTUM for large logo */}
       {large && (

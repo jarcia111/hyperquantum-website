@@ -113,7 +113,7 @@ export default function Hero() {
           >
             <div className="relative">
               <div className="absolute inset-0 bg-[#00D1FF]/20 rounded-full blur-3xl"></div>
-              <LogoAnimation large />
+              <LogoAnimation large color="cyan" />
             </div>
           </motion.div>
         </div>

@@ -25,7 +25,7 @@ export default function Navbar() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <Link href="/" className="flex items-center space-x-2">
-            <Logo small />
+            <Logo small color="white" />
             <span className="text-xl font-semibold font-poppins tracking-tight hidden sm:inline-block">HYPERQUANTUM</span>
           </Link>
           
