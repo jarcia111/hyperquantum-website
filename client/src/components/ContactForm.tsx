@@ -33,11 +33,22 @@ export default function ContactForm() {
   
   const contactMutation = useMutation({
     mutationFn: (data: ContactFormData) => apiRequest("POST", "/api/contact", data),
-    onSuccess: () => {
-      toast({
-        title: "Mensaje enviado",
-        description: "Gracias por contactarnos. Te responderemos a la brevedad.",
-      });
+    onSuccess: (response) => {
+      // Mostrar toast según si el correo se envió o no
+      if (response.emailSent) {
+        toast({
+          title: "Mensaje enviado",
+          description: "Gracias por contactarnos. Te responderemos a la brevedad.",
+        });
+      } else {
+        toast({
+          title: "Mensaje recibido",
+          description: "Tu mensaje ha sido registrado, pero hubo un problema al enviar la notificación por correo. Nos pondremos en contacto pronto.",
+          variant: "default"
+        });
+      }
+      
+      // Restablecer el formulario
       form.reset();
       setSubmitting(false);
     },

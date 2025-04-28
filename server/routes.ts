@@ -4,6 +4,7 @@ import { storage } from "./storage";
 import { contactFormSchema } from "@shared/schema";
 import { fromZodError } from "zod-validation-error";
 import { emailService } from "./email";
+import { ZodError } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission
@@ -34,8 +35,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
         submissionId: submission.id,
         emailSent: true
       });
-    } catch (error) {
-      if (error.name === "ZodError") {
+    } catch (error: unknown) {
+      if (error instanceof ZodError) {
         const validationError = fromZodError(error);
         return res.status(400).json({ 
           message: "Error de validación", 
