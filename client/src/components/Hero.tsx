@@ -94,7 +94,7 @@ export default function Hero() {
                 href="#contacto" 
                 className="bg-[#00D1FF] hover:bg-[#00D1FF]/90 text-[#1B1F3B] font-medium px-4 md:px-6 py-2.5 md:py-3 rounded-lg text-center transition-all duration-300 shadow-lg shadow-[#00D1FF]/20 text-sm md:text-base"
               >
-                Transformar mi negocio
+                Solicita una demo
               </a>
               <a 
                 href="#servicios" 
