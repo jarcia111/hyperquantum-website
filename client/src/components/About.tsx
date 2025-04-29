@@ -1,15 +1,18 @@
 import { motion } from "framer-motion";
+import { Linkedin } from "lucide-react";
 
 const teamMembers = [
   {
     name: "Carlos Ramírez",
     role: "CEO & Fundador",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&auto=format&fit=crop",
+    linkedIn: "https://www.linkedin.com/"
   },
   {
-    name: "Laura Mendoza",
+    name: "Jesús Alberto Arcia Hernández",
     role: "CTO",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=200&auto=format&fit=crop"
+    image: "/assets/team/jesus_arcia.png",
+    linkedIn: "https://www.linkedin.com/in/jarciahdz/"
   }
 ];
 
@@ -108,7 +111,15 @@ export default function About() {
                   <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
                 </div>
                 <h4 className="font-semibold font-poppins text-lg md:text-xl">{member.name}</h4>
-                <p className="text-sm md:text-base text-primary/70">{member.role}</p>
+                <p className="text-sm md:text-base text-primary/70 mb-2">{member.role}</p>
+                <a 
+                  href={member.linkedIn} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center justify-center w-10 h-10 bg-[#0077B5]/10 hover:bg-[#0077B5]/20 rounded-full transition-colors duration-300"
+                >
+                  <Linkedin className="h-5 w-5 text-[#0077B5]" />
+                </a>
               </motion.div>
             ))}
           </div>
