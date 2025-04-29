@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { Clock, DollarSign, TrendingUp, ShieldCheck, CalendarCheck } from "lucide-react";
-import transformacionDigital from "../assets/transformacion-digital.png";
+import { Clock, DollarSign, TrendingUp, ShieldCheck } from "lucide-react";
 
 const benefits = [
   {
@@ -111,62 +110,6 @@ export default function Benefits() {
             </div>
           </motion.div>
         </div>
-
-        <motion.div 
-          className="mt-16 md:mt-24 bg-[#1B1F3B] rounded-2xl overflow-hidden shadow-xl"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="grid md:grid-cols-2 items-center">
-            <div className="p-6 sm:p-8 md:p-10 space-y-4">
-              <h3 className="text-3xl sm:text-4xl font-bold font-poppins text-white mb-4">Comienza tu transformación digital hoy</h3>
-              <p className="text-white/80 text-base md:text-lg">
-                Da el primer paso hacia la eficiencia operativa. Agenda una llamada gratuita de 30 minutos con nuestros expertos.
-              </p>
-              
-              <div className="space-y-4 py-4">
-                <div className="flex items-center gap-3">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#00D1FF]/20 flex items-center justify-center text-[#00D1FF]">
-                    <div className="h-4 w-4 text-[#00D1FF]">✓</div>
-                  </div>
-                  <p className="text-white/90">Diagnóstico gratuito de tu operación</p>
-                </div>
-                
-                <div className="flex items-center gap-3">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#00D1FF]/20 flex items-center justify-center text-[#00D1FF]">
-                    <div className="h-4 w-4 text-[#00D1FF]">✓</div>
-                  </div>
-                  <p className="text-white/90">Propuesta personalizada en 48 horas</p>
-                </div>
-                
-                <div className="flex items-center gap-3">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#00D1FF]/20 flex items-center justify-center text-[#00D1FF]">
-                    <div className="h-4 w-4 text-[#00D1FF]">✓</div>
-                  </div>
-                  <p className="text-white/90">Implementación rápida en semanas, no meses</p>
-                </div>
-              </div>
-              
-              <a 
-                href="#contacto" 
-                className="inline-flex items-center justify-center bg-[#00D1FF] hover:bg-[#33DAFF] text-[#1B1F3B] font-medium py-3 px-6 rounded-lg transition-colors duration-300 mt-4"
-              >
-                <CalendarCheck className="mr-2 h-5 w-5" />
-                Agendar diagnóstico gratis
-              </a>
-            </div>
-            
-            <div className="relative h-full">
-              <img 
-                src={transformacionDigital} 
-                alt="Comienza tu transformación digital" 
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
