@@ -69,31 +69,31 @@ export default function CookiesPopup({ open, onOpenChange }: CookiesPopupProps) 
             <section className="bg-white/80 p-4 sm:p-5 rounded-lg shadow-sm border border-primary/5">
               <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-[#1B1F3B] mb-3">Finalidades específicas y duración aproximada de cada categoría</h2>
               
-              <div className="overflow-x-auto">
+              <div className="overflow-x-auto rounded-lg border border-primary/10 shadow-sm">
                 <table className="min-w-full divide-y divide-gray-200 text-sm">
                   <thead className="bg-gray-100">
                     <tr>
-                      <th className="px-3 py-2 text-left">Nombre de la cookie</th>
-                      <th className="px-3 py-2 text-left">Proveedor</th>
-                      <th className="px-3 py-2 text-left">Finalidad</th>
-                      <th className="px-3 py-2 text-left">Duración</th>
-                      <th className="px-3 py-2 text-left">Tipo (1.ª / 3.ª parte)</th>
+                      <th className="px-2 sm:px-3 py-2 text-left text-xs sm:text-sm">Nombre de la cookie</th>
+                      <th className="px-2 sm:px-3 py-2 text-left text-xs sm:text-sm">Proveedor</th>
+                      <th className="px-2 sm:px-3 py-2 text-left text-xs sm:text-sm">Finalidad</th>
+                      <th className="px-2 sm:px-3 py-2 text-left text-xs sm:text-sm">Duración</th>
+                      <th className="px-2 sm:px-3 py-2 text-left text-xs sm:text-sm">Tipo</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200 text-primary/80">
                     <tr className="bg-white/50">
-                      <td className="px-3 py-2 font-semibold">hq_cookie_consent</td>
-                      <td className="px-3 py-2">Hyperquantum</td>
-                      <td className="px-3 py-2">Almacena tus preferencias de consentimiento.</td>
-                      <td className="px-3 py-2">12 meses</td>
-                      <td className="px-3 py-2">1.ª</td>
+                      <td className="px-2 sm:px-3 py-2 font-semibold text-xs sm:text-sm">hq_cookie_consent</td>
+                      <td className="px-2 sm:px-3 py-2 text-xs sm:text-sm">Hyperquantum</td>
+                      <td className="px-2 sm:px-3 py-2 text-xs sm:text-sm">Almacena tus preferencias de consentimiento.</td>
+                      <td className="px-2 sm:px-3 py-2 text-xs sm:text-sm">12 meses</td>
+                      <td className="px-2 sm:px-3 py-2 text-xs sm:text-sm">1.ª</td>
                     </tr>
                     <tr className="bg-white/30">
-                      <td className="px-3 py-2 font-semibold">csrftoken</td>
-                      <td className="px-3 py-2">Hyperquantum</td>
-                      <td className="px-3 py-2">Protección contra ataques CSRF en formularios.</td>
-                      <td className="px-3 py-2">12 meses</td>
-                      <td className="px-3 py-2">1.ª</td>
+                      <td className="px-2 sm:px-3 py-2 font-semibold text-xs sm:text-sm">csrftoken</td>
+                      <td className="px-2 sm:px-3 py-2 text-xs sm:text-sm">Hyperquantum</td>
+                      <td className="px-2 sm:px-3 py-2 text-xs sm:text-sm">Protección contra ataques CSRF en formularios.</td>
+                      <td className="px-2 sm:px-3 py-2 text-xs sm:text-sm">12 meses</td>
+                      <td className="px-2 sm:px-3 py-2 text-xs sm:text-sm">1.ª</td>
                     </tr>
                     <tr className="bg-white/50">
                       <td className="px-3 py-2 font-semibold">sessionid</td>
@@ -223,7 +223,7 @@ export default function CookiesPopup({ open, onOpenChange }: CookiesPopupProps) 
             
             <div className="flex justify-center mt-8">
               <button 
-                className="bg-[#1B1F3B] hover:bg-[#2A2F57] text-white py-3 px-6 rounded-lg transition-colors duration-300 flex items-center gap-2 shadow-md"
+                className="bg-[#1B1F3B] hover:bg-[#2A2F57] text-white py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition-colors duration-300 flex items-center gap-1 sm:gap-2 shadow-md text-xs sm:text-sm md:text-base"
                 onClick={() => {
                   const element = document.createElement("a");
                   const file = new Blob([document.getElementById("cookies-content")?.innerText || "Política de Cookies de Hyperquantum"], { type: 'text/plain' });
@@ -234,7 +234,7 @@ export default function CookiesPopup({ open, onOpenChange }: CookiesPopupProps) 
                   document.body.removeChild(element);
                 }}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
                 Descargar Política de Cookies
