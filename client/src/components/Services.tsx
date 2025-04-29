@@ -55,10 +55,8 @@ export default function Services() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-block bg-primary/5 px-4 py-1 rounded-full mb-4">
-            <p className="text-sm font-medium text-primary">Nuestros servicios</p>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold font-poppins mb-4">Soluciones inteligentes para optimizar tu operación</h2>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-poppins mb-4 text-[#00D1FF]">NUESTROS SERVICIOS</h2>
+          <h3 className="text-2xl md:text-3xl font-semibold font-poppins mb-4 text-primary">Soluciones inteligentes para optimizar tu operación</h3>
           <p className="text-primary/70 text-lg">Automatizamos los procesos que consumen tu tiempo y recursos, para que puedas enfocarte en lo que realmente importa: hacer crecer tu negocio.</p>
         </motion.div>
         
