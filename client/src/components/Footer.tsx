@@ -33,7 +33,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-12">
           <div className="col-span-2 sm:col-span-3 md:col-span-2">
             <div className="flex items-center justify-center mb-4 md:mb-6">
-              <LogoAnimation small className="h-10 md:h-12 w-auto opacity-80" color="black" />
+              <LogoAnimation small className="h-10 md:h-12 w-auto" color="white" />
               <span className="ml-2 md:ml-3 text-xl md:text-2xl font-semibold font-poppins">HYPERQUANTUM</span>
             </div>
             <p className="text-white/70 mb-4 md:mb-6 max-w-md text-sm md:text-base text-center mx-auto">
