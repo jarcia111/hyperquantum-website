@@ -22,12 +22,18 @@ export default function Navbar() {
       "sticky top-0 z-50 transition-all duration-300",
       scrolled ? "backdrop-blur-md bg-secondary/80 border-b border-accent-gray/10" : "bg-transparent"
     )}>
+      <div className="bg-white py-3 sm:py-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <Link href="/" className="flex items-center space-x-2 w-fit">
+            <Logo small color="black" className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10" />
+          </Link>
+        </div>
+      </div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-3 sm:py-4">
-          <Link href="/" className="flex items-center space-x-2">
-            <Logo small color="white" className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10" />
-            <span className="text-lg sm:text-xl font-bold font-poppins tracking-wider hidden sm:inline-block text-white">HYPERQUANTUM</span>
-          </Link>
+          <div className="hidden sm:block">
+            <span className="text-lg sm:text-xl font-bold font-poppins tracking-wider text-white">HYPERQUANTUM</span>
+          </div>
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
