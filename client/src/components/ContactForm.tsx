@@ -71,7 +71,7 @@ export default function ContactForm() {
     <section id="contacto" className="py-12 sm:py-16 md:py-24 bg-secondary">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
-          className="max-w-3xl mx-auto text-center mb-10 sm:mb-12 md:mb-16"
+          className="max-w-2xl mx-auto text-center mb-10 sm:mb-12 md:mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

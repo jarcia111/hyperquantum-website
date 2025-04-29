@@ -30,7 +30,7 @@ export default function SuccessStories() {
     <section id="casos" className="py-16 md:py-24 gradient-bg text-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
-          className="max-w-3xl mx-auto text-center mb-16"
+          className="max-w-2xl mx-auto text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
