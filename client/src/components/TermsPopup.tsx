@@ -25,23 +25,23 @@ export default function TermsPopup({ open, onOpenChange }: TermsPopupProps) {
           </DialogHeader>
         </div>
         
-        <div className="p-6">
-          <div className="space-y-4 sm:space-y-6 text-sm sm:text-base">
+        <div className="p-5 md:p-6 lg:p-8">
+          <div id="terms-content" className="space-y-5 sm:space-y-7 md:space-y-8 text-sm sm:text-base max-w-[100%] mx-auto">
             <div className="text-primary/60 text-xs sm:text-sm text-right italic">
               Última actualización: 29 de abril de 2025
             </div>
             
-            <h1 className="text-xl sm:text-2xl font-bold">Términos y Condiciones de Uso</h1>
-            <p>Sitio web: <a href="https://hyperquantum.com.co/" className="text-[#00D1FF] hover:underline" target="_blank" rel="noopener noreferrer">https://hyperquantum.com.co/</a></p>
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-center">Términos y Condiciones de Uso</h1>
+            <p className="text-center"><a href="https://hyperquantum.com.co/" className="text-[#00D1FF] hover:underline font-medium" target="_blank" rel="noopener noreferrer">https://hyperquantum.com.co/</a></p>
             
-            <div className="bg-primary/5 p-3 sm:p-4 rounded-lg font-medium">
-              <strong>Advertencia — Transacciones solo para personas mayores de 18 años.</strong><br />
-              Al acceder, navegar o utilizar este sitio web, el Usuario declara que es mayor de edad y que tiene plena capacidad jurídica para contratar.
+            <div className="bg-primary/5 p-4 sm:p-5 rounded-lg font-medium text-center shadow-sm border border-primary/10">
+              <strong className="text-base sm:text-lg block mb-1">Advertencia — Transacciones solo para personas mayores de 18 años</strong>
+              <span className="text-primary/80">Al acceder, navegar o utilizar este sitio web, el Usuario declara que es mayor de edad y que tiene plena capacidad jurídica para contratar.</span>
             </div>
             
-            <section>
-              <h2 className="text-lg sm:text-xl font-semibold">1. Definiciones</h2>
-              <p>En el presente documento, los siguientes términos se emplean así:</p>
+            <section className="bg-white/80 p-4 sm:p-5 rounded-lg shadow-sm border border-primary/5">
+              <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-[#1B1F3B] mb-3">1. Definiciones</h2>
+              <p className="text-primary/80 mb-3">En el presente documento, los siguientes términos se emplean así:</p>
               <ul className="list-disc pl-5 space-y-1 sm:space-y-2">
                 <li><strong>&quot;Sitio&quot; o &quot;Plataforma&quot;</strong>: el portal web <a href="https://hyperquantum.com.co/" className="text-[#00D1FF] hover:underline" target="_blank" rel="noopener noreferrer">https://hyperquantum.com.co/</a> y cualquier subdominio asociado.</li>
                 <li><strong>&quot;Hyperquantum&quot; o &quot;Titular&quot;</strong>: Hyperquantum SAS y, cuando corresponda, sus sociedades vinculadas.</li>
@@ -52,13 +52,13 @@ export default function TermsPopup({ open, onOpenChange }: TermsPopupProps) {
               </ul>
             </section>
             
-            <section>
-              <h2 className="text-lg sm:text-xl font-semibold">2. Identificación del Titular</h2>
-              <ul className="list-none space-y-1">
-                <li><strong>Razón social:</strong> Hyperquantum SAS</li>
-                <li><strong>NIT:</strong> Pendiente por confirmar</li>
-                <li><strong>Domicilio:</strong> Medellín, Colombia</li>
-                <li><strong>Teléfono:</strong> +57 321 6855981</li>
+            <section className="bg-white/80 p-4 sm:p-5 rounded-lg shadow-sm border border-primary/5">
+              <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-[#1B1F3B] mb-3">2. Identificación del Titular</h2>
+              <ul className="list-none space-y-2 md:space-y-3 text-primary/80">
+                <li className="flex items-center"><span className="font-bold min-w-32 inline-block">Razón social:</span> Hyperquantum SAS</li>
+                <li className="flex items-center"><span className="font-bold min-w-32 inline-block">NIT:</span> Pendiente por confirmar</li>
+                <li className="flex items-center"><span className="font-bold min-w-32 inline-block">Domicilio:</span> Medellín, Colombia</li>
+                <li className="flex items-center"><span className="font-bold min-w-32 inline-block">Teléfono:</span> +57 321 6855981</li>
               </ul>
             </section>
             
@@ -155,14 +155,34 @@ export default function TermsPopup({ open, onOpenChange }: TermsPopupProps) {
               <p>Estos TyC se interpretarán conforme a las leyes de la República de Colombia. Las partes procurarán resolver sus controversias mediante <strong>conciliación extrajudicial</strong>.</p>
             </section>
             
-            <section>
-              <h2 className="text-lg sm:text-xl font-semibold">16. Contacto y Atención al Usuario</h2>
-              <p>Para consultas, peticiones, quejas o reclamos, el Usuario puede comunicarse a:</p>
-              <ul className="list-none space-y-1">
-                <li><strong>Correo electrónico:</strong> admin@hyperquantum.com.co</li>
-                <li><strong>Dirección física:</strong> Medellín, Colombia</li>
+            <section className="bg-white/80 p-4 sm:p-5 rounded-lg shadow-sm border border-primary/5">
+              <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-[#1B1F3B] mb-3">16. Contacto y Atención al Usuario</h2>
+              <p className="text-primary/80 mb-3">Para consultas, peticiones, quejas o reclamos, el Usuario puede comunicarse a:</p>
+              <ul className="list-none space-y-2 md:space-y-3 text-primary/80 mb-4">
+                <li className="flex items-center"><span className="font-bold min-w-44 inline-block">Correo electrónico:</span> admin@hyperquantum.com.co</li>
+                <li className="flex items-center"><span className="font-bold min-w-44 inline-block">Dirección física:</span> Medellín, Colombia</li>
               </ul>
             </section>
+            
+            <div className="flex justify-center mt-8">
+              <button 
+                className="bg-[#1B1F3B] hover:bg-[#2A2F57] text-white py-3 px-6 rounded-lg transition-colors duration-300 flex items-center gap-2 shadow-md"
+                onClick={() => {
+                  const element = document.createElement("a");
+                  const file = new Blob([document.getElementById("terms-content")?.innerText || "Términos y Condiciones de Hyperquantum"], { type: 'text/plain' });
+                  element.href = URL.createObjectURL(file);
+                  element.download = "terminos-y-condiciones-hyperquantum.txt";
+                  document.body.appendChild(element);
+                  element.click();
+                  document.body.removeChild(element);
+                }}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Descargar Términos y Condiciones
+              </button>
+            </div>
           </div>
         </div>
       </DialogContent>
