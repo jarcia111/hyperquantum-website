@@ -1,7 +1,9 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Facebook, Youtube, Linkedin, Instagram, Heart } from "lucide-react";
+import { useState } from "react";
 import LogoAnimation from "./LogoAnimation";
+import TermsPopup from "./TermsPopup";
 
 const quickLinks = [
   { name: "Inicio", href: "/" },
@@ -19,6 +21,7 @@ const legalLinks = [
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const [showTerms, setShowTerms] = useState(false);
   
   return (
     <footer className="bg-[#1B1F3B] text-white pt-12 md:pt-16 pb-6 md:pb-8">
@@ -87,18 +90,35 @@ export default function Footer() {
           <div className="col-span-1">
             <h4 className="text-base md:text-lg font-semibold font-poppins mb-3 md:mb-6">Legal</h4>
             <ul className="space-y-2 md:space-y-4">
-              {legalLinks.map((link, index) => (
-                <li key={index}>
-                  <a 
-                    href={link.href} 
-                    className="text-white/70 hover:text-[#00D1FF] transition-colors text-sm md:text-base"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <button 
+                  onClick={() => setShowTerms(true)}
+                  className="text-white/70 hover:text-[#00D1FF] transition-colors text-sm md:text-base text-left"
+                >
+                  Términos y condiciones
+                </button>
+              </li>
+              <li>
+                <a 
+                  href="#" 
+                  className="text-white/70 hover:text-[#00D1FF] transition-colors text-sm md:text-base"
+                >
+                  Política de privacidad
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="#" 
+                  className="text-white/70 hover:text-[#00D1FF] transition-colors text-sm md:text-base"
+                >
+                  Política de cookies
+                </a>
+              </li>
             </ul>
           </div>
+          
+          {/* Términos y Condiciones Popup */}
+          <TermsPopup open={showTerms} onOpenChange={setShowTerms} />
         </div>
         
         <div className="border-t border-white/10 pt-6 md:pt-8">
