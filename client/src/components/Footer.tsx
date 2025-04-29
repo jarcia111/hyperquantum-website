@@ -4,6 +4,7 @@ import { Facebook, Youtube, Linkedin, Instagram, Heart } from "lucide-react";
 import { useState } from "react";
 import LogoAnimation from "./LogoAnimation";
 import TermsPopup from "./TermsPopup";
+import PrivacyPopup from "./PrivacyPopup";
 
 const quickLinks = [
   { name: "Inicio", href: "/" },
@@ -22,6 +23,7 @@ const legalLinks = [
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   const [showTerms, setShowTerms] = useState(false);
+  const [showPrivacy, setShowPrivacy] = useState(false);
   
   return (
     <footer className="bg-[#1B1F3B] text-white pt-12 md:pt-16 pb-6 md:pb-8">
@@ -99,12 +101,12 @@ export default function Footer() {
                 </button>
               </li>
               <li>
-                <a 
-                  href="#" 
-                  className="text-white/70 hover:text-[#00D1FF] transition-colors text-sm md:text-base"
+                <button 
+                  onClick={() => setShowPrivacy(true)}
+                  className="text-white/70 hover:text-[#00D1FF] transition-colors text-sm md:text-base text-left"
                 >
                   Política de privacidad
-                </a>
+                </button>
               </li>
               <li>
                 <a 
@@ -119,6 +121,9 @@ export default function Footer() {
           
           {/* Términos y Condiciones Popup */}
           <TermsPopup open={showTerms} onOpenChange={setShowTerms} />
+          
+          {/* Política de Privacidad Popup */}
+          <PrivacyPopup open={showPrivacy} onOpenChange={setShowPrivacy} />
         </div>
         
         <div className="border-t border-white/10 pt-6 md:pt-8">
