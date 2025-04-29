@@ -10,6 +10,7 @@ import CallToAction from "@/components/CallToAction";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import NetworkAnimation from "@/components/NetworkAnimation";
+import BackToTop from "@/components/BackToTop";
 
 export default function Home() {
   // Implement smooth scrolling for anchor links
@@ -55,6 +56,7 @@ export default function Home() {
         <ContactForm />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 }
