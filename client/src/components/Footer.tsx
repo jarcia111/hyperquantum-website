@@ -132,8 +132,8 @@ export default function Footer() {
         </div>
         
         <div className="border-t border-white/10 pt-6 md:pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-3">
-            <p className="text-white/60 text-xs md:text-sm mb-2 md:mb-0 text-center md:text-left">&copy; {currentYear} Hyperquantum. Todos los derechos reservados.</p>
+          <div className="flex flex-col items-center justify-center gap-3 text-center">
+            <p className="text-white/60 text-xs md:text-sm mb-2 md:mb-0">&copy; {currentYear} Hyperquantum. Todos los derechos reservados.</p>
             <div className="flex items-center gap-1 md:gap-2">
               <span className="text-white/60 text-xs md:text-sm">Hecho con</span>
               <Heart className="h-3 w-3 md:h-4 md:w-4 text-red-500 fill-current" />
