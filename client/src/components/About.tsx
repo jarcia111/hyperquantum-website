@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
 import { Linkedin } from "lucide-react";
 import jesusImage from '/assets/team/jesus_arcia.png';
+import carlosImage from '/assets/team/carlos_uribe.png';
 
 const teamMembers = [
   {
-    name: "Carlos Ramírez",
+    name: "Carlos Fernando Uribe Guerrero",
     role: "CEO & Fundador",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&auto=format&fit=crop",
-    linkedIn: "https://www.linkedin.com/"
+    image: carlosImage,
+    linkedIn: "https://www.linkedin.com/in/carlos-fernando-uribe-guerrero-276a4a152/"
   },
   {
     name: "Jesús Alberto Arcia Hernández",
