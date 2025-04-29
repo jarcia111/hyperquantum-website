@@ -32,50 +32,50 @@ export default function Footer() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-12">
           <div className="col-span-2 sm:col-span-3 md:col-span-2">
-            <div className="flex items-center mb-4 md:mb-6">
+            <div className="flex items-center justify-center sm:justify-start mb-4 md:mb-6">
               <LogoAnimation small className="h-10 md:h-12 w-auto opacity-80" color="black" />
               <span className="ml-2 md:ml-3 text-xl md:text-2xl font-semibold font-poppins">HYPERQUANTUM</span>
             </div>
-            <p className="text-white/70 mb-4 md:mb-6 max-w-md text-sm md:text-base">
+            <p className="text-white/70 mb-4 md:mb-6 max-w-md text-sm md:text-base text-center sm:text-left mx-auto sm:mx-0">
               Impulsamos la transformación operativa de las pymes colombianas mediante soluciones de inteligencia artificial simples, eficientes y a su medida.
             </p>
-            <div className="flex gap-3 md:gap-4">
+            <div className="flex justify-center gap-3 md:gap-4 mt-4 md:mt-0">
               <motion.a 
                 href="#" 
-                className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#00D1FF]/20 transition-colors"
+                className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#00D1FF]/20 transition-colors"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <Facebook className="h-4 w-4 md:h-5 md:w-5" />
+                <Facebook className="h-5 w-5 md:h-6 md:w-6" />
               </motion.a>
               <motion.a 
                 href="#" 
-                className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#00D1FF]/20 transition-colors"
+                className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#00D1FF]/20 transition-colors"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <Youtube className="h-4 w-4 md:h-5 md:w-5" />
+                <Youtube className="h-5 w-5 md:h-6 md:w-6" />
               </motion.a>
               <motion.a 
                 href="#" 
-                className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#00D1FF]/20 transition-colors"
+                className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#00D1FF]/20 transition-colors"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <Linkedin className="h-4 w-4 md:h-5 md:w-5" />
+                <Linkedin className="h-5 w-5 md:h-6 md:w-6" />
               </motion.a>
               <motion.a 
                 href="#" 
-                className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#00D1FF]/20 transition-colors"
+                className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#00D1FF]/20 transition-colors"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <Instagram className="h-4 w-4 md:h-5 md:w-5" />
+                <Instagram className="h-5 w-5 md:h-6 md:w-6" />
               </motion.a>
             </div>
           </div>
           
-          <div className="col-span-1">
+          <div className="col-span-1 text-center sm:text-left">
             <h4 className="text-base md:text-lg font-semibold font-poppins mb-3 md:mb-6">Enlaces rápidos</h4>
             <ul className="space-y-2 md:space-y-4">
               {quickLinks.map((link, index) => (
@@ -91,13 +91,13 @@ export default function Footer() {
             </ul>
           </div>
           
-          <div className="col-span-1">
+          <div className="col-span-1 text-center sm:text-left">
             <h4 className="text-base md:text-lg font-semibold font-poppins mb-3 md:mb-6">Legal</h4>
             <ul className="space-y-2 md:space-y-4">
               <li>
                 <button 
                   onClick={() => setShowTerms(true)}
-                  className="text-white/70 hover:text-[#00D1FF] transition-colors text-sm md:text-base text-left"
+                  className="text-white/70 hover:text-[#00D1FF] transition-colors text-sm md:text-base mx-auto sm:mx-0"
                 >
                   Términos y condiciones
                 </button>
@@ -105,7 +105,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => setShowPrivacy(true)}
-                  className="text-white/70 hover:text-[#00D1FF] transition-colors text-sm md:text-base text-left"
+                  className="text-white/70 hover:text-[#00D1FF] transition-colors text-sm md:text-base mx-auto sm:mx-0"
                 >
                   Política de privacidad
                 </button>
@@ -113,7 +113,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => setShowCookies(true)}
-                  className="text-white/70 hover:text-[#00D1FF] transition-colors text-sm md:text-base text-left"
+                  className="text-white/70 hover:text-[#00D1FF] transition-colors text-sm md:text-base mx-auto sm:mx-0"
                 >
                   Política de cookies
                 </button>
