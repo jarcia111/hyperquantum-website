@@ -11,7 +11,7 @@ const teamMembers = [
   },
   {
     name: "Jesús Alberto Arcia Hernández",
-    role: "CTO",
+    role: "CTO & Fundador",
     image: jesusImage,
     linkedIn: "https://www.linkedin.com/in/jarciahdz/"
   }
