@@ -25,8 +25,8 @@ export default function Navbar() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-3 sm:py-4">
           <Link href="/" className="flex items-center space-x-2">
-            <Logo small color="black" className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10" />
-            <span className="text-lg sm:text-xl font-semibold font-poppins tracking-tight hidden sm:inline-block">HYPERQUANTUM</span>
+            <Logo small color="white" className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10" />
+            <span className="text-lg sm:text-xl font-bold font-poppins tracking-wider hidden sm:inline-block text-white">HYPERQUANTUM</span>
           </Link>
           
           {/* Desktop Navigation */}
