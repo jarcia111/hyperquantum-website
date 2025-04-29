@@ -36,10 +36,8 @@ export default function SuccessStories() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-block bg-white/10 backdrop-blur-sm px-4 py-1 rounded-full mb-4">
-            <p className="text-sm font-medium text-white">Casos de éxito</p>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold font-poppins mb-4">Empresas que ya transformaron su operación</h2>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-poppins mb-4 text-white">CASOS DE ÉXITO</h2>
+          <h3 className="text-2xl md:text-3xl font-semibold font-poppins mb-4">Empresas que ya transformaron su operación</h3>
           <p className="text-white/80 text-lg">
             Descubre cómo otras pymes colombianas han mejorado sus resultados con nuestras soluciones de automatización.
           </p>

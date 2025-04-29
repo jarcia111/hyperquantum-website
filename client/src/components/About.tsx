@@ -34,10 +34,8 @@ export default function About() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-block bg-primary/5 px-4 py-1 rounded-full mb-4">
-            <p className="text-sm font-medium text-primary">Nosotros</p>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold font-poppins mb-4">Expertos en tecnología con visión humana</h2>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-poppins mb-4 text-primary">NOSOTROS</h2>
+          <h3 className="text-2xl md:text-3xl font-semibold font-poppins mb-4">Expertos en tecnología con visión humana</h3>
           <p className="text-primary/70 text-lg">
             Somos la agencia líder en Latinoamérica en automatización inteligente para pymes, promoviendo la eficiencia operativa y la competitividad empresarial con tecnología accesible y humana.
           </p>

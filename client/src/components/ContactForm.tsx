@@ -77,10 +77,8 @@ export default function ContactForm() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-block bg-primary/5 px-4 py-1 rounded-full mb-3 sm:mb-4">
-            <p className="text-sm font-medium text-primary">Contacto</p>
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-poppins mb-3 sm:mb-4">¿Listo para automatizar tu negocio?</h2>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-poppins mb-4 text-primary">CONTACTO</h2>
+          <h3 className="text-2xl sm:text-3xl font-semibold font-poppins mb-3 sm:mb-4">¿Listo para automatizar tu negocio?</h3>
           <p className="text-primary/70 text-base sm:text-lg">
             Cuéntanos sobre tu empresa y tus desafíos. Nuestro equipo te contactará para ofrecerte una solución personalizada.
           </p>
