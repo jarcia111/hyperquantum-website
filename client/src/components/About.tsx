@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Linkedin } from "lucide-react";
+import jesusImage from '/assets/team/jesus_arcia.png';
 
 const teamMembers = [
   {
@@ -11,7 +12,7 @@ const teamMembers = [
   {
     name: "Jesús Alberto Arcia Hernández",
     role: "CTO",
-    image: "/assets/team/jesus_arcia.png",
+    image: jesusImage,
     linkedIn: "https://www.linkedin.com/in/jarciahdz/"
   }
 ];
