@@ -68,27 +68,27 @@ export default function ContactForm() {
   };
   
   return (
-    <section id="contacto" className="py-16 md:py-24 bg-secondary">
+    <section id="contacto" className="py-12 sm:py-16 md:py-24 bg-secondary">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
-          className="max-w-3xl mx-auto text-center mb-16"
+          className="max-w-3xl mx-auto text-center mb-10 sm:mb-12 md:mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-block bg-primary/5 px-4 py-1 rounded-full mb-4">
+          <div className="inline-block bg-primary/5 px-4 py-1 rounded-full mb-3 sm:mb-4">
             <p className="text-sm font-medium text-primary">Contacto</p>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold font-poppins mb-4">¿Listo para automatizar tu negocio?</h2>
-          <p className="text-primary/70 text-lg">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-poppins mb-3 sm:mb-4">¿Listo para automatizar tu negocio?</h2>
+          <p className="text-primary/70 text-base sm:text-lg">
             Cuéntanos sobre tu empresa y tus desafíos. Nuestro equipo te contactará para ofrecerte una solución personalizada.
           </p>
         </motion.div>
         
-        <div className="grid md:grid-cols-5 gap-y-8 gap-x-4 md:gap-x-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-5 gap-y-6 sm:gap-y-8 gap-x-4 md:gap-x-6 lg:gap-x-8 max-w-5xl mx-auto">
           <motion.div 
-            className="md:col-span-3 bg-white rounded-xl p-4 md:p-6 shadow-sm"
+            className="md:col-span-3 bg-white rounded-xl p-4 sm:p-5 md:p-6 shadow-sm"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -251,10 +251,10 @@ export default function ContactForm() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="bg-white rounded-xl p-4 md:p-6 shadow-sm">
-              <h3 className="text-lg md:text-xl font-semibold font-poppins mb-4">Contacto directo</h3>
+            <div className="bg-white rounded-xl p-4 sm:p-5 md:p-6 shadow-sm">
+              <h3 className="text-base sm:text-lg md:text-xl font-semibold font-poppins mb-3 md:mb-4">Contacto directo</h3>
               
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 <div className="flex items-center">
                   <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-primary/5 flex items-center justify-center mr-3 md:mr-4">
                     <Phone className="h-4 w-4 md:h-5 md:w-5 text-[#00D1FF]" />
@@ -287,9 +287,9 @@ export default function ContactForm() {
               </div>
             </div>
             
-            <div className="bg-[#1B1F3B] rounded-xl p-4 md:p-6 text-white">
-              <h3 className="text-lg md:text-xl font-semibold font-poppins mb-3 md:mb-4">Contacto instantáneo</h3>
-              <p className="text-sm md:text-base mb-4 md:mb-6 text-white/80">¿Prefieres una respuesta inmediata? Contáctanos por WhatsApp y te responderemos en minutos.</p>
+            <div className="bg-[#1B1F3B] rounded-xl p-4 sm:p-5 md:p-6 text-white">
+              <h3 className="text-base sm:text-lg md:text-xl font-semibold font-poppins mb-2 sm:mb-3 md:mb-4">Contacto instantáneo</h3>
+              <p className="text-sm md:text-base mb-3 sm:mb-4 md:mb-6 text-white/80">¿Prefieres una respuesta inmediata? Contáctanos por WhatsApp y te responderemos en minutos.</p>
               
               <a href="https://wa.me/573216855981" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#22c55e] text-white font-medium py-2 md:py-3 px-4 md:px-6 rounded-lg transition-colors duration-300 w-full">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" fill="currentColor" viewBox="0 0 24 24">

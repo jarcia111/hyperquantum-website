@@ -3,9 +3,9 @@ import LogoAnimation from "./LogoAnimation";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden gradient-bg text-white py-16 md:py-24">
+    <section className="relative overflow-hidden gradient-bg text-white py-12 sm:py-16 md:py-24">
       <div className="absolute inset-0" aria-hidden="true">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1639322537231-2f206e06af84?q=80&w=1920&auto=format&fit=crop')] bg-cover opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1639322537231-2f206e06af84?q=80&w=1920&auto=format&fit=crop')] bg-cover bg-center opacity-10"></div>
         
         {/* Animated network lines */}
         <div className="absolute inset-0 opacity-20 overflow-hidden">
@@ -50,20 +50,20 @@ export default function Hero() {
       </div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 md:gap-12">
           <motion.div 
-            className="md:w-1/2 space-y-4 md:space-y-6 text-center md:text-left"
+            className="w-full md:w-1/2 space-y-3 sm:space-y-4 md:space-y-6 text-center md:text-left"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
             <motion.div 
-              className="inline-block bg-[#00D1FF]/20 backdrop-blur-sm px-6 md:px-8 py-3 md:py-4 rounded-full mb-6 md:mb-8 border border-[#00D1FF]/30"
+              className="inline-block bg-[#00D1FF]/20 backdrop-blur-sm px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-full mb-4 sm:mb-5 md:mb-8 border border-[#00D1FF]/30 w-auto max-w-full"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <p className="text-base md:text-2xl lg:text-3xl font-bold text-[#00D1FF] tracking-wide">Inteligencia Artificial para pymes</p>
+              <p className="text-base sm:text-xl md:text-2xl lg:text-3xl font-bold text-[#00D1FF] tracking-wide text-center sm:text-left">Inteligencia Artificial para pymes</p>
             </motion.div>
             
             <motion.h1 
