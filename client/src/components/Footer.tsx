@@ -32,11 +32,11 @@ export default function Footer() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-12">
           <div className="col-span-2 sm:col-span-3 md:col-span-2">
-            <div className="flex items-center justify-center sm:justify-start mb-4 md:mb-6">
+            <div className="flex items-center justify-center mb-4 md:mb-6">
               <LogoAnimation small className="h-10 md:h-12 w-auto opacity-80" color="black" />
               <span className="ml-2 md:ml-3 text-xl md:text-2xl font-semibold font-poppins">HYPERQUANTUM</span>
             </div>
-            <p className="text-white/70 mb-4 md:mb-6 max-w-md text-sm md:text-base text-center sm:text-left mx-auto sm:mx-0">
+            <p className="text-white/70 mb-4 md:mb-6 max-w-md text-sm md:text-base text-center mx-auto">
               Impulsamos la transformación operativa de las pymes colombianas mediante soluciones de inteligencia artificial simples, eficientes y a su medida.
             </p>
             <div className="flex justify-center gap-3 md:gap-4 mt-4 md:mt-0">
@@ -75,7 +75,7 @@ export default function Footer() {
             </div>
           </div>
           
-          <div className="col-span-1 text-center sm:text-left">
+          <div className="col-span-1 text-center">
             <h4 className="text-base md:text-lg font-semibold font-poppins mb-3 md:mb-6">Enlaces rápidos</h4>
             <ul className="space-y-2 md:space-y-4">
               {quickLinks.map((link, index) => (
@@ -91,13 +91,13 @@ export default function Footer() {
             </ul>
           </div>
           
-          <div className="col-span-1 text-center sm:text-left">
+          <div className="col-span-1 text-center">
             <h4 className="text-base md:text-lg font-semibold font-poppins mb-3 md:mb-6">Legal</h4>
             <ul className="space-y-2 md:space-y-4">
               <li>
                 <button 
                   onClick={() => setShowTerms(true)}
-                  className="text-white/70 hover:text-[#00D1FF] transition-colors text-sm md:text-base mx-auto sm:mx-0"
+                  className="text-white/70 hover:text-[#00D1FF] transition-colors text-sm md:text-base inline-block"
                 >
                   Términos y condiciones
                 </button>
@@ -105,7 +105,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => setShowPrivacy(true)}
-                  className="text-white/70 hover:text-[#00D1FF] transition-colors text-sm md:text-base mx-auto sm:mx-0"
+                  className="text-white/70 hover:text-[#00D1FF] transition-colors text-sm md:text-base inline-block"
                 >
                   Política de privacidad
                 </button>
@@ -113,7 +113,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => setShowCookies(true)}
-                  className="text-white/70 hover:text-[#00D1FF] transition-colors text-sm md:text-base mx-auto sm:mx-0"
+                  className="text-white/70 hover:text-[#00D1FF] transition-colors text-sm md:text-base inline-block"
                 >
                   Política de cookies
                 </button>
