@@ -10,16 +10,6 @@ const teamMembers = [
     name: "Laura Mendoza",
     role: "CTO",
     image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=200&auto=format&fit=crop"
-  },
-  {
-    name: "Daniel Ochoa",
-    role: "Lead AI Engineer",
-    image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=200&auto=format&fit=crop"
-  },
-  {
-    name: "Ana Valencia",
-    role: "Customer Success",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop"
   }
 ];
 
@@ -104,7 +94,7 @@ export default function About() {
         <div className="mt-16 sm:mt-20 md:mt-24">
           <h3 className="text-xl md:text-2xl font-semibold font-poppins text-center mb-8 md:mb-12">Nuestro equipo</h3>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-12 sm:gap-16 md:gap-24 lg:gap-32">
             {teamMembers.map((member, index) => (
               <motion.div 
                 key={index} 
@@ -114,11 +104,11 @@ export default function About() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full bg-secondary mx-auto mb-3 md:mb-4 overflow-hidden">
+                <div className="w-36 h-36 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full bg-secondary mx-auto mb-4 md:mb-5 overflow-hidden shadow-lg">
                   <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
                 </div>
-                <h4 className="font-semibold font-poppins text-sm md:text-base">{member.name}</h4>
-                <p className="text-xs md:text-sm text-primary/70">{member.role}</p>
+                <h4 className="font-semibold font-poppins text-lg md:text-xl">{member.name}</h4>
+                <p className="text-sm md:text-base text-primary/70">{member.role}</p>
               </motion.div>
             ))}
           </div>
