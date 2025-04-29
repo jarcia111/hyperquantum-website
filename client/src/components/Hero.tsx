@@ -98,7 +98,7 @@ export default function Hero() {
               </a>
               <a 
                 href="#servicios" 
-                className="border border-white/30 hover:border-white hover:bg-white/10 text-white px-4 md:px-6 py-2.5 md:py-3 rounded-lg text-center transition-all duration-300 text-sm md:text-base"
+                className="bg-white hover:bg-white/90 text-[#1B1F3B] border border-white font-medium px-4 md:px-6 py-2.5 md:py-3 rounded-lg text-center transition-all duration-300 text-sm md:text-base"
               >
                 Ver servicios
               </a>
