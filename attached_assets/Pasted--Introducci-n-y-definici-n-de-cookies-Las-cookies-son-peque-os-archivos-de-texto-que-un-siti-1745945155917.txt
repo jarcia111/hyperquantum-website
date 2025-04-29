@@ -1,0 +1,90 @@
+## Introducción y definición de cookies  
+Las **cookies** son pequeños archivos de texto que un sitio web instala en tu dispositivo (computador, teléfono móvil o tableta) cuando lo visitas. Sirven para almacenar y recuperar información sobre tu navegación —por ejemplo, recordar tus preferencias de idioma o medir el rendimiento del sitio— y permiten que la página funcione correctamente y sea más eficiente.  
+En Colombia, el tratamiento de datos personales a través de cookies está regulado principalmente por la **Ley 1581 de 2012**, el **Decreto 1377 de 2013** y, para publicidad dirigida, la **Resolución 174 de 2021** de la Superintendencia de Industria y Comercio (SIC). Cuando tratamos datos de visitantes residentes en la Unión Europea, también aplicamos el **RGPD** y la **Directiva ePrivacy**.  
+
+Navegar por <https://hyperquantum.com.co> implica la instalación automática de las cookies **estrictamente necesarias**. Todas las demás categorías (preferencias, analíticas y marketing) solo se instalan con tu **consentimiento previo y libremente revocable** a través del banner de gestión de cookies o del Centro de Preferencias disponible en el pie de página.
+
+---
+
+## ¿Qué tipos de cookies utilizamos?  
+
+### Cookies necesarias o técnicas  
+Imprescindibles para que el sitio funcione y para proporcionar los servicios que solicitas (p. ej., inicio de sesión, seguridad de formularios, preferencia de idioma). No requieren consentimiento.
+
+### Cookies de preferencias o personalización  
+Permiten recordar configuraciones (idioma, región, tipo de dispositivo) y mejorar tu experiencia. Su instalación es opcional.
+
+### Cookies analíticas o de rendimiento  
+Recogen información anónima y agregada sobre el uso del sitio (páginas más visitadas, tiempo de permanencia) con el fin de optimizar contenido y funcionalidades. Ejemplo: Google Analytics 4.
+
+### Cookies de marketing o publicidad comportamental  
+Usadas para mostrar anuncios relevantes basados en tu comportamiento de navegación en este y otros sitios. Ejemplo: Meta Pixel (_fbp). Requieren tu consentimiento expreso.
+
+---
+
+## Finalidades específicas y duración aproximada de cada categoría  
+
+| Nombre de la cookie | Proveedor | Finalidad | Duración | Tipo (1.ª / 3.ª parte) |
+|---------------------|-----------|-----------|----------|------------------------|
+| **hq_cookie_consent** | Hyperquantum | Almacena tus preferencias de consentimiento. | 12 meses | 1.ª |
+| **csrftoken** | Hyperquantum | Protección contra ataques CSRF en formularios. | 12 meses | 1.ª |
+| **sessionid** | Hyperquantum | Mantiene la sesión de usuario iniciada. | Sesión | 1.ª |
+| **_ga** | Google Analytics 4 | Distinguir usuarios y generar estadísticas agregadas. | 2 años | 3.ª |
+| **_ga_\*** | Google Analytics 4 | Mantener el estado de la sesión. | 2 años | 3.ª |
+| **_gid** | Google Analytics 4 | Diferenciar usuarios en 24 h. | 24 h | 3.ª |
+| **_gat** | Google Analytics 4 | Limitar el porcentaje de solicitudes. | 1 minuto | 3.ª |
+| **_fbp** | Meta Pixel | Entregar publicidad personalizada. | 90 días | 3.ª |
+| **_hjAbsoluteSessionInProgress** | Hotjar | Detectar la primera visita de sesión de usuario. | 30 minutos | 3.ª |
+
+> **Nota:** los plazos indicados son aproximados; los proveedores pueden modificarlos conforme a sus propias políticas. Los enlaces a las políticas de terceros constan en el Centro de Preferencias.
+
+---
+
+## Gestión, revocación y eliminación de cookies  
+
+Puedes administrar o revocar tu consentimiento en cualquier momento desde el **Centro de Preferencias** (enlace “Configurar cookies” al pie de página). Asimismo, puedes borrar o bloquear cookies directamente en tu navegador; la forma varía según el dispositivo:
+
+- **Google Chrome**: Menú ⋮ → *Configuración* → *Privacidad y seguridad* → *Cookies y otros datos de sitios* → elige la opción deseada.  
+- **Mozilla Firefox**: Menú ≡ → *Opciones* → *Privacidad y seguridad* → *Cookies y datos del sitio*.  
+- **Microsoft Edge**: Menú … → *Configuración* → *Cookies y permisos de sitio*.  
+- **Safari (macOS/iOS)**: *Preferencias* → *Privacidad* → *Gestionar datos del sitio web*.  
+- **Android (Chrome)**: ⋮ → *Configuración* → *Configuración de sitios* → *Cookies*.  
+- **iOS (Safari)**: *Ajustes* → *Safari* → *Bloquear todas las cookies*.  
+
+Ten presente que deshabilitar cookies necesarias puede afectar el funcionamiento del portal.
+
+---
+
+## Transferencias internacionales y terceros receptores  
+
+Algunas cookies son gestionadas por **proveedores situados fuera de Colombia**:
+
+- **Google LLC.** (Estados Unidos) para Google Analytics 4.  
+- **Meta Platforms, Inc.** (Estados Unidos) para Meta Pixel.  
+- **Hotjar Ltd.** (Unión Europea) para mapas de calor y encuestas.
+
+Estos terceros pueden acceder a datos desde jurisdicciones que no ofrecen un nivel de protección equivalente al colombiano o al europeo. Hyperquantum asegura que dichas transferencias se amparan en:
+
+1. **Cláusulas Contractuales Tipo** (SCC) aprobadas por la Comisión Europea.  
+2. Compromisos adicionales de seguridad, cifrado y minimización de datos.  
+
+Puedes consultar los detalles en las políticas de privacidad de cada proveedor o solicitarlos a nuestro Delegado de Protección de Datos.
+
+---
+
+## Actualizaciones de la política  
+
+Podemos modificar esta Política de Cookies cuando cambien las cookies empleadas, la normativa aplicable o nuestras prácticas de tratamiento. Publicaremos la versión actualizada en esta misma página e indicaremos la fecha de revisión. Cuando los cambios sean sustanciales, te lo notificaremos a través de un banner o correo electrónico (si procede) para recabar nuevamente tu consentimiento.
+
+---
+
+## Datos de contacto y canal de consultas  
+
+Si tienes preguntas, deseas ejercer tus derechos de acceso, rectificación, supresión, oposición o portabilidad, o quieres conocer más sobre nuestras prácticas de cookies y privacidad, escríbenos a:
+
+- **Correo electrónico:** [admin@hyperquantum.com.co](mailto:admin@hyperquantum.com.co)  
+- **Domicilio:** Hyperquantum S.A.S., Medellín, Colombia.
+
+---
+
+Última actualización: 29 de abril del 2025

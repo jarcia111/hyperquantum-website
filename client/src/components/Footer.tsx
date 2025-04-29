@@ -5,6 +5,7 @@ import { useState } from "react";
 import LogoAnimation from "./LogoAnimation";
 import TermsPopup from "./TermsPopup";
 import PrivacyPopup from "./PrivacyPopup";
+import CookiesPopup from "./CookiesPopup";
 
 const quickLinks = [
   { name: "Inicio", href: "/" },
@@ -24,6 +25,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   const [showTerms, setShowTerms] = useState(false);
   const [showPrivacy, setShowPrivacy] = useState(false);
+  const [showCookies, setShowCookies] = useState(false);
   
   return (
     <footer className="bg-[#1B1F3B] text-white pt-12 md:pt-16 pb-6 md:pb-8">
@@ -109,12 +111,12 @@ export default function Footer() {
                 </button>
               </li>
               <li>
-                <a 
-                  href="#" 
-                  className="text-white/70 hover:text-[#00D1FF] transition-colors text-sm md:text-base"
+                <button 
+                  onClick={() => setShowCookies(true)}
+                  className="text-white/70 hover:text-[#00D1FF] transition-colors text-sm md:text-base text-left"
                 >
                   Política de cookies
-                </a>
+                </button>
               </li>
             </ul>
           </div>
@@ -124,6 +126,9 @@ export default function Footer() {
           
           {/* Política de Privacidad Popup */}
           <PrivacyPopup open={showPrivacy} onOpenChange={setShowPrivacy} />
+          
+          {/* Política de Cookies Popup */}
+          <CookiesPopup open={showCookies} onOpenChange={setShowCookies} />
         </div>
         
         <div className="border-t border-white/10 pt-6 md:pt-8">
