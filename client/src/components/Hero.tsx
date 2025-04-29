@@ -58,12 +58,12 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
           >
             <motion.div 
-              className="inline-block bg-[#00D1FF]/20 backdrop-blur-sm px-4 md:px-6 py-2 md:py-3 rounded-full mb-4 md:mb-6"
+              className="inline-block bg-[#00D1FF]/20 backdrop-blur-sm px-6 md:px-8 py-3 md:py-4 rounded-full mb-6 md:mb-8 border border-[#00D1FF]/30"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <p className="text-sm md:text-lg lg:text-xl font-semibold text-[#00D1FF]">Inteligencia Artificial para pymes</p>
+              <p className="text-base md:text-2xl lg:text-3xl font-bold text-[#00D1FF] tracking-wide">Inteligencia Artificial para pymes</p>
             </motion.div>
             
             <motion.h1 
