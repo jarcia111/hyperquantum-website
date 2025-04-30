@@ -81,7 +81,7 @@ export default function Hero() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.7 }}
             >
-              Impulsamos la transformación operativa de las pymes colombianas mediante soluciones de inteligencia artificial simples, eficientes y a su medida.
+              Impulsamos la transformación operativa de las pymes colombianas con agentes inteligentes y procesos automatizados que aumentan ventas y reducen costos. Soluciones de IA simples, eficientes y a tu medida.
             </motion.p>
             
             <motion.div 

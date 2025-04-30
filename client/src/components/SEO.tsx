@@ -10,8 +10,8 @@ interface SEOProps {
 
 export default function SEO({
   title = "Hyperquantum | Automatización inteligente para PYMEs Colombianas",
-  description = "Impulsamos la transformación operativa de las pymes colombianas mediante soluciones de inteligencia artificial simples, eficientes y a su medida.",
-  keywords = "automatización, inteligencia artificial, IA, pymes, colombia, transformación digital, eficiencia operativa, hyperquantum",
+  description = "Impulsamos la transformación operativa de las pymes colombianas mediante soluciones de inteligencia artificial simples, eficientes y a su medida. Aumenta ventas y reduce costos con nuestros agentes inteligentes y procesos automatizados.",
+  keywords = "automatización, inteligencia artificial, IA, pymes, colombia, transformación digital, eficiencia operativa, hyperquantum, agentes inteligentes, procesos automatizados, reducción de costos, aumento de ventas, optimización de procesos, eficiencia empresarial, productividad, ROI, machine learning, chatbots, asistentes virtuales, workflow automation, soluciones empresariales, innovación tecnológica, competitividad",
   ogImage = "/assets/og-image.jpg",
   ogUrl = "https://hyperquantum.com.co",
 }: SEOProps) {
