@@ -30,7 +30,7 @@ export default function About() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-poppins mb-4 text-primary">NOSOTROS</h2>
-          <h3 className="text-2xl md:text-3xl font-semibold font-poppins mb-4">Expertos en tecnología con visión humana</h3>
+          <p className="text-2xl md:text-3xl font-semibold font-poppins mb-4">Expertos en tecnología con visión humana</p>
           <p className="text-primary/70 text-lg">
             Somos la agencia líder en Latinoamérica en automatización inteligente para pymes, promoviendo la eficiencia operativa y la competitividad empresarial con tecnología accesible y humana.
           </p>

@@ -40,7 +40,7 @@ export default function Benefits() {
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-poppins mb-4 text-primary">¿POR QUÉ ELEGIRNOS?</h2>
             
-            <h3 className="text-2xl md:text-3xl font-semibold font-poppins mb-4">Transformación digital <span className="text-[#00D1FF]">sin complicaciones</span></h3>
+            <p className="text-2xl md:text-3xl font-semibold font-poppins mb-4">Transformación digital <span className="text-[#00D1FF]">sin complicaciones</span></p>
             
             <p className="text-primary/70 text-lg">En Hyperquantum convertimos la complejidad en simplicidad. Nuestras soluciones están diseñadas pensando en las necesidades reales de las pymes colombianas.</p>
             
