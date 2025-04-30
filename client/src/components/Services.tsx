@@ -4,27 +4,27 @@ import { Clipboard, MessageSquare, BarChart3, Layout, BookOpen, CalendarClock } 
 const services = [
   {
     title: "Automatización de procesos internos",
-    description: "Optimizamos tus operaciones en ventas, contabilidad y logística con IA para reducir errores y aumentar eficiencia.",
+    description: "Optimizamos tus operaciones en ventas, contabilidad y logística con IA para reducir costos operativos y aumentar eficiencia empresarial.",
     icon: <Clipboard className="h-8 w-8 text-primary group-hover:text-[#00D1FF] transition-colors duration-300" />
   },
   {
-    title: "Asistentes virtuales para atención al cliente",
-    description: "Chatbots inteligentes que atienden consultas 24/7, aprenden de cada interacción y escalan con tu negocio.",
+    title: "Asistentes virtuales y chatbots empresariales",
+    description: "Implementamos chatbots inteligentes que atienden consultas 24/7, aprenden de cada interacción y escalan con tu negocio para aumentar ventas.",
     icon: <MessageSquare className="h-8 w-8 text-primary group-hover:text-[#00D1FF] transition-colors duration-300" />
   },
   {
     title: "Dashboards e informes automatizados",
-    description: "Visualizaciones en tiempo real que transforman datos complejos en insights accionables para mejorar la toma de decisiones.",
+    description: "Creamos visualizaciones en tiempo real con inteligencia artificial que transforman datos complejos en insights accionables para optimización de procesos.",
     icon: <BarChart3 className="h-8 w-8 text-primary group-hover:text-[#00D1FF] transition-colors duration-300" />
   },
   {
     title: "Integraciones con WhatsApp, CRM y ERPs",
-    description: "Conectamos tus sistemas existentes para crear flujos de trabajo unificados y eliminar procesos manuales redundantes.",
+    description: "Conectamos tus sistemas existentes para crear flujos de trabajo unificados y automatización de tareas que eliminan procesos manuales redundantes.",
     icon: <Layout className="h-8 w-8 text-primary group-hover:text-[#00D1FF] transition-colors duration-300" />
   },
   {
-    title: "Capacitación y soporte humano+IA",
-    description: "Combinamos expertise humano con asistentes de IA para brindarte soporte continuo y formación personalizada.",
+    title: "Consultoría IA y soporte técnico",
+    description: "Combinamos expertise humano con agentes de IA para brindarte soporte continuo y transformación digital personalizada para pymes en Medellín y toda Colombia.",
     icon: <BookOpen className="h-8 w-8 text-primary group-hover:text-[#00D1FF] transition-colors duration-300" />
   }
 ];
