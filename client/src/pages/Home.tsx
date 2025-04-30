@@ -48,8 +48,8 @@ export default function Home() {
       <NetworkAnimation />
       <SEO 
         title="Hyperquantum | Automatización inteligente para PYMEs Colombianas"
-        description="Impulsamos la transformación operativa de las pymes colombianas mediante soluciones de inteligencia artificial. Aumenta ventas y reduce costos con agentes inteligentes y procesos automatizados."
-        keywords="automatización inteligente, agentes de IA, procesos automatizados, reducción de costos, aumento de ventas, pymes colombianas"
+        description="¿Quieres transformar tu negocio? Impulsamos la transformación operativa de las pymes colombianas con soluciones de IA. Aumenta ventas y reduce costos significativamente con nuestros agentes inteligentes y procesos automatizados. ¡Solicita tu demo ahora!"
+        keywords="automatización inteligente, agentes de IA, procesos automatizados, reducción de costos, aumento de ventas, pymes colombianas, transformación digital"
       />
       <Navbar />
       <main>
