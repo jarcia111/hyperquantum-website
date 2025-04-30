@@ -27,7 +27,7 @@ export default function SuccessStories() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-poppins mb-4 text-white">CASO DE ÉXITO</h2>
-          <h3 className="text-2xl md:text-3xl font-semibold font-poppins mb-4">Transformación digital en acción</h3>
+          <p className="text-2xl md:text-3xl font-semibold font-poppins mb-4">Transformación digital en acción</p>
           <p className="text-white/80 text-lg">
             Descubre cómo Forestura mejoró su eficiencia en la gestión de trámites ambientales con nuestra solución personalizada.
           </p>

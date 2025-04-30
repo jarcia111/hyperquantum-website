@@ -78,7 +78,7 @@ export default function ContactForm() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-poppins mb-4 text-primary">CONTACTO</h2>
-          <h3 className="text-2xl sm:text-3xl font-semibold font-poppins mb-3 sm:mb-4">¿Listo para automatizar tu negocio?</h3>
+          <p className="text-2xl sm:text-3xl font-semibold font-poppins mb-3 sm:mb-4">¿Listo para automatizar tu negocio?</p>
           <p className="text-primary/70 text-base sm:text-lg">
             Cuéntanos sobre tu empresa y tus desafíos. Nuestro equipo te contactará para ofrecerte una solución personalizada.
           </p>
