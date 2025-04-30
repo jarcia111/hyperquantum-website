@@ -72,7 +72,7 @@ export default function Hero() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              Automatización <span className="text-[#00D1FF] text-glow">inteligente</span> para tu negocio
+              Automatización <span className="text-[#00D1FF] text-glow">inteligente</span> para tu negocio con agentes de IA
             </motion.h1>
             
             <motion.p 

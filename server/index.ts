@@ -6,6 +6,26 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// Redirect www to non-www and vice versa with 301 status code
+app.use((req, res, next) => {
+  const host = req.headers.host || '';
+  
+  // When in production (once deployed)
+  if (process.env.NODE_ENV === 'production') {
+    // Check if the host starts with 'www.'
+    if (host.startsWith('www.')) {
+      // Redirect to non-www
+      return res.redirect(301, req.protocol + '://' + host.replace('www.', '') + req.originalUrl);
+    } else if (!host.startsWith('www.') && host.includes('.')) {
+      // Redirect to www
+      return res.redirect(301, req.protocol + '://www.' + host + req.originalUrl);
+    }
+  }
+  
+  next();
+});
+
+// Logging middleware
 app.use((req, res, next) => {
   const start = Date.now();
   const path = req.path;

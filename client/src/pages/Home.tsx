@@ -8,9 +8,11 @@ import About from "@/components/About";
 import SuccessStories from "@/components/SuccessStories";
 import CallToAction from "@/components/CallToAction";
 import ContactForm from "@/components/ContactForm";
+import SiteMap from "@/components/SiteMap";
 import Footer from "@/components/Footer";
 import NetworkAnimation from "@/components/NetworkAnimation";
 import BackToTop from "@/components/BackToTop";
+import SEO from "@/components/SEO";
 
 export default function Home() {
   // Implement smooth scrolling for anchor links
@@ -44,6 +46,11 @@ export default function Home() {
   return (
     <div className="bg-secondary font-inter text-primary overflow-x-hidden">
       <NetworkAnimation />
+      <SEO 
+        title="Hyperquantum | Automatización inteligente para PYMEs Colombianas"
+        description="Impulsamos la transformación operativa de las pymes colombianas mediante soluciones de inteligencia artificial. Aumenta ventas y reduce costos con agentes inteligentes y procesos automatizados."
+        keywords="automatización inteligente, agentes de IA, procesos automatizados, reducción de costos, aumento de ventas, pymes colombianas"
+      />
       <Navbar />
       <main>
         <Hero />
@@ -54,6 +61,7 @@ export default function Home() {
         <SuccessStories />
         <CallToAction />
         <ContactForm />
+        <SiteMap />
       </main>
       <Footer />
       <BackToTop />
