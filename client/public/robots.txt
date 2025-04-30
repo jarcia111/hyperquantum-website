@@ -1,4 +1,21 @@
+# Archivo robots.txt para hyperquantum.com.co
+# Última actualización: 30 de abril de 2025
+
 User-agent: *
 Allow: /
+Disallow: /admin/
 
-Sitemap: https://hyperquantum.com.co/sitemap.xml
+# Reglas específicas para rastreadores
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+# Sitemap
+Sitemap: https://www.hyperquantum.com.co/sitemap.xml
+
+# Host preferido
+Host: www.hyperquantum.com.co
