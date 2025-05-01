@@ -121,29 +121,35 @@ export default function HyperquantumLogo3D({
       emissiveIntensity: 0.2
     });
     
-    // Material para las líneas de conexión
+    // Material para las líneas de conexión (más gruesas)
     const lineMaterial = new THREE.LineBasicMaterial({ 
       color: new THREE.Color(logoColor),
-      linewidth: 2,
-      opacity: 0.8,
+      linewidth: 4, // Aumentado de 2 a 4 (nota: hay un límite en WebGL para el ancho de línea)
+      opacity: 0.9, // Aumentado de 0.8 a 0.9 para mayor visibilidad
       transparent: true
     });
     
-    // Material para los pulsos de energía
-    const pulseMaterial = new THREE.MeshBasicMaterial({
+    // Material para los pulsos de energía (más brillantes)
+    const pulseMaterial = new THREE.MeshPhysicalMaterial({
       color: new THREE.Color(logoColor),
       transparent: true,
-      opacity: 0.7
+      opacity: 0.9, // Aumentado de 0.7 a 0.9
+      emissive: new THREE.Color(logoColor),
+      emissiveIntensity: 0.8, // Alta intensidad para efecto brillante
+      roughness: 0.1,
+      metalness: 0.9,
+      clearcoat: 1.0, // Efecto de capa brillante
+      clearcoatRoughness: 0.1
     });
 
     // Create center node (larger sphere) con geometría más compleja
-    const centerGeometry = new THREE.SphereGeometry(15, 32, 32);
+    const centerGeometry = new THREE.SphereGeometry(20, 32, 32); // Aumentado de 15 a 20
     const center = new THREE.Mesh(centerGeometry, centerNodeMaterial);
     centerNode.current = center;
     group.add(center);
     
     // Añadir un halo alrededor del nodo central
-    const haloGeometry = new THREE.SphereGeometry(17, 32, 32);
+    const haloGeometry = new THREE.SphereGeometry(24, 32, 32); // Aumentado de 17 a 24
     const haloMaterial = new THREE.MeshBasicMaterial({
       color: new THREE.Color(logoColor),
       transparent: true,
@@ -187,18 +193,18 @@ export default function HyperquantumLogo3D({
       connectorLines.current.push(line);
       group.add(line);
       
-      // Create endpoint node
-      const nodeGeometry = new THREE.SphereGeometry(7.5, 24, 24);
+      // Create endpoint node (más grueso)
+      const nodeGeometry = new THREE.SphereGeometry(12, 24, 24); // Aumentado de 7.5 a 12
       const node = new THREE.Mesh(nodeGeometry, nodeMaterial);
       node.position.copy(position);
       mainNodes.current.push(node);
       group.add(node);
       
-      // Crear objetos para los pulsos de energía
-      const pulseGeometry = new THREE.SphereGeometry(3, 16, 16);
+      // Crear objetos para los pulsos de energía (más grandes y brillantes)
+      const pulseGeometry = new THREE.SphereGeometry(5, 16, 16); // Aumentado de 3 a 5
       const pulse = new THREE.Mesh(pulseGeometry, pulseMaterial.clone());
       pulse.position.copy(new THREE.Vector3(0, 0, 0)); // Inicia en el centro
-      pulse.scale.set(0.1, 0.1, 0.1); // Inicialmente pequeño
+      pulse.scale.set(0.2, 0.2, 0.2); // Aumentado de 0.1 a 0.2 para que sea inicialmente más visible
       pulse.userData = { 
         path: position.clone(),
         distance: 0,
@@ -233,9 +239,9 @@ export default function HyperquantumLogo3D({
       new THREE.Vector3(40, -90, 0),
     ];
 
-    // Create small nodes with more complex geometry
+    // Create small nodes with more complex geometry (más gruesos)
     smallNodePositions.forEach(position => {
-      const smallNodeGeometry = new THREE.SphereGeometry(4, 16, 16);
+      const smallNodeGeometry = new THREE.SphereGeometry(6.5, 16, 16); // Aumentado de 4 a 6.5
       const smallNode = new THREE.Mesh(smallNodeGeometry, smallNodeMaterial);
       smallNode.position.copy(position);
       // Guardar posición original como userData para animaciones
