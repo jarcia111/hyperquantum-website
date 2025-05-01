@@ -30,8 +30,8 @@ export default function Footer() {
   return (
     <footer className="bg-[#1B1F3B] text-white pt-8 sm:pt-10 md:pt-14 pb-4 sm:pb-6 md:pb-8">
       <div className="container mx-auto px-3 sm:px-4 lg:px-6">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mb-6 sm:mb-8 md:mb-10">
-          <div className="col-span-2 sm:col-span-3 md:col-span-2">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-6 sm:mb-8 md:mb-10">
+          <div className="col-span-2 sm:col-span-1 md:col-span-2">
             <div className="flex items-center justify-center mb-3 md:mb-4">
               <LogoAnimation small className="h-8 sm:h-9 md:h-10 w-auto" color="white" />
               <span className="ml-1.5 sm:ml-2 md:ml-3 text-lg sm:text-xl md:text-2xl font-semibold font-poppins">HYPERQUANTUM</span>
@@ -75,21 +75,7 @@ export default function Footer() {
             </div>
           </div>
           
-          <div className="col-span-1 text-center">
-            <h4 className="text-sm sm:text-base md:text-lg font-semibold font-poppins mb-2 sm:mb-3 md:mb-4">Enlaces rápidos</h4>
-            <ul className="space-y-1 sm:space-y-2 md:space-y-3">
-              {quickLinks.map((link, index) => (
-                <li key={index}>
-                  <a 
-                    href={link.href} 
-                    className="text-white/70 hover:text-[#00D1FF] transition-colors text-xs sm:text-sm md:text-base"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Enlaces rápidos ocultos a petición del cliente */}
           
           <div className="col-span-1 text-center">
             <h4 className="text-sm sm:text-base md:text-lg font-semibold font-poppins mb-2 sm:mb-3 md:mb-4">Legal</h4>
