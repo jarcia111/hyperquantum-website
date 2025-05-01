@@ -5,6 +5,7 @@ import { Cpu, Server, Database, Code, Network, Lock, Workflow, Braces, FileCode,
 interface HologramEffectProps {
   className?: string;
   interval?: number; // Intervalo entre hologramas en ms
+  isMobile?: boolean; // Indicador si estamos en dispositivo móvil
 }
 
 // Elementos técnicos que aparecerán en el holograma
@@ -51,7 +52,7 @@ const techElements = [
   }
 ];
 
-export default function HologramEffect({ className = "", interval = 10000 }: HologramEffectProps) {
+export default function HologramEffect({ className = "", interval = 10000, isMobile = false }: HologramEffectProps) {
   const [activeHologram, setActiveHologram] = useState<boolean>(false);
   const [currentElement, setCurrentElement] = useState<number>(0);
   const timerRef = useRef<number | null>(null);
@@ -98,34 +99,58 @@ export default function HologramEffect({ className = "", interval = 10000 }: Hol
             exit={{ opacity: 0, scale: 1.5 }}
             transition={{ duration: 0.8 }}
           >
-            {/* Anillos holográficos */}
-            <motion.div 
-              className="absolute w-[300px] h-[300px] rounded-full border-2 border-[#00D1FF]/40"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1.5 }}
-              exit={{ opacity: 0, scale: 2 }}
-              transition={{ duration: 1.5, ease: "easeOut" }}
-            />
-            <motion.div 
-              className="absolute w-[400px] h-[400px] rounded-full border-2 border-[#00D1FF]/30"
-              initial={{ opacity: 0, scale: 0.7 }}
-              animate={{ opacity: 1, scale: 1.8 }}
-              exit={{ opacity: 0, scale: 2.5 }}
-              transition={{ duration: 2, ease: "easeOut", delay: 0.2 }}
-            />
-            <motion.div 
-              className="absolute w-[500px] h-[500px] rounded-full border border-[#00D1FF]/20"
-              initial={{ opacity: 0, scale: 0.6 }}
-              animate={{ opacity: 0.8, scale: 2 }}
-              exit={{ opacity: 0, scale: 3 }}
-              transition={{ duration: 2.5, ease: "easeOut", delay: 0.4 }}
-            />
+            {/* Anillos holográficos - tamaño reducido en móvil */}
+            {!isMobile && (
+              <>
+                <motion.div 
+                  className="absolute w-[300px] h-[300px] rounded-full border-2 border-[#00D1FF]/40"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1.5 }}
+                  exit={{ opacity: 0, scale: 2 }}
+                  transition={{ duration: 1.5, ease: "easeOut" }}
+                />
+                <motion.div 
+                  className="absolute w-[400px] h-[400px] rounded-full border-2 border-[#00D1FF]/30"
+                  initial={{ opacity: 0, scale: 0.7 }}
+                  animate={{ opacity: 1, scale: 1.8 }}
+                  exit={{ opacity: 0, scale: 2.5 }}
+                  transition={{ duration: 2, ease: "easeOut", delay: 0.2 }}
+                />
+                <motion.div 
+                  className="absolute w-[500px] h-[500px] rounded-full border border-[#00D1FF]/20"
+                  initial={{ opacity: 0, scale: 0.6 }}
+                  animate={{ opacity: 0.8, scale: 2 }}
+                  exit={{ opacity: 0, scale: 3 }}
+                  transition={{ duration: 2.5, ease: "easeOut", delay: 0.4 }}
+                />
+              </>
+            )}
+            
+            {/* Versión móvil - anillos más pequeños */}
+            {isMobile && (
+              <>
+                <motion.div 
+                  className="absolute w-[180px] h-[180px] rounded-full border border-[#00D1FF]/40"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 0.8, scale: 1.2 }}
+                  exit={{ opacity: 0, scale: 1.5 }}
+                  transition={{ duration: 1.5, ease: "easeOut" }}
+                />
+                <motion.div 
+                  className="absolute w-[220px] h-[220px] rounded-full border border-[#00D1FF]/30"
+                  initial={{ opacity: 0, scale: 0.7 }}
+                  animate={{ opacity: 0.7, scale: 1.3 }}
+                  exit={{ opacity: 0, scale: 1.8 }}
+                  transition={{ duration: 2, ease: "easeOut", delay: 0.2 }}
+                />
+              </>
+            )}
             
             {/* Paneles de información - Responsivos */}
-            <div className="relative flex flex-col md:flex-row gap-4 items-start max-w-md md:max-w-none">
+            <div className={`relative flex flex-col md:flex-row gap-4 items-start max-w-md md:max-w-none ${isMobile ? 'scale-90' : ''}`}>
               {/* Panel principal */}
               <motion.div 
-                className="bg-black/80 backdrop-blur-md border border-[#00D1FF]/50 p-3 sm:p-4 rounded-lg shadow-lg shadow-[#00D1FF]/20 w-full md:w-[320px]"
+                className={`bg-black/80 backdrop-blur-md border border-[#00D1FF]/50 rounded-lg shadow-lg shadow-[#00D1FF]/20 w-full md:w-[320px] ${isMobile ? 'p-2.5' : 'p-3 sm:p-4'}`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
@@ -138,8 +163,9 @@ export default function HologramEffect({ className = "", interval = 10000 }: Hol
                   </h4>
                 </div>
                 
+                {/* En móvil solo mostramos una línea de código para simplificar */}
                 <div className="bg-[#1B1F3B]/90 rounded p-1.5 sm:p-2 font-mono text-[10px] sm:text-xs text-[#00D1FF] overflow-hidden">
-                  {techElements[currentElement].code.split('\n').map((line, idx) => (
+                  {techElements[currentElement].code.split('\n').slice(0, isMobile ? 1 : 3).map((line, idx) => (
                     <motion.div 
                       key={idx}
                       initial={{ opacity: 0, x: -10 }}
@@ -154,40 +180,42 @@ export default function HologramEffect({ className = "", interval = 10000 }: Hol
                 </div>
               </motion.div>
               
-              {/* Indicadores secundarios */}
-              <motion.div 
-                className="flex flex-col gap-2"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 20 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-              >
-                <div className="bg-black/70 backdrop-blur-sm border border-[#00D1FF]/30 px-3 py-2 rounded-md shadow-lg shadow-[#00D1FF]/10">
-                  <div className="flex items-center gap-2">
-                    <FileCode className="text-[#00D1FF] h-4 w-4" />
-                    <span className="text-[#00D1FF] font-mono text-xs">Hyperquantum Tech</span>
+              {/* Indicadores secundarios - ocultamos en móvil */}
+              {!isMobile && (
+                <motion.div 
+                  className="flex flex-col gap-2"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 20 }}
+                  transition={{ duration: 0.5, delay: 0.6 }}
+                >
+                  <div className="bg-black/70 backdrop-blur-sm border border-[#00D1FF]/30 px-3 py-2 rounded-md shadow-lg shadow-[#00D1FF]/10">
+                    <div className="flex items-center gap-2">
+                      <FileCode className="text-[#00D1FF] h-4 w-4" />
+                      <span className="text-[#00D1FF] font-mono text-xs">Hyperquantum Tech</span>
+                    </div>
+                    <div className="mt-1 flex items-center gap-1">
+                      <ChevronRight className="text-[#00D1FF] h-3 w-3" />
+                      <span className="text-[#00D1FF]/80 font-mono text-[10px]">Sistema autónomo</span>
+                    </div>
                   </div>
-                  <div className="mt-1 flex items-center gap-1">
-                    <ChevronRight className="text-[#00D1FF] h-3 w-3" />
-                    <span className="text-[#00D1FF]/80 font-mono text-[10px]">Sistema autónomo</span>
+                  
+                  <div className="bg-black/70 backdrop-blur-sm border border-[#00D1FF]/30 px-3 py-2 rounded-md shadow-lg shadow-[#00D1FF]/10">
+                    <div className="flex justify-between items-center">
+                      <span className="text-[#00D1FF] font-mono text-xs">Rendimiento</span>
+                      <span className="text-[#00D1FF] font-mono text-xs">98.7%</span>
+                    </div>
+                    <div className="w-full h-1 bg-[#1B1F3B] rounded-full mt-1 overflow-hidden">
+                      <motion.div 
+                        className="h-full bg-[#00D1FF]"
+                        initial={{ width: 0 }}
+                        animate={{ width: "98.7%" }}
+                        transition={{ duration: 1 }}
+                      />
+                    </div>
                   </div>
-                </div>
-                
-                <div className="bg-black/70 backdrop-blur-sm border border-[#00D1FF]/30 px-3 py-2 rounded-md shadow-lg shadow-[#00D1FF]/10">
-                  <div className="flex justify-between items-center">
-                    <span className="text-[#00D1FF] font-mono text-xs">Rendimiento</span>
-                    <span className="text-[#00D1FF] font-mono text-xs">98.7%</span>
-                  </div>
-                  <div className="w-full h-1 bg-[#1B1F3B] rounded-full mt-1 overflow-hidden">
-                    <motion.div 
-                      className="h-full bg-[#00D1FF]"
-                      initial={{ width: 0 }}
-                      animate={{ width: "98.7%" }}
-                      transition={{ duration: 1 }}
-                    />
-                  </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              )}
             </div>
           </motion.div>
         )}
