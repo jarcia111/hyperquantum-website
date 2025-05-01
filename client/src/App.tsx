@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import SEO from "@/components/SEO";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 function Router() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <SEO />
         <Toaster />
         <Router />
+        <WhatsAppButton />
       </TooltipProvider>
     </QueryClientProvider>
   );
