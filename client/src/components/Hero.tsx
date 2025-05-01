@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import LogoAnimation from "./LogoAnimation";
 import HyperquantumLogo3D from "./HyperquantumLogo3D";
+import { useDeviceSize } from "../hooks/use-device-size";
 
 export default function Hero() {
+  const { isMobile, isTablet } = useDeviceSize();
   return (
     <section className="relative overflow-hidden gradient-bg text-white py-16 sm:py-20 md:py-24">
       <div className="absolute inset-0" aria-hidden="true">
@@ -107,25 +109,28 @@ export default function Hero() {
           </motion.div>
           
           <motion.div 
-            className="w-9/12 sm:w-8/12 md:w-5/12 flex justify-center pt-10 md:pt-0 pb-6 md:pb-0"
+            className="w-10/12 sm:w-8/12 md:w-5/12 flex justify-center pt-10 md:pt-0 pb-8 md:pb-0"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
           >
-            <div className="relative flex flex-col items-center justify-center">
+            <div className="relative flex flex-col items-center justify-center w-full">
               {/* Fondo con efecto de brillo */}
               <div className="absolute inset-0 bg-[#00D1FF]/20 rounded-full blur-3xl animate-pulse-slow"></div>
               
               {/* Contenedor estructural con espaciado adecuado */}
-              <div className="relative flex flex-col items-center justify-center pb-12">
-                {/* Logo 3D posicionado más arriba */}
-                <div className="relative -top-10 w-72 h-72 flex items-center justify-center">
-                  <HyperquantumLogo3D size={260} logoColor="#00D1FF" />
+              <div className="relative flex flex-col items-center justify-center pb-12 w-full">
+                {/* Logo 3D posicionado más arriba - tamaño adaptativo según dispositivo */}
+                <div className="relative -top-6 sm:-top-8 md:-top-10 w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 flex items-center justify-center">
+                  <HyperquantumLogo3D 
+                    size={isMobile ? 220 : isTablet ? 240 : 260} 
+                    logoColor="#00D1FF" 
+                  />
                 </div>
                 
-                {/* Texto HYPERQUANTUM posicionado en la parte inferior */}
+                {/* Texto HYPERQUANTUM posicionado en la parte inferior - responsive */}
                 <motion.div 
-                  className="text-white text-2xl font-bold font-poppins tracking-[0.25em] text-center absolute bottom-0 z-10"
+                  className="text-white text-xl sm:text-2xl font-bold font-poppins tracking-[0.2em] sm:tracking-[0.25em] text-center absolute bottom-0 z-10 w-full"
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5, duration: 0.5 }}

@@ -23,11 +23,11 @@ export default function Navbar() {
       scrolled ? "backdrop-blur-md bg-secondary/80 border-b border-accent-gray/10" : "bg-transparent"
     )}>
       <div className="flex">
-        {/* Logo blanco en fondo negro */}
-        <div className="bg-white py-3 sm:py-4 min-w-[150px] sm:min-w-[200px]">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
-            <Link href="/" className="flex items-center space-x-2">
-              <Logo small color="black" className="h-9 w-9 sm:h-10 sm:w-10 md:h-11 md:w-11" />
+        {/* Logo blanco en fondo negro - ajustado para mejor responsividad */}
+        <div className="bg-white py-2 sm:py-3 md:py-4 min-w-[120px] sm:min-w-[150px] md:min-w-[180px]">
+          <div className="container mx-auto px-2 sm:px-4 flex justify-center">
+            <Link href="/" className="flex items-center space-x-1 sm:space-x-2">
+              <Logo small color="black" className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10" />
             </Link>
           </div>
         </div>
