@@ -120,10 +120,10 @@ export default function Hero() {
               <div className="absolute inset-0 bg-[#00D1FF]/20 rounded-full blur-3xl animate-pulse-slow"></div>
               
               {/* Efecto de holograma que proyecta información técnica - posicionado para evitar solapamiento */}
-              <div className={`absolute inset-0 z-20 ${isMobile ? 'translate-y-[60%]' : 'translate-y-0'}`}>
+              <div className={`absolute inset-0 z-20 ${isMobile ? 'translate-y-[70%] scale-[0.85]' : 'translate-y-0'}`}>
                 <HologramEffect 
                   className="w-full h-full"
-                  interval={isMobile ? 18000 : 12000} // Intervalo más largo en móviles
+                  interval={isMobile ? 25000 : 15000} // Intervalo más largo en móviles
                   isMobile={isMobile}
                 />
               </div>

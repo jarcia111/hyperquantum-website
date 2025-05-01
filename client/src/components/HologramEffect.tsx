@@ -68,10 +68,10 @@ export default function HologramEffect({ className = "", interval = 10000, isMob
     // Muestra el holograma
     setActiveHologram(true);
     
-    // Oculta el holograma después de 5 segundos
+    // Oculta el holograma después de 3 segundos (tiempo reducido)
     setTimeout(() => {
       setActiveHologram(false);
-    }, 5000);
+    }, 3000);
   };
   
   useEffect(() => {
@@ -96,8 +96,8 @@ export default function HologramEffect({ className = "", interval = 10000, isMob
             className="absolute inset-0 flex items-center justify-center"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 1.5 }}
-            transition={{ duration: 0.8 }}
+            exit={{ opacity: 0, scale: 1.3 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
           >
             {/* Anillos holográficos - tamaño reducido en móvil */}
             {!isMobile && (
@@ -126,22 +126,22 @@ export default function HologramEffect({ className = "", interval = 10000, isMob
               </>
             )}
             
-            {/* Versión móvil - anillos más pequeños */}
+            {/* Versión móvil - anillos más pequeños y transiciones más rápidas */}
             {isMobile && (
               <>
                 <motion.div 
-                  className="absolute w-[180px] h-[180px] rounded-full border border-[#00D1FF]/40"
+                  className="absolute w-[160px] h-[160px] rounded-full border border-[#00D1FF]/40"
                   initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 0.8, scale: 1.2 }}
-                  exit={{ opacity: 0, scale: 1.5 }}
-                  transition={{ duration: 1.5, ease: "easeOut" }}
+                  animate={{ opacity: 0.7, scale: 1.1 }}
+                  exit={{ opacity: 0, scale: 1.3 }}
+                  transition={{ duration: 1.2, ease: "easeOut" }}
                 />
                 <motion.div 
-                  className="absolute w-[220px] h-[220px] rounded-full border border-[#00D1FF]/30"
+                  className="absolute w-[200px] h-[200px] rounded-full border border-[#00D1FF]/30"
                   initial={{ opacity: 0, scale: 0.7 }}
-                  animate={{ opacity: 0.7, scale: 1.3 }}
-                  exit={{ opacity: 0, scale: 1.8 }}
-                  transition={{ duration: 2, ease: "easeOut", delay: 0.2 }}
+                  animate={{ opacity: 0.6, scale: 1.2 }}
+                  exit={{ opacity: 0, scale: 1.4 }}
+                  transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
                 />
               </>
             )}
