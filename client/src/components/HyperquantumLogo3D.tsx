@@ -48,19 +48,35 @@ export default function HyperquantumLogo3D({
     const group = new THREE.Group();
     logoGroup.current = group;
     
-    // Common material for all elements
-    const material = new THREE.MeshBasicMaterial({ 
+    // Add lights for better 3D appearance
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(1, 1, 1);
+    scene.current.add(directionalLight);
+    
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    scene.current.add(ambientLight);
+    
+    // Create materials for nodes
+    const nodeMaterial = new THREE.MeshPhongMaterial({ 
       color: new THREE.Color(logoColor),
       transparent: true,
-      opacity: 0.9
+      opacity: 0.9,
+      shininess: 100,
+      specular: new THREE.Color(0xffffff)
+    });
+    
+    // Create material for lines
+    const lineMaterial = new THREE.LineBasicMaterial({ 
+      color: new THREE.Color(logoColor),
+      linewidth: 2
     });
 
-    // Center node (larger sphere)
+    // Create center node (larger sphere)
     const centerGeometry = new THREE.SphereGeometry(15, 32, 32);
-    const centerNode = new THREE.Mesh(centerGeometry, material);
+    const centerNode = new THREE.Mesh(centerGeometry, nodeMaterial);
     group.add(centerNode);
 
-    // Add connections and nodes in 3D space - to match the reference image
+    // Define connection points - resembling the reference image
     const connectionPositions = [
       new THREE.Vector3(0, -150, 20),   // Top
       new THREE.Vector3(120, -80, 0),   // Top-right
@@ -72,30 +88,26 @@ export default function HyperquantumLogo3D({
       new THREE.Vector3(-80, -100, 0),  // Top-left
     ];
 
-    // Add main connection lines and endpoint nodes
+    // Create connection lines and endpoint nodes
     connectionPositions.forEach(position => {
-      // Create line
+      // Create line from center to endpoint
       const linePoints = [
         new THREE.Vector3(0, 0, 0),
         position.clone()
       ];
       
       const lineGeometry = new THREE.BufferGeometry().setFromPoints(linePoints);
-      const lineMaterial = new THREE.LineBasicMaterial({ 
-        color: new THREE.Color(logoColor),
-        linewidth: 3
-      });
       const line = new THREE.Line(lineGeometry, lineMaterial);
       group.add(line);
       
       // Create endpoint node
       const nodeGeometry = new THREE.SphereGeometry(7.5, 16, 16);
-      const node = new THREE.Mesh(nodeGeometry, material);
+      const node = new THREE.Mesh(nodeGeometry, nodeMaterial);
       node.position.copy(position);
       group.add(node);
     });
 
-    // Add smaller nodes around the center to match the reference image
+    // Add smaller nodes around the center - matching reference image
     const smallNodePositions = [
       // Inner small nodes
       new THREE.Vector3(30, -40, 10),
@@ -117,9 +129,10 @@ export default function HyperquantumLogo3D({
       new THREE.Vector3(40, -90, 0),
     ];
 
+    // Create small nodes
     smallNodePositions.forEach(position => {
       const smallNodeGeometry = new THREE.SphereGeometry(4, 12, 12);
-      const smallNode = new THREE.Mesh(smallNodeGeometry, material);
+      const smallNode = new THREE.Mesh(smallNodeGeometry, nodeMaterial);
       smallNode.position.copy(position);
       group.add(smallNode);
     });
@@ -129,12 +142,8 @@ export default function HyperquantumLogo3D({
     
     // Scale the logo to fit in the container
     group.scale.set(0.5, 0.5, 0.5);
-
-    // Add ambient light
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-    scene.current.add(ambientLight);
     
-    // Handle resizing
+    // Handle window resize
     const handleResize = () => {
       if (!containerRef.current || !renderer.current || !camera.current) return;
       
@@ -149,16 +158,14 @@ export default function HyperquantumLogo3D({
     
     // Initial sizing
     handleResize();
-    
-    // Add resize listener
     window.addEventListener('resize', handleResize);
     
-    // Animation loop - rotate the logo gently
+    // Animation loop - subtle rotation like Resend logo
     const animate = () => {
       frameId.current = requestAnimationFrame(animate);
       
       if (logoGroup.current) {
-        // Rotate logo very subtly on each frame - similar to Resend.com
+        // Sine wave based rotation for smooth, natural movement
         logoGroup.current.rotation.x = Math.sin(Date.now() * 0.0003) * 0.1;
         logoGroup.current.rotation.y = Math.cos(Date.now() * 0.0005) * 0.15;
         logoGroup.current.rotation.z = Math.sin(Date.now() * 0.0002) * 0.05;
