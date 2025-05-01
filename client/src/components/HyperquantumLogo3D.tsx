@@ -26,6 +26,7 @@ export default function HyperquantumLogo3D({
   const smallNodes = useRef<THREE.Mesh[]>([]);
   const energyPulses = useRef<THREE.Mesh[]>([]);
   const pulseTimers = useRef<number[]>([]);
+  const connectionPositions = useRef<THREE.Vector3[]>([]);
   
   // Estado para controlar cuándo iniciar los pulsos
   const [isInitialized, setIsInitialized] = useState(false);
@@ -153,7 +154,7 @@ export default function HyperquantumLogo3D({
     group.add(halo);
 
     // Define connection points - ajustados para mayor dinamismo
-    const connectionPositions = [
+    const positions = [
       new THREE.Vector3(0, -150, 20),    // Top
       new THREE.Vector3(120, -80, 0),    // Top-right
       new THREE.Vector3(150, 30, -20),   // Right
@@ -163,9 +164,12 @@ export default function HyperquantumLogo3D({
       new THREE.Vector3(-120, -20, -20), // Left
       new THREE.Vector3(-80, -100, 0),   // Top-left
     ];
+    
+    // Guardar las posiciones en la referencia para uso en la animación
+    connectionPositions.current = positions;
 
     // Create connection lines and endpoint nodes
-    connectionPositions.forEach((position, index) => {
+    positions.forEach((position, index) => {
       // Create line from center to endpoint con geometría tubular
       const curve = new THREE.LineCurve3(
         new THREE.Vector3(0, 0, 0),
@@ -295,64 +299,111 @@ export default function HyperquantumLogo3D({
       });
     }, 500);
     
-    // Animation loop con movimientos más dinámicos
+    // Animation loop con movimientos más dinámicos y giratorios
     const animate = () => {
       frameId.current = requestAnimationFrame(animate);
       
       if (logoGroup.current) {
-        // Rotación más dinámica
+        // Rotación más dinámica con movimiento circular más pronunciado
         const time = Date.now() * 0.001; // convertir a segundos
-        logoGroup.current.rotation.x = Math.sin(time * 0.3) * 0.15;
-        logoGroup.current.rotation.y = Math.cos(time * 0.4) * 0.2;
-        logoGroup.current.rotation.z = Math.sin(time * 0.2) * 0.08;
+        
+        // Rotación continua y fluida en el eje Y (como un tiovivo)
+        logoGroup.current.rotation.y += 0.005; // Rotación constante
+        
+        // Oscilación suave en X y Z para dar sensación de balance natural
+        logoGroup.current.rotation.x = Math.sin(time * 0.3) * 0.2;
+        logoGroup.current.rotation.z = Math.sin(time * 0.2) * 0.1;
+        
+        // Añadir un movimiento circular global al logo completo
+        const circleRadius = 10;
+        const circleSpeed = 0.2;
+        logoGroup.current.position.x = Math.sin(time * circleSpeed) * circleRadius;
+        logoGroup.current.position.y = Math.cos(time * circleSpeed) * circleRadius;
         
         // Animación de "respiración" para el nodo central
         if (centerNode.current) {
-          const breathScale = 1 + Math.sin(time * 1.5) * 0.04;
+          const breathScale = 1 + Math.sin(time * 1.5) * 0.08; // Respiración más pronunciada
           centerNode.current.scale.set(breathScale, breathScale, breathScale);
           
-          // Variación en la intensidad emisiva del material
+          // Variación en la intensidad emisiva del material para efecto de pulso energético
           const material = centerNode.current.material as THREE.MeshPhysicalMaterial;
-          material.emissiveIntensity = 0.4 + Math.sin(time * 2) * 0.2;
+          material.emissiveIntensity = 0.5 + Math.sin(time * 2) * 0.3;
         }
         
-        // Animar nodos principales para que pulsen sutilmente
+        // Animar nodos principales para que pulsen y giren sutilmente en sus propios ejes
         mainNodes.current.forEach((node, i) => {
-          const nodeScale = 1 + Math.sin(time * 1.2 + i * 0.2) * 0.08;
+          // Escala pulsante
+          const nodeScale = 1 + Math.sin(time * 1.2 + i * 0.2) * 0.12;
           node.scale.set(nodeScale, nodeScale, nodeScale);
+          
+          // Rotación individual de cada nodo
+          node.rotation.x += 0.003 + (i % 3) * 0.001;
+          node.rotation.y += 0.004 + (i % 2) * 0.002;
+          
+          // Movimiento circular orbital adicional
+          const orbitRadius = 3;
+          const orbitSpeed = 0.3 + (i * 0.05);
+          const originalPosition = connectionPositions.current[i];
+          const orbitPhase = (i * Math.PI / 4) + time * orbitSpeed;
+          
+          node.position.x = originalPosition.x + Math.sin(orbitPhase) * orbitRadius;
+          node.position.y = originalPosition.y + Math.cos(orbitPhase) * orbitRadius;
+          node.position.z = originalPosition.z + Math.sin(orbitPhase * 1.5) * orbitRadius * 0.5;
           
           // Variación en la intensidad emisiva
           const nodeMat = node.material as THREE.MeshPhysicalMaterial;
-          nodeMat.emissiveIntensity = 0.2 + Math.sin(time * 1.5 + i * 0.3) * 0.15;
+          nodeMat.emissiveIntensity = 0.3 + Math.sin(time * 1.5 + i * 0.3) * 0.2;
         });
         
-        // Movimiento fluido de los nodos pequeños
+        // Actualizar las líneas de conexión para que sigan a los nodos en movimiento
+        connectorLines.current.forEach((line, i) => {
+          // Obtener la posición actualizada del nodo principal
+          const nodePosition = mainNodes.current[i].position.clone();
+          
+          // Actualizar la geometría de la línea
+          const linePoints = [
+            new THREE.Vector3(0, 0, 0), // Centro
+            nodePosition // Nodo en movimiento
+          ];
+          
+          const lineGeometry = new THREE.BufferGeometry().setFromPoints(linePoints);
+          line.geometry.dispose(); // Limpiar geometría anterior
+          line.geometry = lineGeometry;
+          
+          // Efecto de pulso en la opacidad de las líneas
+          const lineMat = line.material as THREE.LineBasicMaterial;
+          lineMat.opacity = 0.6 + Math.sin(time * 1.2 + i * 0.25) * 0.35;
+        });
+        
+        // Movimiento orbital más pronunciado para los nodos pequeños
         smallNodes.current.forEach((node, i) => {
           const originalPos = node.userData.originalPos;
           const phaseOffset = node.userData.phaseOffset;
           const amplitude = node.userData.amplitude;
           
-          // Movimiento orbital sutil
-          node.position.x = originalPos.x + Math.sin(time * 0.8 + phaseOffset) * amplitude * 3;
-          node.position.y = originalPos.y + Math.cos(time * 0.7 + phaseOffset) * amplitude * 3;
-          node.position.z = originalPos.z + Math.sin(time * 0.5 + phaseOffset) * amplitude * 2;
+          // Movimiento orbital más energético
+          const orbitX = Math.sin(time * 1.2 + phaseOffset) * amplitude * 6;
+          const orbitY = Math.cos(time * 1.0 + phaseOffset) * amplitude * 6;
+          const orbitZ = Math.sin(time * 0.8 + phaseOffset * 2) * amplitude * 4;
           
-          // Pulsar tamaño
-          const smallNodeScale = 1 + Math.sin(time * 2 + i * 0.4) * 0.15;
+          node.position.x = originalPos.x + orbitX;
+          node.position.y = originalPos.y + orbitY;
+          node.position.z = originalPos.z + orbitZ;
+          
+          // Rotación individual de cada nodo pequeño
+          node.rotation.x += 0.01;
+          node.rotation.y += 0.008;
+          
+          // Pulsar tamaño con efecto más vibrante
+          const smallNodeScale = 1 + Math.sin(time * 3 + i * 0.4) * 0.25;
           node.scale.set(smallNodeScale, smallNodeScale, smallNodeScale);
         });
         
-        // Animar las líneas de conexión (pulso sutil)
-        connectorLines.current.forEach((line, i) => {
-          const lineMat = line.material as THREE.LineBasicMaterial;
-          lineMat.opacity = 0.6 + Math.sin(time * 1.2 + i * 0.25) * 0.2;
-        });
-        
         // Animar los pulsos de energía que viajan por las líneas
-        energyPulses.current.forEach(pulse => {
+        energyPulses.current.forEach((pulse, pulseIndex) => {
           if (!pulse.userData.active) return;
           
-          const path = pulse.userData.path;
+          const path = mainNodes.current[pulseIndex].position.clone(); // Usar la posición actualizada
           const speed = pulse.userData.speed;
           
           // Avanzar a lo largo de la línea
@@ -363,24 +414,24 @@ export default function HyperquantumLogo3D({
             pulse.visible = false;
             pulse.userData.active = false;
           } else {
-            // Calcular posición a lo largo de la línea
+            // Calcular posición a lo largo de la línea, ajustando a la posición actual del nodo
             const x = pulse.userData.distance * path.x;
             const y = pulse.userData.distance * path.y;
             const z = pulse.userData.distance * path.z;
             
             pulse.position.set(x, y, z);
             
-            // Efecto de "estela" con opacidad
+            // Efecto de "estela" con opacidad más brillante
             const pulseMat = pulse.material as THREE.MeshBasicMaterial;
-            pulseMat.opacity = 0.8 - pulse.userData.distance * 0.3;
+            pulseMat.opacity = 0.9 - pulse.userData.distance * 0.3;
             
-            // Efecto de que el pulso se alarga a medida que avanza
-            const stretching = 1 + pulse.userData.distance * 0.8;
+            // Efecto de que el pulso se alarga y brilla más a medida que avanza
+            const stretching = 1 + pulse.userData.distance * 1.2;
             const normalDirection = new THREE.Vector3().copy(path).normalize();
             pulse.scale.set(
-              0.7 * (1 + pulse.userData.distance * 0.5), 
-              0.7 * (1 + pulse.userData.distance * 0.5),
-              0.7 * stretching
+              0.8 * (1 + pulse.userData.distance * 0.7), 
+              0.8 * (1 + pulse.userData.distance * 0.7),
+              0.8 * stretching
             );
             
             // Orientar el pulso a lo largo de la dirección
