@@ -1,5 +1,7 @@
+
 import { motion } from "framer-motion";
 import { Clipboard, MessageSquare, BarChart3, Layout, BookOpen, CalendarClock } from "lucide-react";
+import { useDeviceSize } from "../hooks/use-device-size";
 
 const services = [
   {
@@ -30,6 +32,8 @@ const services = [
 ];
 
 export default function Services() {
+  const { isMobile, isTablet } = useDeviceSize();
+  
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -55,9 +59,15 @@ export default function Services() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-poppins mb-4 text-[#00D1FF]">NUESTROS SERVICIOS</h2>
-          <p className="text-2xl md:text-3xl font-semibold font-poppins mb-4 text-primary">Soluciones inteligentes y agentes de IA para optimizar tu operación</p>
-          <p className="text-primary/70 text-lg">Automatizamos los procesos que consumen tu tiempo y recursos, para que puedas enfocarte en lo que realmente importa: hacer crecer tu negocio.</p>
+          <h2 className={`font-bold font-poppins mb-3 sm:mb-4 text-[#00D1FF] ${isMobile ? "text-3xl" : isTablet ? "text-4xl" : "text-5xl"}`}>
+            NUESTROS SERVICIOS
+          </h2>
+          <p className={`font-semibold font-poppins mb-3 sm:mb-4 text-primary ${isMobile ? "text-xl" : isTablet ? "text-2xl" : "text-3xl"}`}>
+            Soluciones inteligentes y agentes de IA para optimizar tu operación
+          </p>
+          <p className={`text-primary/70 ${isMobile ? "text-base" : "text-lg"}`}>
+            Automatizamos los procesos que consumen tu tiempo y recursos, para que puedas enfocarte en lo que realmente importa: hacer crecer tu negocio.
+          </p>
         </motion.div>
         
         <motion.div 
@@ -73,14 +83,20 @@ export default function Services() {
               className="group bg-secondary rounded-xl p-4 sm:p-5 md:p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-accent-gray/10 hover:border-[#00D1FF]/30"
               variants={item}
             >
-              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-primary/5 rounded-xl flex items-center justify-center mb-4 sm:mb-5 md:mb-6 group-hover:bg-[#00D1FF]/10 transition-colors duration-300">
-                {service.icon}
+              <div className={`bg-primary/5 rounded-xl flex items-center justify-center mb-3 sm:mb-4 md:mb-5 group-hover:bg-[#00D1FF]/10 transition-colors duration-300 ${isMobile ? "w-10 h-10" : isTablet ? "w-12 h-12" : "w-14 h-14"}`}>
+                <div className={`text-primary group-hover:text-[#00D1FF] transition-colors duration-300 ${isMobile ? "h-5 w-5" : isTablet ? "h-6 w-6" : "h-7 w-7"}`}>
+                  {service.icon}
+                </div>
               </div>
-              <h3 className="text-lg sm:text-xl font-semibold font-poppins mb-2 md:mb-3">{service.title}</h3>
-              <p className="text-primary/70 mb-3 md:mb-4 text-sm md:text-base">{service.description}</p>
-              <a href="#contacto" className="inline-flex items-center text-primary font-medium group-hover:text-[#00D1FF] transition-colors duration-300 text-sm md:text-base">
+              <h3 className={`font-semibold font-poppins mb-2 ${isMobile ? "text-base" : isTablet ? "text-lg" : "text-xl"}`}>
+                {service.title}
+              </h3>
+              <p className={`text-primary/70 mb-2 sm:mb-3 ${isMobile ? "text-xs" : isTablet ? "text-sm" : "text-base"}`}>
+                {service.description}
+              </p>
+              <a href="#contacto" className={`inline-flex items-center text-primary font-medium group-hover:text-[#00D1FF] transition-colors duration-300 ${isMobile ? "text-xs" : isTablet ? "text-sm" : "text-base"}`}>
                 Conocer más
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className={`ml-1 ${isMobile ? "h-3 w-3" : isTablet ? "h-4 w-4" : "h-5 w-5"}`} viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                 </svg>
               </a>
@@ -98,11 +114,19 @@ export default function Services() {
             
             <div className="relative p-4 sm:p-5 md:p-6 text-white h-full flex flex-col justify-between">
               <div>
-                <h3 className="text-lg sm:text-xl font-semibold font-poppins mb-2 md:mb-3">¿No encuentras lo que buscas?</h3>
-                <p className="text-white/80 mb-3 md:mb-4 text-sm md:text-base">Desarrollamos soluciones personalizadas para los retos específicos de tu negocio.</p>
+                <h3 className={`font-semibold font-poppins mb-2 ${isMobile ? "text-base" : isTablet ? "text-lg" : "text-xl"}`}>
+                  ¿No encuentras lo que buscas?
+                </h3>
+                <p className={`text-white/80 mb-2 sm:mb-3 ${isMobile ? "text-xs" : isTablet ? "text-sm" : "text-base"}`}>
+                  Desarrollamos soluciones personalizadas para los retos específicos de tu negocio.
+                </p>
               </div>
-              <a href="#contacto" className="inline-block bg-white text-[#1B1F3B] font-medium px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg hover:bg-opacity-90 transition-colors duration-300 text-center mt-2 sm:mt-3 md:mt-4 text-sm md:text-base">
-                <CalendarClock className="inline-block mr-1.5 sm:mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+              <a 
+                href="#contacto" 
+                className={`inline-block bg-white text-[#1B1F3B] font-medium rounded-lg hover:bg-opacity-90 transition-colors duration-300 text-center mt-2 sm:mt-3 
+                ${isMobile ? "px-3 py-1.5 text-xs" : isTablet ? "px-4 py-2 text-sm" : "px-5 py-2.5 text-base"}`}
+              >
+                <CalendarClock className={`inline-block ${isMobile ? "mr-1 h-3 w-3" : isTablet ? "mr-1.5 h-4 w-4" : "mr-2 h-5 w-5"}`} />
                 Agenda una llamada
               </a>
             </div>

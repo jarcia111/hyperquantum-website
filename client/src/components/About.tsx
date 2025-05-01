@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Linkedin } from "lucide-react";
 import jesusImage from '/assets/team/jesus_arcia.png';
 import carlosImage from '/assets/team/carlos_uribe.png';
+import { useDeviceSize } from "../hooks/use-device-size";
 
 const teamMembers = [
   {
@@ -19,6 +20,7 @@ const teamMembers = [
 ];
 
 export default function About() {
+  const { isMobile, isTablet } = useDeviceSize();
   return (
     <section id="nosotros" className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -29,9 +31,13 @@ export default function About() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-poppins mb-4 text-primary">NOSOTROS</h2>
-          <p className="text-2xl md:text-3xl font-semibold font-poppins mb-4">Expertos en tecnología con visión humana</p>
-          <p className="text-primary/70 text-lg">
+          <h2 className={`font-bold font-poppins mb-3 sm:mb-4 text-primary ${isMobile ? "text-3xl" : isTablet ? "text-4xl" : "text-5xl"}`}>
+            NOSOTROS
+          </h2>
+          <p className={`font-semibold font-poppins mb-3 sm:mb-4 ${isMobile ? "text-xl" : isTablet ? "text-2xl" : "text-3xl"}`}>
+            Expertos en tecnología con visión humana
+          </p>
+          <p className={`text-primary/70 ${isMobile ? "text-sm" : isTablet ? "text-base" : "text-lg"}`}>
             Somos la agencia líder en Latinoamérica en automatización inteligente para pymes, promoviendo la eficiencia operativa y la competitividad empresarial con tecnología accesible y humana.
           </p>
         </motion.div>
@@ -44,11 +50,13 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-xl md:text-2xl font-semibold font-poppins">Nuestra historia</h3>
-            <p className="text-primary/70 text-sm md:text-base">
+            <h3 className={`font-semibold font-poppins ${isMobile ? "text-lg" : isTablet ? "text-xl" : "text-2xl"}`}>
+              Nuestra historia
+            </h3>
+            <p className={`text-primary/70 ${isMobile ? "text-xs" : isTablet ? "text-sm" : "text-base"}`}>
               Hyperquantum nació de una visión clara: hacer que la tecnología de vanguardia sea accesible para las pequeñas y medianas empresas colombianas. Fundada por expertos en IA y automatización, nuestra agencia combina lo mejor de dos mundos: la potencia de la inteligencia artificial y la calidez del acompañamiento humano.
             </p>
-            <p className="text-primary/70 text-sm md:text-base">
+            <p className={`text-primary/70 ${isMobile ? "text-xs" : isTablet ? "text-sm" : "text-base"}`}>
               Entendemos los desafíos únicos que enfrentan las pymes en su transformación digital, por eso creamos soluciones que realmente funcionan en el contexto local, con implementaciones rápidas y escalabilidad garantizada.
             </p>
             
@@ -96,10 +104,12 @@ export default function About() {
           </motion.div>
         </div>
         
-        <div className="mt-16 sm:mt-20 md:mt-24">
-          <h3 className="text-xl md:text-2xl font-semibold font-poppins text-center mb-8 md:mb-12">Nuestro equipo</h3>
+        <div className="mt-12 sm:mt-16 md:mt-20">
+          <h3 className={`font-semibold font-poppins text-center mb-6 sm:mb-8 md:mb-10 ${isMobile ? "text-lg" : isTablet ? "text-xl" : "text-2xl"}`}>
+            Nuestro equipo
+          </h3>
           
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-12 sm:gap-16 md:gap-24 lg:gap-32">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-8 sm:gap-16 md:gap-24 lg:gap-32">
             {teamMembers.map((member, index) => (
               <motion.div 
                 key={index} 
@@ -109,18 +119,26 @@ export default function About() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className="w-36 h-36 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full bg-secondary mx-auto mb-4 md:mb-5 overflow-hidden shadow-lg">
+                <div className={`bg-secondary mx-auto mb-3 sm:mb-4 rounded-full overflow-hidden shadow-lg ${
+                  isMobile ? "w-28 h-28" : isTablet ? "w-36 h-36" : "w-44 h-44"
+                }`}>
                   <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
                 </div>
-                <h4 className="font-semibold font-poppins text-lg md:text-xl">{member.name}</h4>
-                <p className="text-sm md:text-base text-primary/70 mb-2">{member.role}</p>
+                <h4 className={`font-semibold font-poppins ${isMobile ? "text-base" : isTablet ? "text-lg" : "text-xl"}`}>
+                  {member.name}
+                </h4>
+                <p className={`text-primary/70 mb-2 ${isMobile ? "text-xs" : isTablet ? "text-sm" : "text-base"}`}>
+                  {member.role}
+                </p>
                 <a 
                   href={member.linkedIn} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="inline-flex items-center justify-center w-10 h-10 bg-[#0077B5]/10 hover:bg-[#0077B5]/20 rounded-full transition-colors duration-300"
+                  className={`inline-flex items-center justify-center bg-[#0077B5]/10 hover:bg-[#0077B5]/20 rounded-full transition-colors duration-300 ${
+                    isMobile ? "w-8 h-8" : isTablet ? "w-9 h-9" : "w-10 h-10"
+                  }`}
                 >
-                  <Linkedin className="h-5 w-5 text-[#0077B5]" />
+                  <Linkedin className={`text-[#0077B5] ${isMobile ? "h-4 w-4" : isTablet ? "h-4.5 w-4.5" : "h-5 w-5"}`} />
                 </a>
               </motion.div>
             ))}

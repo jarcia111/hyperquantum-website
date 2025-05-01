@@ -32,36 +32,36 @@ export default function Navbar() {
           </div>
         </div>
         
-        {/* Menú principal */}
+        {/* Menú principal - mejorado para responsive */}
         <div className="flex-1 bg-[#F5F7FA]">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center h-full py-3 sm:py-4">
+          <div className="container mx-auto px-2 sm:px-4 lg:px-6">
+            <div className="flex justify-between items-center h-full py-2 sm:py-3 md:py-4">
               <div className="hidden sm:block">
-                <span className="text-lg sm:text-xl font-bold font-poppins tracking-wider text-primary">
+                <span className="text-base sm:text-lg md:text-xl font-bold font-poppins tracking-wider text-primary truncate">
                   HYPERQUANTUM
                 </span>
               </div>
               
-              {/* Desktop Navigation */}
-              <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
-                <a href="#servicios" className="text-sm lg:text-base text-primary hover:text-[#00D1FF] transition-colors duration-300">
+              {/* Desktop Navigation - espaciado optimizado */}
+              <nav className="hidden md:flex items-center space-x-4 lg:space-x-6 xl:space-x-8">
+                <a href="#servicios" className="text-sm lg:text-base text-primary hover:text-[#00D1FF] transition-colors duration-300 whitespace-nowrap">
                   Servicios
                 </a>
-                <a href="#nosotros" className="text-sm lg:text-base text-primary hover:text-[#00D1FF] transition-colors duration-300">
+                <a href="#nosotros" className="text-sm lg:text-base text-primary hover:text-[#00D1FF] transition-colors duration-300 whitespace-nowrap">
                   Nosotros
                 </a>
-                <a href="#casos" className="text-sm lg:text-base text-primary hover:text-[#00D1FF] transition-colors duration-300">
+                <a href="#casos" className="text-sm lg:text-base text-primary hover:text-[#00D1FF] transition-colors duration-300 whitespace-nowrap">
                   Casos de éxito
                 </a>
-                <a href="#contacto" className="text-sm lg:text-base text-primary hover:text-[#00D1FF] transition-colors duration-300">
+                <a href="#contacto" className="text-sm lg:text-base text-primary hover:text-[#00D1FF] transition-colors duration-300 whitespace-nowrap">
                   Contacto
                 </a>
               </nav>
               
-              {/* Contact Button */}
+              {/* Contact Button - responsive */}
               <a 
                 href="#contacto" 
-                className="hidden md:inline-block bg-[#1B1F3B] hover:bg-[#2A2F57] text-white font-medium text-sm lg:text-base py-2 px-4 lg:px-5 rounded-lg transition-colors duration-300"
+                className="hidden md:inline-block bg-[#1B1F3B] hover:bg-[#2A2F57] text-white font-medium text-xs sm:text-sm lg:text-base py-1.5 sm:py-2 px-3 sm:px-4 lg:px-5 rounded-lg transition-colors duration-300 whitespace-nowrap"
               >
                 Empezar ahora
               </a>
@@ -69,63 +69,63 @@ export default function Navbar() {
           </div>
         </div>
         
-        {/* Botón de hamburguesa en móvil */}
-        <div className="md:hidden flex items-center h-full bg-[#F5F7FA] px-4">
+        {/* Botón de hamburguesa en móvil - mejor responsividad */}
+        <div className="md:hidden flex items-center h-full bg-[#F5F7FA] px-2 sm:px-3">
           <button 
             type="button" 
-            className="text-primary p-1.5 sm:p-2 rounded-md hover:bg-accent-gray/10 transition-colors"
+            className="text-primary p-1 sm:p-1.5 rounded-md hover:bg-accent-gray/10 transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Menú"
           >
             {mobileMenuOpen ? (
-              <X className="h-5 w-5 sm:h-6 sm:w-6" />
+              <X className="h-4 w-4 sm:h-5 sm:w-5" />
             ) : (
-              <Menu className="h-5 w-5 sm:h-6 sm:w-6" />
+              <Menu className="h-4 w-4 sm:h-5 sm:w-5" />
             )}
           </button>
         </div>
       </div>
       
-      {/* Menú móvil desplegable */}
+      {/* Menú móvil desplegable - optimizado */}
       <div 
         className={cn(
-          "md:hidden transition-all duration-300 max-h-[80vh] overflow-y-auto", 
+          "md:hidden transition-all duration-300 max-h-[80vh] overflow-y-auto bg-[#F5F7FA]", 
           mobileMenuOpen ? "opacity-100 max-h-96" : "opacity-0 max-h-0 overflow-hidden"
         )}
       >
-        <div className="px-4 pt-2 pb-4 space-y-2 border-t border-accent-gray/10">
+        <div className="px-3 sm:px-4 pt-1 pb-3 sm:pt-2 sm:pb-4 space-y-1 sm:space-y-2 border-t border-accent-gray/10">
           <a 
             href="#servicios" 
-            className="block py-2.5 px-3 text-primary hover:bg-accent-gray/10 rounded-md" 
+            className="block py-2 sm:py-2.5 px-2 sm:px-3 text-sm sm:text-base text-primary hover:bg-accent-gray/10 rounded-md" 
             onClick={() => setMobileMenuOpen(false)}
           >
             Servicios
           </a>
           <a 
             href="#nosotros" 
-            className="block py-2.5 px-3 text-primary hover:bg-accent-gray/10 rounded-md" 
+            className="block py-2 sm:py-2.5 px-2 sm:px-3 text-sm sm:text-base text-primary hover:bg-accent-gray/10 rounded-md" 
             onClick={() => setMobileMenuOpen(false)}
           >
             Nosotros
           </a>
           <a 
             href="#casos" 
-            className="block py-2.5 px-3 text-primary hover:bg-accent-gray/10 rounded-md" 
+            className="block py-2 sm:py-2.5 px-2 sm:px-3 text-sm sm:text-base text-primary hover:bg-accent-gray/10 rounded-md" 
             onClick={() => setMobileMenuOpen(false)}
           >
             Casos de éxito
           </a>
           <a 
             href="#contacto" 
-            className="block py-2.5 px-3 text-primary hover:bg-accent-gray/10 rounded-md" 
+            className="block py-2 sm:py-2.5 px-2 sm:px-3 text-sm sm:text-base text-primary hover:bg-accent-gray/10 rounded-md" 
             onClick={() => setMobileMenuOpen(false)}
           >
             Contacto
           </a>
-          <div className="pt-2">
+          <div className="pt-1 sm:pt-2">
             <a 
               href="#contacto" 
-              className="block mt-2 text-center bg-[#1B1F3B] hover:bg-[#2A2F57] text-white font-medium py-2.5 px-4 rounded-lg transition-colors duration-300" 
+              className="block mt-1 sm:mt-2 text-center bg-[#1B1F3B] hover:bg-[#2A2F57] text-white font-medium text-sm sm:text-base py-2 sm:py-2.5 px-3 sm:px-4 rounded-lg transition-colors duration-300" 
               onClick={() => setMobileMenuOpen(false)}
             >
               Empezar ahora
