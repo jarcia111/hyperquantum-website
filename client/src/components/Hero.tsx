@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import LogoAnimation from "./LogoAnimation";
-import CubeLogo3D from "./CubeLogo3D";
+import HyperquantumLogo3D from "./HyperquantumLogo3D";
 
 export default function Hero() {
   return (
@@ -115,7 +115,7 @@ export default function Hero() {
             <div className="relative">
               <div className="absolute inset-0 bg-[#00D1FF]/20 rounded-full blur-3xl"></div>
               <div className="w-64 h-64 relative">
-                <CubeLogo3D size={300} color="#1B1F3B" lineColor="#00D1FF" />
+                <HyperquantumLogo3D size={300} logoColor="#00D1FF" />
                 <motion.div 
                   className="absolute top-full left-1/2 transform -translate-x-1/2 mt-6 text-white text-2xl font-bold font-poppins tracking-wider"
                   initial={{ opacity: 0, y: -10 }}
