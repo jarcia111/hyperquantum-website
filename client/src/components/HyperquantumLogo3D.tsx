@@ -99,13 +99,13 @@ export default function HyperquantumLogo3D({
     const centerNode = new THREE.Mesh(centerGeometry, centerNodeMaterial);
     group.add(centerNode);
 
-    // Define connection points - resembling the reference image
+    // Define connection points - with bottom node position adjusted
     const connectionPositions = [
       new THREE.Vector3(0, -150, 20),   // Top
       new THREE.Vector3(120, -80, 0),   // Top-right
       new THREE.Vector3(150, 30, -20),  // Right
       new THREE.Vector3(100, 100, 0),   // Bottom-right
-      new THREE.Vector3(0, 150, 20),    // Bottom
+      new THREE.Vector3(0, 130, 20),    // Bottom (ajustado para evitar superposición)
       new THREE.Vector3(-100, 80, 0),   // Bottom-left
       new THREE.Vector3(-120, -20, -20),// Left
       new THREE.Vector3(-80, -100, 0),  // Top-left
@@ -130,23 +130,23 @@ export default function HyperquantumLogo3D({
       group.add(node);
     });
 
-    // Add smaller nodes around the center - matching reference image
+    // Add smaller nodes around the center - posiciones ajustadas para la parte inferior
     const smallNodePositions = [
       // Inner small nodes
       new THREE.Vector3(30, -40, 10),
       new THREE.Vector3(50, -10, 5),
       new THREE.Vector3(40, 30, 0),
-      new THREE.Vector3(10, 45, 5),
-      new THREE.Vector3(-20, 35, 10),
+      new THREE.Vector3(10, 40, 5),      // Ajustado
+      new THREE.Vector3(-20, 30, 10),    // Ajustado
       new THREE.Vector3(-40, 0, 5),
       new THREE.Vector3(-30, -25, 0),
       
       // Outer small nodes
       new THREE.Vector3(70, -60, -10),
       new THREE.Vector3(85, 20, -5),
-      new THREE.Vector3(60, 65, 0),
-      new THREE.Vector3(-10, 80, 10),
-      new THREE.Vector3(-65, 45, 5),
+      new THREE.Vector3(60, 55, 0),      // Ajustado
+      new THREE.Vector3(-10, 60, 10),    // Ajustado significativamente
+      new THREE.Vector3(-65, 40, 5),     // Ajustado
       new THREE.Vector3(-70, -45, -5),
       new THREE.Vector3(-20, -70, -10),
       new THREE.Vector3(40, -90, 0),
