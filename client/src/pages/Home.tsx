@@ -8,7 +8,7 @@ import About from "@/components/About";
 import SuccessStories from "@/components/SuccessStories";
 import CallToAction from "@/components/CallToAction";
 import ContactForm from "@/components/ContactForm";
-import SiteMap from "@/components/SiteMap";
+// import SiteMap from "@/components/SiteMap"; // Comentado a petición del cliente
 import Footer from "@/components/Footer";
 import NetworkAnimation from "@/components/NetworkAnimation";
 import BackToTop from "@/components/BackToTop";
@@ -61,7 +61,7 @@ export default function Home() {
         <SuccessStories />
         <CallToAction />
         <ContactForm />
-        <SiteMap />
+        {/* SiteMap ocultado a petición del cliente */}
       </main>
       <Footer />
       <BackToTop />
