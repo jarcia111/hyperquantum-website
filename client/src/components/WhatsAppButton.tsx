@@ -29,7 +29,7 @@ export default function WhatsAppButton() {
       href="https://wa.me/573216855981"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#25D366] shadow-lg hover:bg-[#22c55e] transition-all duration-300 cursor-pointer"
+      className="fixed bottom-24 right-6 z-50 flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#25D366] shadow-lg hover:bg-[#22c55e] transition-all duration-300 cursor-pointer"
       initial={{ scale: 0, opacity: 0 }}
       animate={{ 
         scale: isVisible ? 1 : 0.8, 
