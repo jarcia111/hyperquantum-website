@@ -60,28 +60,7 @@ export default function About() {
               Entendemos los desafíos únicos que enfrentan las pymes en su transformación digital, por eso creamos soluciones que realmente funcionan en el contexto local, con implementaciones rápidas y escalabilidad garantizada.
             </p>
             
-            <div className="grid grid-cols-2 gap-4 sm:gap-6 mt-6 md:mt-8">
-              <motion.div 
-                className="text-center p-3 sm:p-4 md:p-5 rounded-lg bg-secondary"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4 }}
-              >
-                <span className="block text-2xl sm:text-2xl md:text-3xl font-bold text-[#00D1FF] mb-1">100+</span>
-                <span className="text-primary/70 text-xs sm:text-sm md:text-base">Empresas transformadas</span>
-              </motion.div>
-              <motion.div 
-                className="text-center p-3 sm:p-4 md:p-5 rounded-lg bg-secondary"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.2 }}
-              >
-                <span className="block text-2xl sm:text-2xl md:text-3xl font-bold text-[#00D1FF] mb-1">5+</span>
-                <span className="text-primary/70 text-xs sm:text-sm md:text-base">Años de experiencia</span>
-              </motion.div>
-            </div>
+            {/* Estadísticas ocultas a petición del cliente */}
           </motion.div>
           
           <motion.div 
