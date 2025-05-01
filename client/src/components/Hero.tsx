@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import LogoAnimation from "./LogoAnimation";
 import HyperquantumLogo3D from "./HyperquantumLogo3D";
+import HologramEffect from "./HologramEffect";
 import { useDeviceSize } from "../hooks/use-device-size";
 
 export default function Hero() {
@@ -118,10 +119,18 @@ export default function Hero() {
               {/* Fondo con efecto de brillo */}
               <div className="absolute inset-0 bg-[#00D1FF]/20 rounded-full blur-3xl animate-pulse-slow"></div>
               
+              {/* Efecto de holograma que proyecta información técnica */}
+              <div className="absolute inset-0 z-20">
+                <HologramEffect 
+                  className="w-full h-full"
+                  interval={isMobile ? 15000 : 12000} // Intervalo más largo en móviles
+                />
+              </div>
+              
               {/* Contenedor estructural con espaciado adecuado */}
               <div className="relative flex flex-col items-center justify-center pb-12 w-full">
                 {/* Logo 3D posicionado más arriba - tamaño adaptativo según dispositivo */}
-                <div className="relative -top-6 sm:-top-8 md:-top-10 w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 flex items-center justify-center">
+                <div className="relative -top-6 sm:-top-8 md:-top-10 w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 flex items-center justify-center z-10">
                   <HyperquantumLogo3D 
                     size={isMobile ? 220 : isTablet ? 240 : 260} 
                     logoColor="#00D1FF" 
