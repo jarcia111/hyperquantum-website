@@ -117,13 +117,13 @@ export default function Hero() {
               <div className="absolute inset-0 bg-[#00D1FF]/20 rounded-full blur-3xl animate-pulse-slow"></div>
               
               {/* Contenedor del logo - mantiene el tamaño original */}
-              <div className="w-72 h-72 mb-6 flex items-center justify-center">
+              <div className="w-72 h-72 mb-2 flex items-center justify-center">
                 <HyperquantumLogo3D size={280} logoColor="#00D1FF" />
               </div>
               
-              {/* Texto de HYPERQUANTUM - posición muy cercana al logo */}
+              {/* Texto de HYPERQUANTUM - posición aún más arriba */}
               <motion.div 
-                className="text-white text-2xl font-bold font-poppins tracking-[0.25em] text-center -mt-4 relative z-10"
+                className="text-white text-2xl font-bold font-poppins tracking-[0.25em] text-center -mt-8 relative z-10"
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.5 }}
