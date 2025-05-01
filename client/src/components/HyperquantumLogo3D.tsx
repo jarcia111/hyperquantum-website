@@ -320,8 +320,8 @@ export default function HyperquantumLogo3D({
         logoGroup.current.rotation.x = Math.sin(time * 0.3) * 0.2;
         logoGroup.current.rotation.z = Math.sin(time * 0.2) * 0.1;
         
-        // Añadir un movimiento circular global al logo completo
-        const circleRadius = 10;
+        // Añadir un movimiento circular global al logo completo (radio reducido)
+        const circleRadius = 5; // Reducido de 10 a 5 para evitar que se salga del contenedor
         const circleSpeed = 0.2;
         logoGroup.current.position.x = Math.sin(time * circleSpeed) * circleRadius;
         logoGroup.current.position.y = Math.cos(time * circleSpeed) * circleRadius;
@@ -346,15 +346,15 @@ export default function HyperquantumLogo3D({
           node.rotation.x += 0.003 + (i % 3) * 0.001;
           node.rotation.y += 0.004 + (i % 2) * 0.002;
           
-          // Movimiento circular orbital adicional
-          const orbitRadius = 3;
+          // Movimiento circular orbital adicional (radio reducido)
+          const orbitRadius = 2; // Reducido de 3 a 2
           const orbitSpeed = 0.3 + (i * 0.05);
           const originalPosition = connectionPositions.current[i];
           const orbitPhase = (i * Math.PI / 4) + time * orbitSpeed;
           
           node.position.x = originalPosition.x + Math.sin(orbitPhase) * orbitRadius;
           node.position.y = originalPosition.y + Math.cos(orbitPhase) * orbitRadius;
-          node.position.z = originalPosition.z + Math.sin(orbitPhase * 1.5) * orbitRadius * 0.5;
+          node.position.z = originalPosition.z + Math.sin(orbitPhase * 1.5) * orbitRadius * 0.4; // Reducido de 0.5 a 0.4
           
           // Variación en la intensidad emisiva
           const nodeMat = node.material as THREE.MeshPhysicalMaterial;
@@ -387,10 +387,10 @@ export default function HyperquantumLogo3D({
           const phaseOffset = node.userData.phaseOffset;
           const amplitude = node.userData.amplitude;
           
-          // Movimiento orbital más energético
-          const orbitX = Math.sin(time * 1.2 + phaseOffset) * amplitude * 6;
-          const orbitY = Math.cos(time * 1.0 + phaseOffset) * amplitude * 6;
-          const orbitZ = Math.sin(time * 0.8 + phaseOffset * 2) * amplitude * 4;
+          // Movimiento orbital (reducido para evitar que se salga del contenedor)
+          const orbitX = Math.sin(time * 1.2 + phaseOffset) * amplitude * 4; // Reducido de 6 a 4
+          const orbitY = Math.cos(time * 1.0 + phaseOffset) * amplitude * 4; // Reducido de 6 a 4
+          const orbitZ = Math.sin(time * 0.8 + phaseOffset * 2) * amplitude * 3; // Reducido de 4 a 3
           
           node.position.x = originalPos.x + orbitX;
           node.position.y = originalPos.y + orbitY;
