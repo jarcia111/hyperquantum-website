@@ -4,7 +4,7 @@ import HyperquantumLogo3D from "./HyperquantumLogo3D";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden gradient-bg text-white py-12 sm:py-16 md:py-24">
+    <section className="relative overflow-hidden gradient-bg text-white py-16 sm:py-20 md:py-24">
       <div className="absolute inset-0" aria-hidden="true">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1639322537231-2f206e06af84?q=80&w=1920&auto=format&fit=crop')] bg-cover bg-center opacity-10"></div>
         
@@ -51,7 +51,7 @@ export default function Hero() {
       </div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 md:gap-12">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-10 sm:gap-12 md:gap-16">
           <motion.div 
             className="w-full md:w-1/2 space-y-3 sm:space-y-4 md:space-y-6 text-center md:text-left"
             initial={{ opacity: 0, y: 20 }}
@@ -116,14 +116,14 @@ export default function Hero() {
               {/* Fondo con efecto de brillo */}
               <div className="absolute inset-0 bg-[#00D1FF]/20 rounded-full blur-3xl animate-pulse-slow"></div>
               
-              {/* Contenedor del logo con margen inferior para evitar superposición */}
-              <div className="w-72 h-72 mb-10 flex items-center justify-center">
-                <HyperquantumLogo3D size={280} logoColor="#00D1FF" />
+              {/* Contenedor del logo con amplio margen inferior para evitar superposición */}
+              <div className="w-64 h-64 sm:w-72 sm:h-72 mb-16 sm:mb-20 flex items-center justify-center">
+                <HyperquantumLogo3D size={240} logoColor="#00D1FF" />
               </div>
               
-              {/* Texto de HYPERQUANTUM separado del logo */}
+              {/* Texto de HYPERQUANTUM separado del logo con mayor distancia */}
               <motion.div 
-                className="text-white text-2xl font-bold font-poppins tracking-[0.25em] text-center mt-4"
+                className="text-white text-xl sm:text-2xl font-bold font-poppins tracking-[0.25em] text-center mt-6"
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.5 }}
