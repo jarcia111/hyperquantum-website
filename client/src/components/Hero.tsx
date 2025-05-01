@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import LogoAnimation from "./LogoAnimation";
+import CubeLogo3D from "./CubeLogo3D";
 
 export default function Hero() {
   return (
@@ -106,14 +107,24 @@ export default function Hero() {
           </motion.div>
           
           <motion.div 
-            className="w-9/12 sm:w-8/12 md:w-5/12 flex justify-center animate-float pt-8 md:pt-0"
+            className="w-9/12 sm:w-8/12 md:w-5/12 flex justify-center pt-8 md:pt-0"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
           >
             <div className="relative">
               <div className="absolute inset-0 bg-[#00D1FF]/20 rounded-full blur-3xl"></div>
-              <LogoAnimation large color="white" />
+              <div className="w-64 h-64 relative">
+                <CubeLogo3D size={300} color="#1B1F3B" lineColor="#00D1FF" />
+                <motion.div 
+                  className="absolute top-full left-1/2 transform -translate-x-1/2 mt-6 text-white text-2xl font-bold font-poppins tracking-wider"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5, duration: 0.5 }}
+                >
+                  HYPERQUANTUM
+                </motion.div>
+              </div>
             </div>
           </motion.div>
         </div>
