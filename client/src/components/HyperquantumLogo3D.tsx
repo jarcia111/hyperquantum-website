@@ -60,16 +60,16 @@ export default function HyperquantumLogo3D({
     const centerNode = new THREE.Mesh(centerGeometry, material);
     group.add(centerNode);
 
-    // Add connections and nodes in 3D space
+    // Add connections and nodes in 3D space - to match the reference image
     const connectionPositions = [
-      new THREE.Vector3(100, -100, 0),  // Top-right
-      new THREE.Vector3(150, 0, 0),     // Right
+      new THREE.Vector3(0, -150, 20),   // Top
+      new THREE.Vector3(120, -80, 0),   // Top-right
+      new THREE.Vector3(150, 30, -20),  // Right
       new THREE.Vector3(100, 100, 0),   // Bottom-right
-      new THREE.Vector3(0, 150, 0),     // Bottom
-      new THREE.Vector3(-100, 100, 0),  // Bottom-left
-      new THREE.Vector3(-150, 0, 0),    // Left
-      new THREE.Vector3(-100, -100, 0), // Top-left
-      new THREE.Vector3(0, -150, 0),    // Top
+      new THREE.Vector3(0, 150, 20),    // Bottom
+      new THREE.Vector3(-100, 80, 0),   // Bottom-left
+      new THREE.Vector3(-120, -20, -20),// Left
+      new THREE.Vector3(-80, -100, 0),  // Top-left
     ];
 
     // Add main connection lines and endpoint nodes
@@ -95,26 +95,26 @@ export default function HyperquantumLogo3D({
       group.add(node);
     });
 
-    // Add smaller nodes around the center
+    // Add smaller nodes around the center to match the reference image
     const smallNodePositions = [
-      // Inner ring
-      new THREE.Vector3(40, -60, 0),
-      new THREE.Vector3(70, -40, 0),
-      new THREE.Vector3(70, 40, 0),
-      new THREE.Vector3(40, 70, 0),
-      new THREE.Vector3(-40, 70, 0),
-      new THREE.Vector3(-70, 40, 0),
-      new THREE.Vector3(-70, -40, 0),
-      new THREE.Vector3(-40, -70, 0),
-      // Outer ring
-      new THREE.Vector3(50, -100, 0),
-      new THREE.Vector3(100, -50, 0),
-      new THREE.Vector3(100, 50, 0),
-      new THREE.Vector3(50, 100, 0),
-      new THREE.Vector3(-50, 100, 0),
-      new THREE.Vector3(-100, 50, 0),
-      new THREE.Vector3(-100, -50, 0),
-      new THREE.Vector3(-50, -100, 0),
+      // Inner small nodes
+      new THREE.Vector3(30, -40, 10),
+      new THREE.Vector3(50, -10, 5),
+      new THREE.Vector3(40, 30, 0),
+      new THREE.Vector3(10, 45, 5),
+      new THREE.Vector3(-20, 35, 10),
+      new THREE.Vector3(-40, 0, 5),
+      new THREE.Vector3(-30, -25, 0),
+      
+      // Outer small nodes
+      new THREE.Vector3(70, -60, -10),
+      new THREE.Vector3(85, 20, -5),
+      new THREE.Vector3(60, 65, 0),
+      new THREE.Vector3(-10, 80, 10),
+      new THREE.Vector3(-65, 45, 5),
+      new THREE.Vector3(-70, -45, -5),
+      new THREE.Vector3(-20, -70, -10),
+      new THREE.Vector3(40, -90, 0),
     ];
 
     smallNodePositions.forEach(position => {
@@ -158,9 +158,10 @@ export default function HyperquantumLogo3D({
       frameId.current = requestAnimationFrame(animate);
       
       if (logoGroup.current) {
-        // Rotate logo slightly on each frame
-        logoGroup.current.rotation.x += 0.002;
-        logoGroup.current.rotation.y += 0.003;
+        // Rotate logo very subtly on each frame - similar to Resend.com
+        logoGroup.current.rotation.x = Math.sin(Date.now() * 0.0003) * 0.1;
+        logoGroup.current.rotation.y = Math.cos(Date.now() * 0.0005) * 0.15;
+        logoGroup.current.rotation.z = Math.sin(Date.now() * 0.0002) * 0.05;
       }
       
       if (renderer.current && scene.current && camera.current) {
