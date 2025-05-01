@@ -112,19 +112,24 @@ export default function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
           >
-            <div className="relative">
+            <div className="relative flex flex-col items-center justify-center">
+              {/* Fondo con efecto de brillo */}
               <div className="absolute inset-0 bg-[#00D1FF]/20 rounded-full blur-3xl animate-pulse-slow"></div>
-              <div className="w-72 h-72 relative flex items-center justify-center">
-                <HyperquantumLogo3D size={320} logoColor="#00D1FF" />
-                <motion.div 
-                  className="absolute top-full left-1/2 transform -translate-x-1/2 mt-16 text-white text-2xl font-bold font-poppins tracking-[0.25em] text-center letter-spacing-wide"
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5, duration: 0.5 }}
-                >
-                  HYPERQUANTUM
-                </motion.div>
+              
+              {/* Contenedor del logo con margen inferior para evitar superposición */}
+              <div className="w-72 h-72 mb-10 flex items-center justify-center">
+                <HyperquantumLogo3D size={280} logoColor="#00D1FF" />
               </div>
+              
+              {/* Texto de HYPERQUANTUM separado del logo */}
+              <motion.div 
+                className="text-white text-2xl font-bold font-poppins tracking-[0.25em] text-center mt-4"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.5 }}
+              >
+                HYPERQUANTUM
+              </motion.div>
             </div>
           </motion.div>
         </div>

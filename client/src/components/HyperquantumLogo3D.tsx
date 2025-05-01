@@ -49,14 +49,28 @@ export default function HyperquantumLogo3D({
     logoGroup.current = group;
     
     // Add lights for better 3D appearance
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1.2);
     directionalLight.position.set(1, 1, 1);
     scene.current.add(directionalLight);
     
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    // Luz secundaria para mejor efecto 3D
+    const secondaryLight = new THREE.DirectionalLight(0x00D1FF, 0.5);
+    secondaryLight.position.set(-1, -1, -1);
+    scene.current.add(secondaryLight);
+    
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
     scene.current.add(ambientLight);
     
-    // Create materials for nodes
+    // Material para el nodo central (más grande y brillante)
+    const centerNodeMaterial = new THREE.MeshPhongMaterial({ 
+      color: new THREE.Color(logoColor),
+      transparent: true,
+      opacity: 0.95,
+      shininess: 120,
+      specular: new THREE.Color(0xffffff)
+    });
+    
+    // Material para los nodos principales en las conexiones
     const nodeMaterial = new THREE.MeshPhongMaterial({ 
       color: new THREE.Color(logoColor),
       transparent: true,
@@ -65,7 +79,16 @@ export default function HyperquantumLogo3D({
       specular: new THREE.Color(0xffffff)
     });
     
-    // Create material for lines
+    // Material para los nodos pequeños (ligeramente más tenues)
+    const smallNodeMaterial = new THREE.MeshPhongMaterial({ 
+      color: new THREE.Color(logoColor),
+      transparent: true,
+      opacity: 0.8,
+      shininess: 80,
+      specular: new THREE.Color(0xffffff)
+    });
+    
+    // Material para las líneas de conexión
     const lineMaterial = new THREE.LineBasicMaterial({ 
       color: new THREE.Color(logoColor),
       linewidth: 2
@@ -73,7 +96,7 @@ export default function HyperquantumLogo3D({
 
     // Create center node (larger sphere)
     const centerGeometry = new THREE.SphereGeometry(15, 32, 32);
-    const centerNode = new THREE.Mesh(centerGeometry, nodeMaterial);
+    const centerNode = new THREE.Mesh(centerGeometry, centerNodeMaterial);
     group.add(centerNode);
 
     // Define connection points - resembling the reference image
@@ -132,7 +155,7 @@ export default function HyperquantumLogo3D({
     // Create small nodes
     smallNodePositions.forEach(position => {
       const smallNodeGeometry = new THREE.SphereGeometry(4, 12, 12);
-      const smallNode = new THREE.Mesh(smallNodeGeometry, nodeMaterial);
+      const smallNode = new THREE.Mesh(smallNodeGeometry, smallNodeMaterial);
       smallNode.position.copy(position);
       group.add(smallNode);
     });
@@ -165,10 +188,11 @@ export default function HyperquantumLogo3D({
       frameId.current = requestAnimationFrame(animate);
       
       if (logoGroup.current) {
-        // Sine wave based rotation for smooth, natural movement
-        logoGroup.current.rotation.x = Math.sin(Date.now() * 0.0003) * 0.1;
-        logoGroup.current.rotation.y = Math.cos(Date.now() * 0.0005) * 0.15;
-        logoGroup.current.rotation.z = Math.sin(Date.now() * 0.0002) * 0.05;
+        // Rotation basada en tiempo para asegurar animación consistente
+        const time = Date.now() * 0.001; // convertir a segundos
+        logoGroup.current.rotation.x = Math.sin(time * 0.3) * 0.1;
+        logoGroup.current.rotation.y = Math.cos(time * 0.5) * 0.15;
+        logoGroup.current.rotation.z = Math.sin(time * 0.2) * 0.05;
       }
       
       if (renderer.current && scene.current && camera.current) {
