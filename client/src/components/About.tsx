@@ -86,7 +86,7 @@ export default function About() {
         
         <div className="mt-12 sm:mt-16 md:mt-20">
           <h3 className={`font-semibold font-poppins text-center mb-6 sm:mb-8 md:mb-10 ${isMobile ? "text-lg" : isTablet ? "text-xl" : "text-2xl"}`}>
-            Nuestro equipo
+            Fundadores
           </h3>
           
           <div className="flex flex-col sm:flex-row justify-center items-center gap-8 sm:gap-16 md:gap-24 lg:gap-32">
