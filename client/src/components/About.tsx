@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Linkedin } from "lucide-react";
+// Importamos la imagen del CTO
 import jesusImage from '/assets/team/jesus_arcia.png';
 import carlosImage from '/assets/team/carlos_uribe.png';
 import { useDeviceSize } from "../hooks/use-device-size";
