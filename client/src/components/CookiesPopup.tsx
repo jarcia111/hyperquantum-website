@@ -208,7 +208,7 @@ export default function CookiesPopup({ open, onOpenChange }: CookiesPopupProps) 
                 <ul className="list-none space-y-2 md:space-y-3">
                   <li className="flex items-center">
                     <span className="font-bold min-w-32 inline-block">Correo electrónico:</span> 
-                    <a href="mailto:admin@hyperquantum.com.co" className="text-[#00D1FF] hover:underline">admin@hyperquantum.com.co</a>
+                    <a href="mailto:jarcia@hyperquantum.com.co" className="text-[#00D1FF] hover:underline">jarcia@hyperquantum.com.co</a>
                   </li>
                   <li className="flex items-center">
                     <span className="font-bold min-w-32 inline-block">Domicilio:</span> Hyperquantum S.A.S., Medellín, Colombia.

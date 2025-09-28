@@ -45,7 +45,7 @@ export default function PrivacyPopup({ open, onOpenChange }: PrivacyPopupProps) 
                     </tr>
                     <tr className="bg-white/30">
                       <td className="px-3 py-2 font-semibold">Correo de contacto</td>
-                      <td className="px-3 py-2">admin@hyperquantum.com.co</td>
+                      <td className="px-3 py-2">jarcia@hyperquantum.com.co</td>
                     </tr>
                     <tr className="bg-white/50">
                       <td className="px-3 py-2 font-semibold">Finalidades principales</td>
@@ -91,7 +91,7 @@ export default function PrivacyPopup({ open, onOpenChange }: PrivacyPopupProps) 
                 <p className="mb-3">Hyperquantum S.A.S. (en adelante, <strong>"Hyperquantum", "nosotros" o "la Compañía"</strong>) es una sociedad colombiana con domicilio en <strong>Medellín, Colombia</strong> y NIT <strong>&lt;pendiente&gt;</strong>.</p>
                 <p className="mb-3">Para cualquier solicitud relacionada con esta Política, pueden escribirnos a:</p>
                 <ul className="list-none space-y-2 md:space-y-3">
-                  <li className="flex items-center"><span className="font-bold min-w-32 inline-block">Correo:</span> admin@hyperquantum.com.co</li>
+                  <li className="flex items-center"><span className="font-bold min-w-32 inline-block">Correo:</span> jarcia@hyperquantum.com.co</li>
                   <li className="flex items-center"><span className="font-bold min-w-32 inline-block">Dirección física:</span> &lt;pendiente de confirmación&gt;</li>
                 </ul>
               </div>
@@ -211,7 +211,7 @@ export default function PrivacyPopup({ open, onOpenChange }: PrivacyPopupProps) 
               
               <div className="mt-4 bg-primary/5 p-3 sm:p-4 rounded-lg">
                 <h3 className="font-semibold mb-2">Procedimiento:</h3>
-                <p className="mb-2 text-primary/80">Envíennos una solicitud al correo <strong>admin@hyperquantum.com.co</strong> con:</p>
+                <p className="mb-2 text-primary/80">Envíennos una solicitud al correo <strong>jarcia@hyperquantum.com.co</strong> con:</p>
                 <ul className="list-disc pl-5 space-y-1 text-primary/80">
                   <li>Nombre completo y número de identificación.</li>
                   <li>Descripción clara del derecho que desean ejercer.</li>
@@ -319,7 +319,7 @@ export default function PrivacyPopup({ open, onOpenChange }: PrivacyPopupProps) 
             </section>
             
             <div className="italic text-primary/60 text-sm text-center mt-5">
-              <p>Última revisión: 30 de abril de 2025. Para dudas o comentarios, escriban a <strong>admin@hyperquantum.com.co</strong></p>
+              <p>Última revisión: 30 de abril de 2025. Para dudas o comentarios, escriban a <strong>jarcia@hyperquantum.com.co</strong></p>
             </div>
             
             <div className="flex justify-center mt-8">

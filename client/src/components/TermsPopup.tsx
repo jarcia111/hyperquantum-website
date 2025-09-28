@@ -159,7 +159,7 @@ export default function TermsPopup({ open, onOpenChange }: TermsPopupProps) {
               <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-[#1B1F3B] mb-3">16. Contacto y Atención al Usuario</h2>
               <p className="text-primary/80 mb-3">Para consultas, peticiones, quejas o reclamos, el Usuario puede comunicarse a:</p>
               <ul className="list-none space-y-2 md:space-y-3 text-primary/80 mb-4">
-                <li className="flex items-center"><span className="font-bold min-w-44 inline-block">Correo electrónico:</span> admin@hyperquantum.com.co</li>
+                <li className="flex items-center"><span className="font-bold min-w-44 inline-block">Correo electrónico:</span> jarcia@hyperquantum.com.co</li>
                 <li className="flex items-center"><span className="font-bold min-w-44 inline-block">Dirección física:</span> Medellín, Colombia</li>
               </ul>
             </section>

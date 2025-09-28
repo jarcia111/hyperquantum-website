@@ -317,8 +317,8 @@ export default function ContactForm() {
                   </div>
                   <div>
                     <span className={`block text-primary/60 dark:text-white/60 font-medium ${isMobile ? "text-xs" : "text-sm"}`}>Email</span>
-                    <a href="mailto:admin@hyperquantum.com.co" className={`text-primary dark:text-[#00D1FF] hover:text-[#00D1FF] dark:hover:text-white transition-all duration-300 font-semibold ${isMobile ? "text-sm" : isTablet ? "text-base" : "text-lg"}`}>
-                      admin@hyperquantum.com.co
+                    <a href="mailto:jarcia@hyperquantum.com.co" className={`text-primary dark:text-[#00D1FF] hover:text-[#00D1FF] dark:hover:text-white transition-all duration-300 font-semibold ${isMobile ? "text-sm" : isTablet ? "text-base" : "text-lg"}`}>
+                      jarcia@hyperquantum.com.co
                     </a>
                   </div>
                 </div>

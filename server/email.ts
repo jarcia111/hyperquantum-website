@@ -5,7 +5,7 @@ import { ContactFormData } from '../shared/schema';
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 // Dirección de correo a la que se enviarán los mensajes
-const RECIPIENT_EMAIL = 'admin@hyperquantum.com.co';
+const RECIPIENT_EMAIL = 'jarcia@hyperquantum.com.co';
 
 /**
  * Servicio para enviar correos electrónicos
