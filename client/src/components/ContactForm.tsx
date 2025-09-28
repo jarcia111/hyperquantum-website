@@ -303,8 +303,8 @@ export default function ContactForm() {
                   </div>
                   <div>
                     <span className={`block text-primary/60 dark:text-white/60 font-medium ${isMobile ? "text-xs" : "text-sm"}`}>Teléfono</span>
-                    <a href="tel:+573216855981" className={`text-primary dark:text-[#00D1FF] hover:text-[#00D1FF] dark:hover:text-white transition-all duration-300 font-semibold ${isMobile ? "text-sm" : isTablet ? "text-base" : "text-lg"}`}>
-                      (+57) 321 685 5981
+                    <a href="tel:+573226253237" className={`text-primary dark:text-[#00D1FF] hover:text-[#00D1FF] dark:hover:text-white transition-all duration-300 font-semibold ${isMobile ? "text-sm" : isTablet ? "text-base" : "text-lg"}`}>
+                      (+57) 322 625 32 37
                     </a>
                   </div>
                 </div>
@@ -349,7 +349,7 @@ export default function ContactForm() {
               </p>
               
               <a 
-                href="https://wa.me/573216855981" 
+                href="https://wa.me/573226253237" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className={`flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#22c55e] text-white font-medium rounded-lg transition-colors duration-300 w-full ${
