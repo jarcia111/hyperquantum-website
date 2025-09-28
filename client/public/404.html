@@ -1,37 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>Hyperquantum | Automatización inteligente para PYMEs Colombianas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirigiendo... | Hyperquantum</title>
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="./favicon.ico" />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-    <link rel="apple-touch-icon" href="./favicon.svg" />
-    <meta name="description" content="¿Quieres transformar tu negocio? Impulsamos la transformación operativa de las pymes colombianas con soluciones de IA. Aumenta ventas y reduce costos significativamente con nuestros agentes inteligentes y procesos automatizados. ¡Solicita tu demo ahora!" />
-    <meta name="author" content="Hyperquantum" />
-    <meta name="keywords" content="automatización inteligente, agentes de IA, inteligencia artificial Colombia, pymes Medellín, procesos automatizados, chatbots empresariales, reducción de costos operativos, aumento de ventas, transformación digital, asistentes virtuales, dashboards automatizados, optimización de procesos, consultoría IA, eficiencia empresarial, automatización de tareas, software inteligente" />
-    <meta name="geo.region" content="CO-ANT" />
-    <meta name="geo.placename" content="Medellín" />
-    <meta name="geo.position" content="6.2476;-75.5658" />
-    <meta name="ICBM" content="6.2476, -75.5658" />
     
     <!-- Single Page Application Support for GitHub Pages -->
     <script type="text/javascript">
-      // Single Page Apps for GitHub Pages
+      // GitHub Pages SPA support
       // https://github.com/rafgraph/spa-github-pages
-      (function(l) {
-        if (l.search[1] === '/' ) {
-          var decoded = l.search.slice(1).split('&').map(function(s) { 
-            return s.replace(/~and~/g, '&')
-          }).join('?')
-          window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
-          )
-        }
-      }(window.location))
+      
+      // Store the path to redirect to after loading the main app
+      var pathSegmentsToKeep = 0;
+      var l = window.location;
+      
+      // For custom domain (hyperquantum.com.co)
+      var isCustomDomain = l.hostname === 'hyperquantum.com.co' || l.hostname === 'www.hyperquantum.com.co';
+      var basePath = isCustomDomain ? '' : '/hyperquantum-website';
+      
+      // Store the full path for redirect
+      sessionStorage.redirect = l.href;
+      
+      // Redirect to the base URL
+      l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + basePath + '/?' + 
+        l.pathname.slice(basePath.length + 1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
     </script>
+    
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+        background: linear-gradient(135deg, #1B1F3B, #2A2F57);
+        color: white;
+      }
+      .loader {
+        text-align: center;
+      }
+      .spinner {
+        border: 3px solid rgba(255,255,255,0.3);
+        border-radius: 50%;
+        border-top: 3px solid #00D1FF;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 20px;
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loader">
+      <div class="spinner"></div>
+      <p>Redirigiendo a Hyperquantum...</p>
+    </div>
+  </body>
+</html>
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
