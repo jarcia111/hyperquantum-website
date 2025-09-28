@@ -1,0 +1,36 @@
+# Docker Compose para HyperQuantum Landing Page
+services:
+  # Servicio de desarrollo
+  hyperquantum-dev:
+    build:
+      context: .
+      target: development
+    container_name: hyperquantum-dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: npm run dev
+    restart: unless-stopped
+
+  # Servicio de producción
+  hyperquantum-prod:
+    build:
+      context: .
+      target: production
+    container_name: hyperquantum-prod
+    ports:
+      - "3001:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    restart: unless-stopped
+    profiles:
+      - production
+
+networks:
+  default:
+    name: hyperquantum-network
