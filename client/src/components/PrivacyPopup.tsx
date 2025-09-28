@@ -1,5 +1,6 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose, DialogDescription } from "@/components/ui/dialog";
-import { X } from "lucide-react";
+import { X, ExternalLink } from "lucide-react";
+import { Link } from "wouter";
 
 interface PrivacyPopupProps {
   open: boolean;
@@ -322,9 +323,18 @@ export default function PrivacyPopup({ open, onOpenChange }: PrivacyPopupProps) 
               <p>Última revisión: 30 de abril de 2025. Para dudas o comentarios, escriban a <strong>jarcia@hyperquantum.com.co</strong></p>
             </div>
             
-            <div className="flex justify-center mt-8">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center mt-8">
+              <Link 
+                href="/privacidad"
+                onClick={() => onOpenChange(false)}
+                className="bg-primary hover:bg-primary/90 text-white py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition-colors duration-300 flex items-center gap-1 sm:gap-2 shadow-md text-xs sm:text-sm md:text-base justify-center"
+              >
+                <ExternalLink className="h-4 w-4 sm:h-5 sm:w-5" />
+                Ver Página Completa
+              </Link>
+              
               <button 
-                className="bg-[#1B1F3B] hover:bg-[#2A2F57] text-white py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition-colors duration-300 flex items-center gap-1 sm:gap-2 shadow-md text-xs sm:text-sm md:text-base"
+                className="bg-[#1B1F3B] hover:bg-[#2A2F57] text-white py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition-colors duration-300 flex items-center gap-1 sm:gap-2 shadow-md text-xs sm:text-sm md:text-base justify-center"
                 onClick={() => {
                   const element = document.createElement("a");
                   const file = new Blob([document.getElementById("privacy-content")?.innerText || "Política de Privacidad de Hyperquantum"], { type: 'text/plain' });
@@ -338,7 +348,7 @@ export default function PrivacyPopup({ open, onOpenChange }: PrivacyPopupProps) 
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
-                Descargar Política de Privacidad
+                Descargar
               </button>
             </div>
           </div>

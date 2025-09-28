@@ -5,6 +5,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
+import PrivacyPage from "@/pages/PrivacyPage";
+import TermsPage from "@/pages/TermsPage";
 import SEO from "@/components/SEO";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { ThemeProvider } from "@/contexts/ThemeContext";
@@ -18,6 +20,8 @@ function Router() {
     <WouterRouter base={basePath}>
       <Switch>
         <Route path="/" component={Home} />
+        <Route path="/privacidad" component={PrivacyPage} />
+        <Route path="/terminos" component={TermsPage} />
         <Route component={NotFound} />
       </Switch>
     </WouterRouter>

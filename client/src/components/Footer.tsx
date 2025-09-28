@@ -3,8 +3,6 @@ import { motion } from "framer-motion";
 import { Facebook, Youtube, Linkedin, Instagram, Heart } from "lucide-react";
 import { useState } from "react";
 import LogoAnimation from "./LogoAnimation";
-import TermsPopup from "./TermsPopup";
-import PrivacyPopup from "./PrivacyPopup";
 import CookiesPopup from "./CookiesPopup";
 
 const quickLinks = [
@@ -23,8 +21,6 @@ const legalLinks = [
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const [showTerms, setShowTerms] = useState(false);
-  const [showPrivacy, setShowPrivacy] = useState(false);
   const [showCookies, setShowCookies] = useState(false);
   
   return (
@@ -81,20 +77,20 @@ export default function Footer() {
             <h4 className="text-sm sm:text-base md:text-lg font-semibold font-poppins mb-2 sm:mb-3 md:mb-4">Legal</h4>
             <ul className="space-y-1 sm:space-y-2 md:space-y-3">
               <li>
-                <button 
-                  onClick={() => setShowTerms(true)}
+                <Link 
+                  href="/terminos"
                   className="text-white/70 hover:text-[#00D1FF] transition-colors text-xs sm:text-sm md:text-base inline-block"
                 >
                   Términos y condiciones
-                </button>
+                </Link>
               </li>
               <li>
-                <button 
-                  onClick={() => setShowPrivacy(true)}
+                <Link 
+                  href="/privacidad"
                   className="text-white/70 hover:text-[#00D1FF] transition-colors text-xs sm:text-sm md:text-base inline-block"
                 >
                   Política de privacidad
-                </button>
+                </Link>
               </li>
               <li>
                 <button 
@@ -106,12 +102,6 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          
-          {/* Términos y Condiciones Popup */}
-          <TermsPopup open={showTerms} onOpenChange={setShowTerms} />
-          
-          {/* Política de Privacidad Popup */}
-          <PrivacyPopup open={showPrivacy} onOpenChange={setShowPrivacy} />
           
           {/* Política de Cookies Popup */}
           <CookiesPopup open={showCookies} onOpenChange={setShowCookies} />
