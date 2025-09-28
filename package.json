@@ -15,7 +15,11 @@
     "docker:stop": "./docker-utils.sh stop",
     "docker:clean": "./docker-utils.sh clean",
     "docker:logs": "./docker-utils.sh logs",
-    "docker:status": "./docker-utils.sh status"
+    "docker:status": "./docker-utils.sh status",
+    "deploy:test": "./deploy-production.sh",
+    "deploy:build": "npm run build:client && echo '✅ Production build completed'",
+    "deploy:preview": "npm run build:client && cd client/dist && python3 -m http.server 8080",
+    "analyze": "npm run build:client && npx vite-bundle-analyzer client/dist"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
