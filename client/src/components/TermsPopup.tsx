@@ -58,7 +58,7 @@ export default function TermsPopup({ open, onOpenChange }: TermsPopupProps) {
                 <li className="flex items-center"><span className="font-bold min-w-32 inline-block">Razón social:</span> Hyperquantum SAS</li>
                 <li className="flex items-center"><span className="font-bold min-w-32 inline-block">NIT:</span> Pendiente por confirmar</li>
                 <li className="flex items-center"><span className="font-bold min-w-32 inline-block">Domicilio:</span> Medellín, Colombia</li>
-                <li className="flex items-center"><span className="font-bold min-w-32 inline-block">Teléfono:</span> +57 321 6855981</li>
+                <li className="flex items-center"><span className="font-bold min-w-32 inline-block">Teléfono:</span> +57 322 625 32 37</li>
               </ul>
             </section>
             
