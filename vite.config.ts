@@ -26,6 +26,30 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "client/dist"),
     emptyOutDir: true,
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+        pure_funcs: ['console.log', 'console.info', 'console.debug', 'console.warn']
+      },
+      mangle: {
+        properties: {
+          regex: /^_/
+        }
+      },
+      format: {
+        comments: false
+      }
+    },
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+        entryFileNames: 'assets/[hash].js',
+        chunkFileNames: 'assets/[hash].js',
+        assetFileNames: 'assets/[hash].[ext]'
+      }
+    }
   },
   base: "/",
 });
