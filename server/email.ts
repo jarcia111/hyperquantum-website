@@ -1,8 +1,8 @@
 import { Resend } from 'resend';
 import { ContactFormData } from '../shared/schema';
 
-// Inicializar Resend con la API key
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Inicializar Resend con la API key (solo si está disponible)
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 // Dirección de correo a la que se enviarán los mensajes
 const RECIPIENT_EMAIL = 'admin@hyperquantum.com.co';
@@ -16,6 +16,12 @@ export const emailService = {
    */
   async sendContactFormEmail(data: ContactFormData): Promise<{ success: boolean; error?: any }> {
     try {
+      // Si no hay API key de Resend, solo simular el envío para desarrollo
+      if (!resend) {
+        console.log('📧 [DESARROLLO] Simulando envío de email con datos:', data);
+        return { success: true };
+      }
+
       // Formatear el mensaje HTML con los datos del formulario
       const htmlContent = `
         <h2>Nuevo mensaje de contacto - Hyperquantum</h2>

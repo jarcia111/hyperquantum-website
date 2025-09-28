@@ -20,34 +20,34 @@ export default function Navbar() {
   return (
     <header className={cn(
       "sticky top-0 z-50 transition-all duration-300",
-      scrolled ? "backdrop-blur-md bg-secondary/80 border-b border-accent-gray/10" : "bg-transparent"
+      scrolled ? "backdrop-blur-md bg-secondary/80 dark:bg-black/20 border-b border-accent-gray/10 dark:border-gray-700/30" : "bg-transparent"
     )}>
       <div className="flex">
-        {/* Logo blanco en fondo negro - ajustado para mejor responsividad */}
-        <div className="bg-white py-2 sm:py-3 md:py-4 min-w-[120px] sm:min-w-[150px] md:min-w-[180px]">
+        {/* Logo - fondo adapta al tema */}
+        <div className="bg-white dark:bg-gray-900 py-2 sm:py-3 md:py-4 min-w-[120px] sm:min-w-[150px] md:min-w-[180px] transition-colors duration-300">
           <div className="container mx-auto px-2 sm:px-4 flex justify-center">
             <Link href="/" className="flex items-center space-x-1 sm:space-x-2">
-              <Logo small color="black" className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10" />
+              <Logo small color="black" className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 dark:invert" />
             </Link>
           </div>
         </div>
         
         {/* Menú principal - mejorado para responsive */}
-        <div className="flex-1 bg-[#F5F7FA]">
+        <div className="flex-1 bg-[#F5F7FA] dark:bg-gray-800 transition-colors duration-300">
           <div className="container mx-auto px-2 sm:px-4 lg:px-6">
             <div className="flex justify-between items-center h-full py-2 sm:py-3 md:py-4">
               <div className="hidden sm:block">
-                <span className="text-base sm:text-lg md:text-xl font-bold font-poppins tracking-wider text-primary truncate">
+                <span className="text-base sm:text-lg md:text-xl font-bold font-poppins tracking-wider text-primary dark:text-[#00D1FF] truncate transition-colors duration-300">
                   HYPERQUANTUM
                 </span>
               </div>
               
               {/* Desktop Navigation - espaciado optimizado */}
               <nav className="hidden md:flex items-center space-x-4 lg:space-x-6 xl:space-x-8">
-                <a href="#servicios" className="text-sm lg:text-base text-primary hover:text-[#00D1FF] transition-colors duration-300 whitespace-nowrap">
+                <a href="#servicios" className="text-sm lg:text-base text-primary dark:text-gray-300 hover:text-[#00D1FF] dark:hover:text-[#00D1FF] transition-colors duration-300 whitespace-nowrap">
                   Servicios
                 </a>
-                <a href="#nosotros" className="text-sm lg:text-base text-primary hover:text-[#00D1FF] transition-colors duration-300 whitespace-nowrap">
+                <a href="#nosotros" className="text-sm lg:text-base text-primary dark:text-gray-300 hover:text-[#00D1FF] dark:hover:text-[#00D1FF] transition-colors duration-300 whitespace-nowrap">
                   Nosotros
                 </a>
                 <a href="#casos" className="text-sm lg:text-base text-primary hover:text-[#00D1FF] transition-colors duration-300 whitespace-nowrap">

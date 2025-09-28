@@ -8,8 +8,7 @@ Una página web dinámica para Hyperquantum, una agencia de automatización con 
 - **Estilos**: Tailwind CSS con componentes shadcn/ui
 - **Animaciones**: Framer Motion y Three.js para elementos interactivos avanzados
 - **Backend**: Express.js con Node.js
-- **Base de Datos**: PostgreSQL con Drizzle ORM
-- **Email**: Integración con Resend.com
+- **Email**: Integración con Resend.com (opcional)
 - **Routing**: Wouter para navegación del cliente
 - **Validación**: Zod para validación de formularios
 - **Build Tool**: Vite para desarrollo rápido y builds optimizados
@@ -18,7 +17,7 @@ Una página web dinámica para Hyperquantum, una agencia de automatización con 
 
 - ✨ Diseño responsivo optimizado para el mercado colombiano
 - 🎨 Animaciones 3D interactivas con Three.js
-- 📧 Sistema de contacto integrado con notificaciones por email
+- 📧 Sistema de contacto con notificaciones por email (opcional)
 - 🔒 Validación robusta de formularios
 - 🌐 Optimización SEO y soporte multiidioma
 - 📱 Diseño mobile-first
@@ -37,19 +36,13 @@ cd hyperquantum-website
 npm install
 ```
 
-3. Configura las variables de entorno:
+3. (Opcional) Configura las variables de entorno para email:
 ```bash
 # Crea un archivo .env con:
-DATABASE_URL=tu_url_de_postgresql
-RESEND_API_KEY=tu_api_key_de_resend
+RESEND_API_KEY=tu_api_key_de_resend  # Opcional para desarrollo
 ```
 
-4. Ejecuta las migraciones de base de datos:
-```bash
-npm run db:push
-```
-
-5. Inicia el servidor de desarrollo:
+4. Inicia el servidor de desarrollo:
 ```bash
 npm run dev
 ```
@@ -60,7 +53,6 @@ npm run dev
 - `npm run build` - Construye la aplicación para producción
 - `npm run start` - Inicia el servidor de producción
 - `npm run check` - Verifica tipos de TypeScript
-- `npm run db:push` - Ejecuta migraciones de base de datos
 
 ## 🏗️ Arquitectura del Proyecto
 
@@ -83,8 +75,7 @@ npm run dev
 
 ### Sistema de Contacto
 - Formulario multi-paso con validación
-- Integración con email automático
-- Almacenamiento seguro en PostgreSQL
+- Integración con email automático (opcional)
 
 ### Elementos Interactivos
 - Logo 3D animado con Three.js

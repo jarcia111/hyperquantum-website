@@ -2,14 +2,31 @@ import { motion } from "framer-motion";
 import LogoAnimation from "./LogoAnimation";
 import HyperquantumLogo3D from "./HyperquantumLogo3D";
 import HologramEffect from "./HologramEffect";
+import SimpleParticles from "./SimpleParticles";
 import { useDeviceSize } from "../hooks/use-device-size";
+import { useTheme } from "../contexts/ThemeContext";
 
 export default function Hero() {
   const { isMobile, isTablet } = useDeviceSize();
+  const { theme } = useTheme();
+  
+  // Colores de partículas según el tema
+  const particleColors = theme === 'dark' 
+    ? ['#00D1FF', '#4FC3F7', '#81D4FA', '#B3E5FC'] 
+    : ['#00D1FF', '#ffffff', '#4FC3F7', '#81D4FA'];
+  
   return (
-    <section className="relative overflow-hidden gradient-bg text-white py-16 sm:py-20 md:py-24">
+    <section className="relative overflow-hidden gradient-bg dark:dark-gradient-bg text-white py-16 sm:py-20 md:py-24">
       <div className="absolute inset-0" aria-hidden="true">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1639322537231-2f206e06af84?q=80&w=1920&auto=format&fit=crop')] bg-cover bg-center opacity-10"></div>
+        
+        {/* Particles Background */}
+        <div className="absolute inset-0 opacity-40">
+          <SimpleParticles
+            particleColors={particleColors}
+            particleCount={isMobile ? 30 : isTablet ? 40 : 60}
+          />
+        </div>
         
         {/* Animated network lines */}
         <div className="absolute inset-0 opacity-20 overflow-hidden">

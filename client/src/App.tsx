@@ -7,6 +7,8 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import SEO from "@/components/SEO";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { ThemeProvider } from "@/contexts/ThemeContext";
+import ThemeToggle from "@/components/ThemeToggle";
 
 function Router() {
   return (
@@ -20,12 +22,15 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <SEO />
-        <Toaster />
-        <Router />
-        <WhatsAppButton />
-      </TooltipProvider>
+      <ThemeProvider defaultTheme="light">
+        <TooltipProvider>
+          <SEO />
+          <Toaster />
+          <Router />
+          <WhatsAppButton />
+          <ThemeToggle />
+        </TooltipProvider>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }

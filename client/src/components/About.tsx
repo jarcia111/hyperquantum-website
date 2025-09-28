@@ -1,24 +1,5 @@
 import { motion } from "framer-motion";
-import { Linkedin } from "lucide-react";
-// Importamos la imagen del CTO
-import jesusImage from '/assets/team/jesus_arcia.png';
-import carlosImage from '/assets/team/carlos_uribe.png';
 import { useDeviceSize } from "../hooks/use-device-size";
-
-const teamMembers = [
-  {
-    name: "Carlos Fernando Uribe Guerrero",
-    role: "CEO & Fundador",
-    image: carlosImage,
-    linkedIn: "https://www.linkedin.com/in/carlos-fernando-uribe-guerrero-276a4a152/"
-  },
-  {
-    name: "Jesús Alberto Arcia Hernández",
-    role: "CTO & Fundador",
-    image: jesusImage,
-    linkedIn: "https://www.linkedin.com/in/jarciahdz/"
-  }
-];
 
 export default function About() {
   const { isMobile, isTablet } = useDeviceSize();
@@ -82,47 +63,6 @@ export default function About() {
               />
             </div>
           </motion.div>
-        </div>
-        
-        <div className="mt-12 sm:mt-16 md:mt-20">
-          <h3 className={`font-semibold font-poppins text-center mb-6 sm:mb-8 md:mb-10 ${isMobile ? "text-lg" : isTablet ? "text-xl" : "text-2xl"}`}>
-            Fundadores
-          </h3>
-          
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-8 sm:gap-16 md:gap-24 lg:gap-32">
-            {teamMembers.map((member, index) => (
-              <motion.div 
-                key={index} 
-                className="text-center"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <div className={`bg-secondary mx-auto mb-3 sm:mb-4 rounded-full overflow-hidden shadow-lg ${
-                  isMobile ? "w-28 h-28" : isTablet ? "w-36 h-36" : "w-44 h-44"
-                }`}>
-                  <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
-                </div>
-                <h4 className={`font-semibold font-poppins ${isMobile ? "text-base" : isTablet ? "text-lg" : "text-xl"}`}>
-                  {member.name}
-                </h4>
-                <p className={`text-primary/70 mb-2 ${isMobile ? "text-xs" : isTablet ? "text-sm" : "text-base"}`}>
-                  {member.role}
-                </p>
-                <a 
-                  href={member.linkedIn} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className={`inline-flex items-center justify-center bg-[#0077B5]/10 hover:bg-[#0077B5]/20 rounded-full transition-colors duration-300 ${
-                    isMobile ? "w-8 h-8" : isTablet ? "w-9 h-9" : "w-10 h-10"
-                  }`}
-                >
-                  <Linkedin className={`text-[#0077B5] ${isMobile ? "h-4 w-4" : isTablet ? "h-4.5 w-4.5" : "h-5 w-5"}`} />
-                </a>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </div>
     </section>

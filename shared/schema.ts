@@ -1,35 +1,6 @@
-import { pgTable, text, serial, integer, boolean, timestamp } from "drizzle-orm/pg-core";
-import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
-// User model
-export const users = pgTable("users", {
-  id: serial("id").primaryKey(),
-  username: text("username").notNull().unique(),
-  password: text("password").notNull(),
-});
-
-export const insertUserSchema = createInsertSchema(users).pick({
-  username: true,
-  password: true,
-});
-
-export type InsertUser = z.infer<typeof insertUserSchema>;
-export type User = typeof users.$inferSelect;
-
-// Contact submission model
-export const contactSubmissions = pgTable("contact_submissions", {
-  id: serial("id").primaryKey(),
-  name: text("name").notNull(),
-  company: text("company").notNull(),
-  email: text("email").notNull(),
-  phone: text("phone").notNull(),
-  service: text("service").notNull(),
-  message: text("message").notNull(),
-  privacy: boolean("privacy").notNull(),
-  createdAt: timestamp("created_at").notNull().defaultNow(),
-});
-
+// Contact form validation schema
 export const contactFormSchema = z.object({
   name: z.string().min(2, { message: "El nombre debe tener al menos 2 caracteres" }),
   company: z.string().min(2, { message: "El nombre de la empresa debe tener al menos 2 caracteres" }),
@@ -41,11 +12,3 @@ export const contactFormSchema = z.object({
 });
 
 export type ContactFormData = z.infer<typeof contactFormSchema>;
-
-export const insertContactSchema = createInsertSchema(contactSubmissions).omit({
-  id: true,
-  createdAt: true,
-});
-
-export type InsertContactSubmission = z.infer<typeof insertContactSchema>;
-export type ContactSubmission = typeof contactSubmissions.$inferSelect;

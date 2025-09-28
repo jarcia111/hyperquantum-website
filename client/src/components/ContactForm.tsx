@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
-import { contactFormSchema, type ContactFormData } from "@/lib/schema";
+import { contactFormSchema, type ContactFormData } from "@shared/schema";
 import { useToast } from "@/hooks/use-toast";
 import { useDeviceSize } from "../hooks/use-device-size";
 import { Phone, Mail, MapPin, ArrowRight } from "lucide-react";
@@ -70,33 +70,57 @@ export default function ContactForm() {
   };
   
   return (
-    <section id="contacto" className="py-12 sm:py-16 md:py-24 bg-secondary">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contacto" className="py-16 sm:py-20 md:py-28 bg-secondary dark:bg-transparent relative overflow-hidden">
+      {/* Enhanced ambient atmosphere */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-40 dark:opacity-60">
+        <div className="absolute -top-40 -left-48 w-[800px] h-[800px] bg-[radial-gradient(circle_at_center,rgba(0,225,255,0.15),rgba(0,180,255,0.08)_50%,transparent_75%)] blur-3xl animate-pulse-slow" />
+        <div className="absolute top-1/4 -right-48 w-[900px] h-[900px] bg-[radial-gradient(circle_at_center,rgba(0,225,255,0.12),rgba(77,208,225,0.06)_50%,transparent_75%)] blur-3xl animate-pulse-slow" style={{animationDelay: '1s'}} />
+        <div className="absolute bottom-0 left-1/3 w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,rgba(0,225,255,0.08),transparent_60%)] blur-2xl animate-pulse-slow" style={{animationDelay: '2s'}} />
+      </div>
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div 
-          className="max-w-2xl mx-auto text-center mb-10 sm:mb-12 md:mb-16"
-          initial={{ opacity: 0, y: 20 }}
+          className="max-w-3xl mx-auto text-center mb-12 sm:mb-16 md:mb-20"
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, ease: [0.4, 0.0, 0.2, 1] }}
         >
-          <h2 className={`font-bold font-poppins mb-3 sm:mb-4 text-primary ${isMobile ? "text-3xl" : isTablet ? "text-4xl" : "text-5xl"}`}>
+          <motion.h2 
+            className={`font-bold font-poppins mb-6 sm:mb-8 text-primary dark:heading-accent-gradient tracking-wide relative ${isMobile ? "text-4xl" : isTablet ? "text-5xl" : "text-6xl"}`}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             CONTACTO
-          </h2>
-          <p className={`font-semibold font-poppins mb-2 sm:mb-3 ${isMobile ? "text-xl" : isTablet ? "text-2xl" : "text-3xl"}`}>
-            ¿Listo para automatizar tu negocio?
-          </p>
-          <p className={`text-primary/70 ${isMobile ? "text-sm" : isTablet ? "text-base" : "text-lg"}`}>
-            Cuéntanos sobre tu empresa y tus desafíos. Nuestro equipo te contactará para ofrecerte una solución personalizada.
-          </p>
+          </motion.h2>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <p className={`font-semibold font-poppins mb-4 sm:mb-5 text-primary dark:text-white/90 ${isMobile ? "text-xl" : isTablet ? "text-2xl" : "text-3xl"}`}>
+              ¿Listo para automatizar tu negocio?
+            </p>
+            <p className={`text-primary/70 dark:text-white/70 leading-relaxed max-w-2xl mx-auto ${isMobile ? "text-base" : isTablet ? "text-lg" : "text-xl"}`}>
+              Cuéntanos sobre tu empresa y tus desafíos. Nuestro equipo te contactará para ofrecerte una solución personalizada.
+            </p>
+          </motion.div>
+          
+          {/* Decorative separator */}
+          <div className="contact-section-divider mt-8 sm:mt-10" />
         </motion.div>
         
-        <div className="grid md:grid-cols-5 gap-y-6 sm:gap-y-8 gap-x-4 md:gap-x-6 lg:gap-x-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-5 gap-y-8 sm:gap-y-10 gap-x-6 md:gap-x-8 lg:gap-x-10 max-w-6xl mx-auto">
           <motion.div 
-            className="md:col-span-3 bg-white rounded-xl p-4 sm:p-5 md:p-6 shadow-sm"
-            initial={{ opacity: 0, x: -20 }}
+            className="md:col-span-3 bg-white dark:glass-panel rounded-2xl p-6 sm:p-8 md:p-10 shadow-sm transition-all duration-500"
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, ease: [0.4, 0.0, 0.2, 1] }}
           >
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 md:space-y-6">
@@ -106,11 +130,11 @@ export default function ContactForm() {
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-sm font-medium text-primary">Nombre completo</FormLabel>
+                        <FormLabel className="text-sm font-medium text-primary dark:text-white/90">Nombre completo</FormLabel>
                         <FormControl>
                           <Input
                             {...field}
-                            className="w-full px-3 md:px-4 py-2 border border-accent-gray/30 rounded-lg focus:ring-2 focus:ring-[#00D1FF] focus:border-[#00D1FF] outline-none transition-all"
+                            className="input-enhanced"
                           />
                         </FormControl>
                         <FormMessage />
@@ -122,11 +146,11 @@ export default function ContactForm() {
                     name="company"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-sm font-medium text-primary">Empresa</FormLabel>
+                        <FormLabel className="text-sm font-medium text-primary dark:text-white/90">Empresa</FormLabel>
                         <FormControl>
                           <Input
                             {...field}
-                            className="w-full px-3 md:px-4 py-2 border border-accent-gray/30 rounded-lg focus:ring-2 focus:ring-[#00D1FF] focus:border-[#00D1FF] outline-none transition-all"
+                            className="input-enhanced"
                           />
                         </FormControl>
                         <FormMessage />
@@ -141,12 +165,12 @@ export default function ContactForm() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-sm font-medium text-primary">Email</FormLabel>
+                        <FormLabel className="text-sm font-medium text-primary dark:text-white/90">Email</FormLabel>
                         <FormControl>
                           <Input
                             {...field}
                             type="email"
-                            className="w-full px-3 md:px-4 py-2 border border-accent-gray/30 rounded-lg focus:ring-2 focus:ring-[#00D1FF] focus:border-[#00D1FF] outline-none transition-all"
+                            className="input-enhanced"
                           />
                         </FormControl>
                         <FormMessage />
@@ -158,13 +182,13 @@ export default function ContactForm() {
                     name="phone"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-sm font-medium text-primary">Teléfono</FormLabel>
+                        <FormLabel className="text-sm font-medium text-primary dark:text-white/90">Teléfono</FormLabel>
                         <FormControl>
                           <Input
                             {...field}
                             type="tel"
                             inputMode="tel"
-                            className="w-full px-3 md:px-4 py-2 border border-accent-gray/30 rounded-lg focus:ring-2 focus:ring-[#00D1FF] focus:border-[#00D1FF] outline-none transition-all"
+                            className="input-enhanced"
                           />
                         </FormControl>
                         <FormMessage />
@@ -178,10 +202,10 @@ export default function ContactForm() {
                   name="service"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-sm font-medium text-primary">¿Qué servicio te interesa?</FormLabel>
+                      <FormLabel className="text-sm font-medium text-primary dark:text-white/90">¿Qué servicio te interesa?</FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
-                          <SelectTrigger className="w-full px-3 md:px-4 py-2 border border-accent-gray/30 rounded-lg focus:ring-2 focus:ring-[#00D1FF] focus:border-[#00D1FF] outline-none transition-all">
+                          <SelectTrigger className="input-enhanced">
                             <SelectValue placeholder="Selecciona una opción" />
                           </SelectTrigger>
                         </FormControl>
@@ -204,12 +228,12 @@ export default function ContactForm() {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-sm font-medium text-primary">¿Cuál es tu principal desafío?</FormLabel>
+                      <FormLabel className="text-sm font-medium text-primary dark:text-white/90">¿Cuál es tu principal desafío?</FormLabel>
                       <FormControl>
                         <Textarea
                           {...field}
                           rows={4}
-                          className="w-full px-3 md:px-4 py-2 border border-accent-gray/30 rounded-lg focus:ring-2 focus:ring-[#00D1FF] focus:border-[#00D1FF] outline-none transition-all"
+                          className="input-enhanced resize-none"
                         />
                       </FormControl>
                       <FormMessage />
@@ -229,7 +253,7 @@ export default function ContactForm() {
                           className="mt-1 h-4 w-4 text-[#00D1FF] border-accent-gray"
                         />
                       </FormControl>
-                      <FormLabel className="text-xs md:text-sm text-primary/70">
+                      <FormLabel className="text-xs md:text-sm text-primary/70 dark:text-white/60">
                         Acepto la política de privacidad y el tratamiento de mis datos
                       </FormLabel>
                       <FormMessage />
@@ -240,23 +264,33 @@ export default function ContactForm() {
                 <Button
                   type="submit"
                   disabled={submitting}
-                  className="w-full bg-[#1B1F3B] hover:bg-[#2A2F57] text-white font-medium py-2 md:py-3 px-4 md:px-6 rounded-lg transition-colors duration-300 shadow-sm"
+                  className="w-full button-shimmer bg-gradient-to-r from-[#1B1F3B] to-[#2A2F57] hover:from-[#2A2F57] hover:to-[#363D75] dark:from-[#00D1FF] dark:to-[#0099CC] dark:hover:from-[#0099CC] dark:hover:to-[#007799] text-white font-semibold py-3 md:py-4 px-6 md:px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                 >
-                  {submitting ? "Enviando..." : "Enviar mensaje"}
+                  {submitting ? (
+                    <span className="flex items-center gap-2">
+                      <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" opacity="0.25"/>
+                        <path fill="currentColor" d="M4 12a8 8 0 0 1 8-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 0 1 4 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
+                      </svg>
+                      Enviando...
+                    </span>
+                  ) : (
+                    "Enviar mensaje"
+                  )}
                 </Button>
               </form>
             </Form>
           </motion.div>
           
           <motion.div 
-            className="md:col-span-2 space-y-4 md:space-y-6"
-            initial={{ opacity: 0, x: 20 }}
+            className="md:col-span-2 space-y-6 md:space-y-8"
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.4, 0.0, 0.2, 1] }}
           >
-            <div className="bg-white rounded-xl p-4 sm:p-5 md:p-6 shadow-sm">
-              <h3 className={`font-semibold font-poppins mb-2 sm:mb-3 md:mb-4 ${isMobile ? "text-base" : isTablet ? "text-lg" : "text-xl"}`}>
+            <div className="bg-white dark:glass-panel-elevated rounded-2xl p-6 sm:p-7 md:p-8 shadow-sm transition-all duration-500">
+              <h3 className={`font-bold font-poppins mb-4 sm:mb-5 md:mb-6 text-primary dark:text-white tracking-wide ${isMobile ? "text-lg" : isTablet ? "text-xl" : "text-2xl"}`}>
                 Contacto directo
               </h3>
               
@@ -268,8 +302,8 @@ export default function ContactForm() {
                     <Phone className={`text-[#00D1FF] ${isMobile ? "h-3.5 w-3.5" : isTablet ? "h-4 w-4" : "h-5 w-5"}`} />
                   </div>
                   <div>
-                    <span className={`block text-primary/60 ${isMobile ? "text-xs" : "text-sm"}`}>Teléfono</span>
-                    <a href="tel:+573216855981" className={`text-primary hover:text-[#00D1FF] transition-colors ${isMobile ? "text-xs" : isTablet ? "text-sm" : "text-base"}`}>
+                    <span className={`block text-primary/60 dark:text-white/60 font-medium ${isMobile ? "text-xs" : "text-sm"}`}>Teléfono</span>
+                    <a href="tel:+573216855981" className={`text-primary dark:text-[#00D1FF] hover:text-[#00D1FF] dark:hover:text-white transition-all duration-300 font-semibold ${isMobile ? "text-sm" : isTablet ? "text-base" : "text-lg"}`}>
                       (+57) 321 685 5981
                     </a>
                   </div>
@@ -282,8 +316,8 @@ export default function ContactForm() {
                     <Mail className={`text-[#00D1FF] ${isMobile ? "h-3.5 w-3.5" : isTablet ? "h-4 w-4" : "h-5 w-5"}`} />
                   </div>
                   <div>
-                    <span className={`block text-primary/60 ${isMobile ? "text-xs" : "text-sm"}`}>Email</span>
-                    <a href="mailto:admin@hyperquantum.com.co" className={`text-primary hover:text-[#00D1FF] transition-colors ${isMobile ? "text-xs" : isTablet ? "text-sm" : "text-base"}`}>
+                    <span className={`block text-primary/60 dark:text-white/60 font-medium ${isMobile ? "text-xs" : "text-sm"}`}>Email</span>
+                    <a href="mailto:admin@hyperquantum.com.co" className={`text-primary dark:text-[#00D1FF] hover:text-[#00D1FF] dark:hover:text-white transition-all duration-300 font-semibold ${isMobile ? "text-sm" : isTablet ? "text-base" : "text-lg"}`}>
                       admin@hyperquantum.com.co
                     </a>
                   </div>
@@ -305,7 +339,8 @@ export default function ContactForm() {
               </div>
             </div>
             
-            <div className="bg-[#1B1F3B] rounded-xl p-4 sm:p-5 md:p-6 text-white">
+            <div className="bg-[#1B1F3B] dark:glass-panel rounded-2xl p-6 sm:p-7 md:p-8 text-white relative overflow-hidden transition-all duration-500">
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_85%_15%,rgba(0,225,255,0.25),transparent_60%)] opacity-70" />
               <h3 className={`font-semibold font-poppins mb-2 sm:mb-3 ${isMobile ? "text-base" : isTablet ? "text-lg" : "text-xl"}`}>
                 Contacto instantáneo
               </h3>
