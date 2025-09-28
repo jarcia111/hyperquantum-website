@@ -10,8 +10,8 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import ThemeToggle from "@/components/ThemeToggle";
 
-// Base path for GitHub Pages
-const basePath = import.meta.env.PROD ? "/hyperquantum-website" : "";
+// Base path for custom domain (no subdirectory needed)
+const basePath = "";
 
 function Router() {
   return (

@@ -27,5 +27,5 @@ export default defineConfig({
     outDir: path.resolve(import.meta.dirname, "client/dist"),
     emptyOutDir: true,
   },
-  base: "/hyperquantum-website/",
+  base: "/",
 });
