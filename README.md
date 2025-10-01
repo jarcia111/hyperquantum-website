@@ -12,6 +12,7 @@ Una página web dinámica para Hyperquantum, una agencia de automatización con 
 - **Routing**: Wouter para navegación del cliente
 - **Validación**: Zod para validación de formularios
 - **Build Tool**: Vite para desarrollo rápido y builds optimizados
+- **Analytics**: Sistema personalizado con dashboard integrado
 
 ## 📋 Características
 
@@ -22,6 +23,7 @@ Una página web dinámica para Hyperquantum, una agencia de automatización con 
 - 🌐 Optimización SEO y soporte multiidioma
 - 📱 Diseño mobile-first
 - ♿ Accesibilidad mejorada
+- 📊 Dashboard de analytics con métricas en tiempo real
 
 ## 🛠️ Instalación y Configuración
 
@@ -51,8 +53,10 @@ npm run dev
 
 - `npm run dev` - Inicia el servidor de desarrollo
 - `npm run build` - Construye la aplicación para producción
+- `npm run build:client` - Construye solo el frontend
 - `npm run start` - Inicia el servidor de producción
 - `npm run check` - Verifica tipos de TypeScript
+- `./generate-test-data.sh` - Genera datos de prueba para analytics
 
 ## 🏗️ Arquitectura del Proyecto
 
@@ -61,17 +65,33 @@ npm run dev
 │   ├── src/
 │   │   ├── components/    # Componentes reutilizables
 │   │   ├── pages/         # Páginas de la aplicación
+│   │   ├── hooks/         # Custom hooks (analytics, device size)
 │   │   └── lib/           # Utilidades y configuración
 ├── server/                # Backend Express
 │   ├── index.ts          # Punto de entrada del servidor
 │   ├── routes.ts         # Rutas de la API
-│   └── storage.ts        # Interfaz de almacenamiento
+│   ├── analytics.ts      # Sistema de tracking y métricas
+│   └── email.ts          # Servicio de email
 ├── shared/               # Código compartido
-│   └── schema.ts         # Esquemas de base de datos
+│   └── schema.ts         # Esquemas de validación
+├── docs/                 # Documentación organizada
+│   ├── analytics/        # Docs del dashboard de analytics
+│   ├── deployment/       # Docs de despliegue
+│   └── development/      # Docs de desarrollo
+├── data/                 # Datos de analytics (local)
 └── dist/                 # Archivos de producción
 ```
 
 ## 🌟 Funcionalidades Principales
+
+### Dashboard de Analytics 📊
+- Métricas en tiempo real de visitantes
+- Visualizaciones interactivas con gráficos
+- Tracking automático de páginas, dispositivos y navegadores
+- Eventos personalizados (clics, formularios, etc.)
+- Dashboard protegido con autenticación
+- **Acceso**: http://localhost:3000/dashboard
+- **Documentación**: Ver `docs/analytics/`
 
 ### Sistema de Contacto
 - Formulario multi-paso con validación
@@ -87,6 +107,23 @@ npm run dev
 - Splitting de código
 - Assets optimizados
 - SEO mejorado
+
+## 📚 Documentación
+
+### Analytics
+- [Guía Rápida](docs/analytics/01-QUICK-START.md) - Comienza en 30 segundos
+- [Guía de Usuario](docs/analytics/02-USER-GUIDE.md) - Documentación completa
+- [Ejemplos de Código](docs/analytics/03-EXAMPLES.md) - Tracking personalizado
+- [Documentación Técnica](docs/analytics/04-TECHNICAL.md) - API y arquitectura
+
+### Deployment
+- [Producción](docs/deployment/PRODUCTION.md) - Despliegue general
+- [Docker](docs/deployment/DOCKER.md) - Contenedores
+- [Dominio](docs/deployment/DOMAIN-SETUP.md) - Configuración DNS
+
+### Development
+- [Seguridad](docs/development/SECURITY.md) - Guía de seguridad
+- [Páginas Legales](docs/development/LEGAL-PAGES.md) - Privacidad y términos
 
 ## 📄 Licencia
 

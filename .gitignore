@@ -47,6 +47,10 @@ coverage/
 *.db
 *.sqlite
 
+# Analytics data
+data/
+analytics.json
+
 # Temporary folders
 tmp/
 temp/
