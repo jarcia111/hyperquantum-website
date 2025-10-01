@@ -32,9 +32,11 @@ jobs:
         run: |
           npm ci --prefer-offline --no-audit
           
-      - name: 🔧 Build client for production (Secure)
+      - name: 🔧 Build client for production
+        env:
+          GITHUB_PAGES: 'true'
         run: |
-          npm run build:secure
+          npm run build:client
           
       - name: 📋 List build output
         run: |

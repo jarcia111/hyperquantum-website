@@ -51,5 +51,5 @@ export default defineConfig({
       }
     }
   },
-  base: "/",
+  base: process.env.GITHUB_PAGES === 'true' ? '/hyperquantum-website/' : '/',
 });
