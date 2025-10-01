@@ -1,8 +1,25 @@
 import { useEffect, useCallback, useRef } from 'react';
 import { useLocation } from 'wouter';
 
+// Check if backend is available (not in static hosting like GitHub Pages)
+const isBackendAvailable = (): boolean => {
+  // En GitHub Pages o hosting estático sin backend, retorna false
+  // Esto previene errores 405 en producción
+  if (typeof window === 'undefined') return false;
+  
+  // Deshabilitado para GitHub Pages (sin backend)
+  return false;
+  
+  // Si migras a Vercel/Railway con backend, usa:
+  // return window.location.hostname.includes('vercel.app') || 
+  //        window.location.hostname.includes('railway.app') ||
+  //        window.location.hostname === 'localhost';
+};
+
 // Generate a session ID that persists during the browser session
 function getSessionId(): string {
+  if (typeof window === 'undefined' || !window.sessionStorage) return '';
+  
   let sessionId = sessionStorage.getItem('analytics_session_id');
   
   if (!sessionId) {
@@ -15,6 +32,12 @@ function getSessionId(): string {
 
 // Track a page visit
 async function trackPageVisit(path: string) {
+  // No hacer nada si no hay backend disponible
+  if (!isBackendAvailable()) {
+    console.log('[Analytics] Backend no disponible - tracking deshabilitado');
+    return;
+  }
+
   try {
     const sessionId = getSessionId();
     
@@ -38,6 +61,12 @@ async function trackPageVisit(path: string) {
 
 // Track a custom event
 export async function trackEvent(eventName: string, eventType: string = 'custom', metadata?: Record<string, any>) {
+  // No hacer nada si no hay backend disponible
+  if (!isBackendAvailable()) {
+    console.log('[Analytics] Backend no disponible - event tracking deshabilitado');
+    return;
+  }
+
   try {
     const sessionId = getSessionId();
     
@@ -62,7 +91,7 @@ export async function trackEvent(eventName: string, eventType: string = 'custom'
 // Hook to track page views automatically
 export function useAnalytics() {
   const [location] = useLocation();
-  const previousLocation = useRef<string>('');
+  const previousLocation = useRef<string | null>(null);
 
   useEffect(() => {
     // Track page view when location changes
