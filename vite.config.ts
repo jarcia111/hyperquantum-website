@@ -51,5 +51,7 @@ export default defineConfig({
       }
     }
   },
-  base: process.env.GITHUB_PAGES === 'true' ? '/hyperquantum-website/' : '/',
+  // Si usa dominio custom (CUSTOM_DOMAIN=true), base es '/'
+  // Si usa GitHub Pages por defecto, base es '/hyperquantum-website/'
+  base: process.env.CUSTOM_DOMAIN === 'true' ? '/' : (process.env.GITHUB_PAGES === 'true' ? '/hyperquantum-website/' : '/'),
 });

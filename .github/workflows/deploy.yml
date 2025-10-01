@@ -34,9 +34,14 @@ jobs:
           
       - name: 🔧 Build client for production
         env:
-          GITHUB_PAGES: 'true'
+          CUSTOM_DOMAIN: 'true'
         run: |
           npm run build:client
+          
+      - name: 📋 Copy CNAME to dist
+        run: |
+          cp .github/CNAME client/dist/CNAME
+          echo "✅ CNAME copied to dist"
           
       - name: 📋 List build output
         run: |
